@@ -5,21 +5,21 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.06] mt-24">
+    <footer className="border-t border-border-subtle mt-24">
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 
         {/* Left — identity */}
         <div>
-          <p className="text-sm font-mono text-neutral-300">
-            {profile.name} · <span className="text-emerald-400">{profile.alias}</span>
+          <p className="text-sm font-mono text-primary">
+            {profile.name} · <span className="text-emerald">{profile.alias}</span>
           </p>
-          <p className="text-xs font-mono text-neutral-600 mt-1">
+          <p className="text-xs font-mono text-secondary-custom mt-1">
             {profile.location} · {profile.timezone}
           </p>
         </div>
 
         {/* Center — philosophy */}
-        <p className="text-xs text-neutral-600 max-w-sm text-center hidden md:block italic">
+        <p className="text-xs text-secondary-custom max-w-sm text-center hidden md:block italic">
           &ldquo;{profile.tagline}&rdquo;
         </p>
 
@@ -28,19 +28,19 @@ export function Footer() {
           <Link
             href={`https://github.com/${profile.handles.github_primary}`}
             target="_blank"
-            className="text-neutral-600 hover:text-emerald-400 transition-colors"
+            className="text-secondary-custom hover:text-emerald transition-colors"
           >
             github
           </Link>
           <Link
             href={`https://linkedin.com/in/${profile.handles.linkedin}`}
             target="_blank"
-            className="text-neutral-600 hover:text-emerald-400 transition-colors"
+            className="text-secondary-custom hover:text-emerald transition-colors"
           >
             linkedin
           </Link>
-          <span className="text-neutral-800">·</span>
-          <span className="text-neutral-700">© {year}</span>
+          <span className="text-muted-custom">·</span>
+          <span className="text-muted-custom">© {year}</span>
         </div>
       </div>
     </footer>

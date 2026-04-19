@@ -38,8 +38,8 @@ export function ContactForm() {
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             required
             placeholder="Your name"
-            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-2.5 text-sm font-mono text-neutral-300
-                       placeholder:text-neutral-700 focus:outline-none focus:border-emerald-500/40 focus:bg-white/[0.05] transition-all"
+            className="w-full bg-surface/30 border border-border-subtle rounded-xl px-4 py-2.5 text-sm font-mono text-primary
+                       placeholder:text-muted-custom focus:outline-none focus:border-emerald focus:bg-surface/60 transition-all"
           />
         </div>
         <div>
@@ -50,8 +50,8 @@ export function ContactForm() {
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             required
             placeholder="your@email.com"
-            className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-2.5 text-sm font-mono text-neutral-300
-                       placeholder:text-neutral-700 focus:outline-none focus:border-emerald-500/40 focus:bg-white/[0.05] transition-all"
+            className="w-full bg-surface/30 border border-border-subtle rounded-xl px-4 py-2.5 text-sm font-mono text-primary
+                       placeholder:text-muted-custom focus:outline-none focus:border-emerald focus:bg-surface/60 transition-all"
           />
         </div>
       </div>
@@ -64,8 +64,8 @@ export function ContactForm() {
           required
           rows={5}
           placeholder="What are you building?"
-          className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-sm font-mono text-neutral-300
-                     placeholder:text-neutral-700 focus:outline-none focus:border-emerald-500/40 focus:bg-white/[0.05] transition-all resize-none"
+          className="w-full bg-surface/30 border border-border-subtle rounded-xl px-4 py-3 text-sm font-mono text-primary
+                     placeholder:text-muted-custom focus:outline-none focus:border-emerald focus:bg-surface/60 transition-all resize-none"
         />
       </div>
 
@@ -77,7 +77,7 @@ export function ContactForm() {
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0 }}
-              className="flex items-center gap-2 text-xs font-mono text-emerald-400"
+              className="flex items-center gap-2 text-xs font-mono text-emerald"
             >
               <CheckCircle2 className="w-3.5 h-3.5" />
               Message sent. I&apos;ll respond.
@@ -89,7 +89,7 @@ export function ContactForm() {
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0 }}
-              className="flex items-center gap-2 text-xs font-mono text-red-400"
+              className="flex items-center gap-2 text-xs font-mono text-red-500"
             >
               <AlertCircle className="w-3.5 h-3.5" />
               Failed to send. Try emailing directly.
@@ -101,8 +101,8 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={state === 'sending' || state === 'success'}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30
-                     text-xs font-mono text-emerald-400 hover:bg-emerald-500/20 hover:border-emerald-500/50
+          className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-glow border border-emerald-dim
+                     text-xs font-mono text-emerald hover:bg-emerald-glow/80 hover:border-emerald
                      disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
         >
           {state === 'sending' ? (

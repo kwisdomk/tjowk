@@ -11,15 +11,15 @@ interface TimelineEntryProps {
 }
 
 const typeColors: Record<TimelineEntry['type'], string> = {
-  project:    'border-white/10 bg-white/5',
-  experiment: 'border-white/[0.05] bg-transparent',
-  milestone:  'border-emerald-500/30 bg-emerald-950/30',
+  project:    'border-border-subtle bg-surface/50',
+  experiment: 'border-border-subtle/50 bg-transparent',
+  milestone:  'border-emerald-dim bg-emerald-glow',
 };
 
 const typeDots: Record<TimelineEntry['type'], string> = {
-  project:    'bg-white/30 border-white/20',
-  experiment: 'bg-neutral-700 border-neutral-600',
-  milestone:  'bg-emerald-400 border-emerald-500/50',
+  project:    'bg-foreground/30 border-border',
+  experiment: 'bg-muted-foreground border-border',
+  milestone:  'bg-emerald border-emerald-dim',
 };
 
 export function TimelineEntryItem({ entry, index, isLast }: TimelineEntryProps) {
@@ -39,7 +39,7 @@ export function TimelineEntryItem({ entry, index, isLast }: TimelineEntryProps) 
           )}
         />
         {!isLast && (
-          <div className="flex-1 w-px bg-white/[0.06] mt-1.5 min-h-[1.5rem]" />
+          <div className="flex-1 w-px bg-border-subtle mt-1.5 min-h-[1.5rem]" />
         )}
       </div>
 
@@ -57,21 +57,21 @@ export function TimelineEntryItem({ entry, index, isLast }: TimelineEntryProps) 
             <p
               className={cn(
                 'text-sm font-mono font-medium',
-                entry.highlight ? 'text-emerald-300' : 'text-neutral-300'
+                entry.highlight ? 'text-emerald' : 'text-primary'
               )}
             >
               {entry.title}
             </p>
-            <p className="text-xs text-neutral-600 mt-1 leading-relaxed">{entry.summary}</p>
+            <p className="text-xs text-muted-custom mt-1 leading-relaxed">{entry.summary}</p>
           </div>
           <span
             className={cn(
               'text-[9px] font-mono uppercase tracking-widest px-1.5 py-0.5 rounded border flex-shrink-0',
               entry.type === 'milestone'
-                ? 'border-emerald-500/30 text-emerald-600'
+                ? 'border-emerald-dim text-emerald'
                 : entry.type === 'project'
-                  ? 'border-white/10 text-neutral-600'
-                  : 'border-white/[0.04] text-neutral-700'
+                  ? 'border-border-subtle text-muted-custom'
+                  : 'border-border-subtle/50 text-muted-custom'
             )}
           >
             {entry.type}

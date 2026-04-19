@@ -3,25 +3,25 @@ import { cn } from '@/lib/utils';
 type StatusVariant = 'active' | 'paused' | 'archived' | 'complete' | 'in-progress' | 'planned' | 'stable' | 'critical';
 
 const variantStyles: Record<StatusVariant, string> = {
-  active:       'border-emerald-500/40 text-emerald-400 bg-emerald-950/40',
-  stable:       'border-blue-500/40 text-blue-400 bg-blue-950/40',
-  paused:       'border-amber-500/40 text-amber-400 bg-amber-950/40',
-  archived:     'border-neutral-600/40 text-neutral-500 bg-neutral-900/40',
-  complete:     'border-emerald-500/40 text-emerald-400 bg-emerald-950/40',
-  'in-progress':'border-amber-500/40 text-amber-400 bg-amber-950/40',
-  planned:      'border-neutral-600/40 text-neutral-500 bg-neutral-900/40',
-  critical:     'border-red-500/40 text-red-400 bg-red-950/40',
+  active:       'border-emerald-500/20 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10',
+  stable:       'border-blue-500/20 text-blue-600 dark:text-blue-400 bg-blue-500/10',
+  paused:       'border-amber-500/20 text-amber-600 dark:text-amber-400 bg-amber-500/10',
+  archived:     'border-neutral-500/20 text-neutral-600 dark:text-neutral-400 bg-neutral-500/10',
+  complete:     'border-emerald-500/20 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10',
+  'in-progress':'border-amber-500/20 text-amber-600 dark:text-amber-400 bg-amber-500/10',
+  planned:      'border-neutral-500/20 text-neutral-600 dark:text-neutral-400 bg-neutral-500/10',
+  critical:     'border-red-500/20 text-red-600 dark:text-red-400 bg-red-500/10',
 };
 
 const variantDots: Record<StatusVariant, string> = {
-  active:       'bg-emerald-400',
-  stable:       'bg-blue-400',
-  paused:       'bg-amber-400',
-  archived:     'bg-neutral-500',
-  complete:     'bg-emerald-400',
-  'in-progress':'bg-amber-400',
-  planned:      'bg-neutral-500',
-  critical:     'bg-red-400',
+  active:       'bg-emerald-500 dark:bg-emerald-400',
+  stable:       'bg-blue-500 dark:bg-blue-400',
+  paused:       'bg-amber-500 dark:bg-amber-400',
+  archived:     'bg-neutral-500 dark:bg-neutral-400',
+  complete:     'bg-emerald-500 dark:bg-emerald-400',
+  'in-progress':'bg-amber-500 dark:bg-amber-400',
+  planned:      'bg-neutral-500 dark:bg-neutral-400',
+  critical:     'bg-red-500 dark:bg-red-400',
 };
 
 const labelMap: Record<StatusVariant, string> = {

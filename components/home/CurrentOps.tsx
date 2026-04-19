@@ -26,11 +26,11 @@ function LiveClock() {
 function UtilBar({ label, value, color }: { label: string; value: number; color: string }) {
   return (
     <div>
-      <div className="flex justify-between items-center text-[10px] font-mono text-neutral-500 mb-1">
+      <div className="flex justify-between items-center text-[10px] font-mono text-muted-custom mb-1">
         <span>{label}</span>
         <span>{value}%</span>
       </div>
-      <div className="h-px bg-white/5 rounded-full overflow-hidden">
+      <div className="h-px bg-border-subtle rounded-full overflow-hidden">
         <motion.div
           className={`h-full ${color}`}
           initial={{ width: 0 }}
@@ -67,14 +67,14 @@ export function CurrentOps() {
         <GlassCard label="CURRENT_OP" title={currentStatus.operation}>
           <div className="space-y-3 mt-2">
             <div>
-              <p className="text-[10px] font-mono text-neutral-600 uppercase tracking-wider mb-1">Secondary</p>
-              <p className="text-xs font-mono text-neutral-400">{currentStatus.secondaryOp}</p>
+              <p className="text-[10px] font-mono text-muted-custom uppercase tracking-wider mb-1">Secondary</p>
+              <p className="text-xs font-mono text-secondary-custom">{currentStatus.secondaryOp}</p>
             </div>
-            <div className="flex items-center justify-between pt-2 border-t border-white/[0.05]">
-              <span className="text-[10px] font-mono text-neutral-600">
+            <div className="flex items-center justify-between pt-2 border-t border-border-subtle">
+              <span className="text-[10px] font-mono text-muted-custom">
                 Updated {currentStatus.lastUpdated}
               </span>
-              <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald-400">
+              <span className="flex items-center gap-1.5 text-[10px] font-mono text-emerald">
                 <span className="pulse-dot scale-75" />
                 {currentStatus.uptime}
               </span>
@@ -93,18 +93,18 @@ export function CurrentOps() {
           label="HOST_MACHINE"
           title={currentStatus.machine}
           controls={
-            <Cpu className="w-3.5 h-3.5 text-neutral-600" />
+            <Cpu className="w-3.5 h-3.5 text-muted-custom" />
           }
         >
           <div className="space-y-3 mt-2">
-            <UtilBar label="CPU_UTIL" value={util.cpu} color="bg-emerald-500" />
+            <UtilBar label="CPU_UTIL" value={util.cpu} color="bg-emerald" />
             <UtilBar label="RAM_UTIL" value={util.ram} color="bg-blue-500" />
-            <div className="flex items-center justify-between pt-2 border-t border-white/[0.05]">
-              <span className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-500">
+            <div className="flex items-center justify-between pt-2 border-t border-border-subtle">
+              <span className="flex items-center gap-1.5 text-[10px] font-mono text-muted-custom">
                 <Activity className="w-3 h-3" />
                 i5-13420H · RTX 3050 6GB
               </span>
-              <span className="text-[10px] font-mono text-neutral-600">
+              <span className="text-[10px] font-mono text-muted-custom">
                 <LiveClock />
               </span>
             </div>

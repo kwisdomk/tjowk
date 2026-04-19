@@ -24,25 +24,25 @@ export function CredentialCard({ cert, index }: CredentialCardProps) {
       className={cn(
         'flex items-start justify-between gap-4 p-4 rounded-xl border transition-all duration-200',
         isComplete
-          ? 'border-white/[0.08] bg-white/[0.02] hover:border-white/15'
+          ? 'border-border-subtle bg-surface hover:border-border'
           : isInProgress
-            ? 'border-amber-500/15 bg-amber-950/10 hover:border-amber-500/25'
-            : 'border-white/[0.04] bg-transparent'
+            ? 'border-amber-500/20 bg-amber-500/10 hover:border-amber-500/30'
+            : 'border-border-subtle/50 bg-transparent'
       )}
     >
       {/* Left */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 mb-1 flex-wrap">
-          <p className="text-sm font-mono font-medium text-neutral-200 truncate">{cert.title}</p>
+          <p className="text-sm font-mono font-medium text-primary truncate">{cert.title}</p>
           {cert.credlyUrl && (
             <Link href={cert.credlyUrl} target="_blank">
-              <ExternalLink className="w-3 h-3 text-neutral-600 hover:text-emerald-400 transition-colors" />
+              <ExternalLink className="w-3 h-3 text-muted-custom hover:text-emerald transition-colors" />
             </Link>
           )}
         </div>
-        <p className="text-[10px] font-mono text-neutral-600">{cert.issuer}</p>
+        <p className="text-[10px] font-mono text-muted-custom">{cert.issuer}</p>
         {cert.notes && (
-          <p className="text-[10px] font-mono text-neutral-700 mt-1">{cert.notes}</p>
+          <p className="text-[10px] font-mono text-muted-custom mt-1 opacity-70">{cert.notes}</p>
         )}
       </div>
 
@@ -50,13 +50,13 @@ export function CredentialCard({ cert, index }: CredentialCardProps) {
       <div className="flex flex-col items-end gap-1.5 flex-shrink-0">
         <StatusBadge status={cert.status} />
         {cert.score && (
-          <span className="text-[10px] font-mono text-emerald-400">{cert.score}</span>
+          <span className="text-[10px] font-mono text-emerald">{cert.score}</span>
         )}
         {cert.date && (
-          <span className="text-[10px] font-mono text-neutral-600">{cert.date}</span>
+          <span className="text-[10px] font-mono text-muted-custom">{cert.date}</span>
         )}
         {cert.deadline && (
-          <span className="text-[10px] font-mono text-amber-600">→ {cert.deadline}</span>
+          <span className="text-[10px] font-mono text-amber-500">→ {cert.deadline}</span>
         )}
       </div>
     </motion.div>

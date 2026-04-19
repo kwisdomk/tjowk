@@ -19,7 +19,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-black/80 backdrop-blur-2xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border-subtle bg-surface/80 backdrop-blur-2xl">
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
 
         {/* Left — logo / identity */}
@@ -27,10 +27,10 @@ export function Navbar() {
           href="/"
           className="flex items-center gap-3 group"
         >
-          <span className="w-6 h-6 rounded-md bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
-            <span className="text-emerald-400 text-[9px] font-mono font-bold">φ</span>
+          <span className="w-6 h-6 rounded-md bg-emerald-glow border border-emerald-dim flex items-center justify-center flex-shrink-0">
+            <span className="text-emerald text-[9px] font-mono font-bold">φ</span>
           </span>
-          <span className="text-sm font-mono font-medium text-neutral-300 group-hover:text-white transition-colors">
+          <span className="text-sm font-mono font-medium text-secondary-custom group-hover:text-primary transition-colors">
             kwisdomk
           </span>
         </Link>
@@ -46,8 +46,8 @@ export function Navbar() {
                 className={cn(
                   'px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-150',
                   active
-                    ? 'text-emerald-400 bg-emerald-950/50'
-                    : 'text-neutral-500 hover:text-neutral-200 hover:bg-white/5'
+                    ? 'text-emerald bg-emerald-glow'
+                    : 'text-muted-custom hover:text-primary hover:bg-surface-2'
                 )}
               >
                 {label}
@@ -59,9 +59,9 @@ export function Navbar() {
         {/* Right — status + theme toggle */}
         <div className="flex items-center gap-3">
           {/* Live status pulse */}
-          <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border border-emerald-500/20 bg-emerald-950/30">
+          <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border border-emerald-dim bg-emerald-glow">
             <span className="pulse-dot" />
-            <span className="text-[10px] font-mono text-emerald-400 tracking-widest">
+            <span className="text-[10px] font-mono text-emerald tracking-widest">
               {currentStatus.uptime}
             </span>
           </div>
