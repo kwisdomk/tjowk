@@ -1,59 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    /* Core palette */
+    --black:         #0a0a0a;
+    --surface:       #111111;
+    --surface-2:     #161616;
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --border-hover:  rgba(255, 255, 255, 0.15);
+
+    /* Text */
+    --text-primary:  #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-muted:    #525252;
+
+    /* Emerald — the one accent */
+    --emerald:       #10B981;
+    --emerald-dim:   rgba(16, 185, 129, 0.1);
+    --emerald-border: rgba(16, 185, 129, 0.3);
+    --emerald-glow:  rgba(16, 185, 129, 0.15);
+
+    /* Status */
+    --status-active:   #10B981;
+    --status-stable:   #3B82F6;
+    --status-paused:   #F59E0B;
+    --status-archived: #6B7280;
+    --status-critical: #EF4444;
+
+    /* shadcn tokens */
     --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 6.7%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 9%;
     --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 4%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 0% 9%;
+    --input: 0 0% 9%;
+    --ring: 160 84% 39%;
+    --radius: 0.75rem;
   }
 
   .dark {
     --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 14.9%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 6.7%;
+    --card-foreground: 0 0% 96%;
+  }
+
+  * {
+    @apply border-border box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--black);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: var(--emerald-dim);
+    color: var(--emerald);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer components {
+  /* Glass card — base surface */
+  .glass {
+    background: rgba(17, 17, 17, 0.6);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius);
+    transition: border-color 0.2s ease;
   }
-  body {
-    @apply bg-background text-foreground;
+  .glass:hover {
+    border-color: var(--border-hover);
   }
+
+  /* Mono label — the small uppercase section label pattern */
+  .label-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* Emerald pulse dot */
+  .pulse-dot {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 8px;
+    height: 8px;
+  }
+  .pulse-dot::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--emerald);
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    opacity: 0.75;
+  }
+  .pulse-dot::after {
+    content: '';
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--emerald);
+  }
+
+  /* Font classes */
+  .font-mono-custom {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  /* Section wrapper */
+  .section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  /* Timeline connector */
+  .timeline-line {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--emerald), rgba(16, 185, 129, 0));
+  }
+}
+
+@layer utilities {
+  .text-emerald { color: var(--emerald); }
+  .text-muted-custom { color: var(--text-muted); }
+  .text-secondary-custom { color: var(--text-secondary); }
+  .bg-emerald-glow { background-color: var(--emerald-glow); }
+  .border-emerald-dim { border-color: var(--emerald-border); }
+  .bg-surface { background-color: var(--surface); }
+  .bg-surface-2 { background-color: var(--surface-2); }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.4s ease forwards;
 }

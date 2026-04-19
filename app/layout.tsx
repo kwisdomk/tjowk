@@ -1,28 +1,49 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import type { Metadata } from 'next';
+import './globals.css';
+import { ThemeProvider } from '@/components/ui/theme-provider';
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
+import { TerminalButton } from '@/components/ui/terminal';
+import { profile } from '@/lib/content/profile';
 
 export const metadata: Metadata = {
-  title: "Wisdom Kinoti - AI Security Architect",
-  description: "Architect of Agentic AI Systems | IBM Cybersecurity Specialist",
-  viewport: "width=device-width, initial-scale=1",
+  title: {
+    default: `${profile.name} — The Journey`,
+    template: `%s · ${profile.name}`,
+  },
+  description: `${profile.role} · ${profile.location}. ${profile.tagline}`,
+  keywords: ['cybersecurity', 'AI', 'IBM', 'Kenya', 'portfolio', 'Next.js'],
+  authors: [{ name: profile.name }],
+  creator: profile.name,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    title: `${profile.name} — The Journey`,
+    description: profile.tagline,
+    siteName: 'The Journey',
+  },
+  twitter: {
+    card: 'summary',
+    title: `${profile.name} — The Journey`,
+    description: profile.tagline,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="bg-background text-foreground font-sans">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
+      <body className="bg-[#0a0a0a] text-neutral-100 antialiased">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <Navbar />
+          <main className="pt-14">
+            {children}
+          </main>
+          <Footer />
+          <TerminalButton />
         </ThemeProvider>
       </body>
     </html>
