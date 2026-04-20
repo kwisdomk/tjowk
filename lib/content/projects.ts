@@ -96,23 +96,23 @@ export const projects: Project[] = [
   {
     id: 'vulai',
     codename: 'vulai',
-    title: 'AI-Powered Vulnerability Intelligence CLI',
-    tagline: 'Open-source NVD vulnerability scanner with LLM-generated remediation guides',
+    title: 'vulai — LinkedIn Optimization Framework',
+    tagline: 'No-BS open-source prompt framework that kills corporate buzzwords and rebuilds LinkedIn profiles into high-signal, data-driven presence.',
     phase: 'production',
     status: 'active',
     date: 'Mar 2026',
     featured: true,
     problem:
-      'Security teams spend significant time contextualizing raw CVE data into actionable remediation steps. NVD data is dense and not operator-friendly.',
+      'LinkedIn profiles are saturated with generic corporate language that obscures real skills and repels serious recruiters and collaborators.',
     solution:
-      'CLI tool that queries NVD, enriches CVE data with LLM analysis, and outputs prioritized remediation guides in human-readable format. Full release cycle: versioned, documented, community distributed.',
+      'Open-source prompt framework that systematically rewrites LinkedIn sections — headline, about, experience — into high-signal, data-backed language. No code. No API. Distributed as a usable framework via GitHub.',
     impact:
-      'Shipped and distributed. Active community adoption. Covers the full security analyst workflow from detection to remediation brief.',
-    stack: ['Python', 'NVD API', 'OpenAI API', 'Click', 'Rich', 'PyPI'],
-    category: 'security',
+      'Full release cycle. Distributed across LinkedIn and WhatsApp groups. Community adoption.',
+    stack: ['Prompt Engineering', 'Markdown', 'GitHub'],
+    category: 'tools',
     links: {
       github: 'https://github.com/kwisdomk/vulai',
-      live: 'https://pypi.org/project/vulai',
+      live: 'https://github.com/kwisdomk/vulai',
     },
   },
   {

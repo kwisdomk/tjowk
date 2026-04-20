@@ -94,7 +94,6 @@ export default function ContactPage() {
         <p className="label-mono mb-4">DIRECT_MESSAGE</p>
         <p className="text-xs font-mono text-neutral-600 mb-6">
           Powered by Resend. Goes directly to my inbox.
-          Setup RESEND_API_KEY in .env.local to activate.
         </p>
         <div className="p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
           <ContactForm />

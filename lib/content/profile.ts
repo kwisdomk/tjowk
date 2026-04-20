@@ -28,7 +28,7 @@ export const profile: Profile = {
   handles: {
     github_primary: 'kwisdomk',
     github_secondary: '6ofHertz',
-    linkedin: 'kwisdomk',
+    linkedin: 'wikin',
     email: 'wisdomkinoti@proton.me',
   },
   role: 'Junior Cybersecurity Analyst',

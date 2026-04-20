@@ -171,7 +171,7 @@ export const timeline: TimelineEntry[] = [
     year: 2026,
     title: 'vulai',
     type: 'project',
-    summary: 'AI-powered vulnerability intelligence CLI. Shipped on PyPI. Full release cycle.',
+    summary: 'Open-source LinkedIn prompt framework. Full release cycle. Distributed across LinkedIn and WhatsApp groups.',
     projectId: 'vulai',
   },
   {
