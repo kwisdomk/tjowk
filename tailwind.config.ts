@@ -65,6 +65,10 @@ const config = {
         "border-subtle": "var(--border-subtle)",
         "border-hover": "var(--border-hover)",
       },
+      fontFamily: {
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'Courier New', 'monospace'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

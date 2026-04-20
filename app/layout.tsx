@@ -1,10 +1,23 @@
 import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { TerminalButton } from '@/components/ui/terminal';
 import { profile } from '@/lib/content/profile';
+
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  display: 'swap',
+});
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -35,9 +48,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+    <html lang="en" className={`scroll-smooth ${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
+      <body className="antialiased font-sans">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Navbar />
           <main className="pt-14">
             {children}
@@ -49,3 +62,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+

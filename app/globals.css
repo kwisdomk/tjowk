@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+/* Fonts loaded via next/font/google in layout.tsx — no @import needed here */
+
 
 @tailwind base;
 @tailwind components;
@@ -120,7 +121,7 @@
   body {
     background-color: var(--black);
     color: var(--text-primary);
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: var(--font-sans), system-ui, sans-serif;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.2s ease;
   }
@@ -161,7 +162,7 @@
 
   /* Mono label — the small uppercase section label pattern */
   .label-mono {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -199,7 +200,7 @@
 
   /* Font classes */
   .font-mono-custom {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: var(--font-mono), 'Courier New', monospace;
   }
 
   /* Section wrapper */
