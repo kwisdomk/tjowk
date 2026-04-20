@@ -54,11 +54,11 @@ export default function AboutPage() {
       {/* ── Header ──────────────────────────────── */}
       <header>
         <p className="label-mono mb-3">THE_OPERATOR</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
           {profile.name}
         </h1>
-        <p className="text-xl font-mono text-emerald-400 mb-6">{profile.alias}</p>
-        <p className="text-neutral-400 leading-relaxed max-w-2xl">
+        <p className="text-xl font-mono text-emerald mb-6">{profile.alias}</p>
+        <p className="text-secondary-custom leading-relaxed max-w-2xl">
           {profile.philosophy}
         </p>
       </header>
@@ -66,7 +66,7 @@ export default function AboutPage() {
       {/* ── Background ──────────────────────────── */}
       <section className="space-y-5">
         <p className="label-mono">BACKGROUND</p>
-        <div className="space-y-4 text-sm text-neutral-400 leading-relaxed max-w-2xl">
+        <div className="space-y-4 text-sm text-secondary-custom leading-relaxed max-w-2xl">
           <p>
             Started in infrastructure, not code. Kenya Power. RK Shah. Close the Gap. Understanding
             how systems actually run before learning to build them.
@@ -87,13 +87,13 @@ export default function AboutPage() {
       {/* ── What φιλόσοφος means ────────────────── */}
       <section>
         <p className="label-mono mb-4">ON φιλόσοφος</p>
-        <div className="border-l-2 border-emerald-500/30 pl-6 space-y-3">
-          <p className="text-sm text-neutral-400 leading-relaxed max-w-xl">
+        <div className="border-l-2 border-emerald-dim pl-6 space-y-3">
+          <p className="text-sm text-secondary-custom leading-relaxed max-w-xl">
             φιλόσοφος — Greek for &ldquo;lover of wisdom.&rdquo; Not used performatively. It describes a
             disposition: the belief that understanding a system deeply is more valuable than
             using it quickly.
           </p>
-          <p className="text-sm text-neutral-400 leading-relaxed max-w-xl">
+          <p className="text-sm text-secondary-custom leading-relaxed max-w-xl">
             This shows up in the work. Every project starts with understanding the problem before
             touching a keyboard. Every tool is chosen for what it actually does, not what it
             signals. Every abandoned project stays on the timeline — it happened, and it taught something.
@@ -104,10 +104,10 @@ export default function AboutPage() {
       {/* ── Machine ─────────────────────────────── */}
       <section>
         <p className="label-mono mb-4">THE_MACHINE</p>
-        <div className="p-5 rounded-2xl border border-white/[0.07] bg-white/[0.02] max-w-sm">
-          <p className="text-sm font-mono font-bold text-white mb-1">{profile.machine.name}</p>
-          <p className="text-xs font-mono text-neutral-500">{profile.machine.specs}</p>
-          <p className="text-xs font-mono text-neutral-700 mt-3">
+        <div className="p-5 rounded-2xl border border-border-subtle bg-surface-2 max-w-sm">
+          <p className="text-sm font-mono font-bold mb-1" style={{ color: 'var(--text-primary)' }}>{profile.machine.name}</p>
+          <p className="text-xs font-mono text-secondary-custom">{profile.machine.specs}</p>
+          <p className="text-xs font-mono text-muted-custom mt-3">
             Every build in this portfolio ran on this machine.
           </p>
         </div>
@@ -122,29 +122,29 @@ export default function AboutPage() {
               key={phase.phase}
               className={`p-5 rounded-2xl border transition-all ${
                 phase.active
-                  ? 'border-emerald-500/25 bg-emerald-950/20'
-                  : 'border-white/[0.05] bg-white/[0.01]'
+                  ? 'border-emerald-dim bg-emerald-glow'
+                  : 'border-border-subtle bg-surface-2'
               }`}
             >
               <div className="flex items-start justify-between mb-3 gap-3">
                 <div>
                   <p className="label-mono mb-1">{phase.phase}</p>
-                  <p className={`font-mono font-semibold ${phase.active ? 'text-emerald-300' : 'text-neutral-400'}`}>
+                  <p className={`font-mono font-semibold ${phase.active ? 'text-emerald' : 'text-secondary-custom'}`}>
                     {phase.label}
                   </p>
                 </div>
                 <span className={`text-[10px] font-mono px-2 py-1 rounded-full border ${
                   phase.active
-                    ? 'border-emerald-500/40 text-emerald-400 bg-emerald-950/50'
-                    : 'border-white/[0.06] text-neutral-600'
+                    ? 'border-emerald-dim text-emerald bg-emerald-glow'
+                    : 'border-border-subtle text-muted-custom'
                 }`}>
                   {phase.timing}
                 </span>
               </div>
               <ul className="space-y-1">
                 {phase.items.map((item) => (
-                  <li key={item} className="text-xs font-mono text-neutral-500 flex items-center gap-2">
-                    <span className={phase.active ? 'text-emerald-600' : 'text-neutral-700'}>→</span>
+                  <li key={item} className="text-xs font-mono text-secondary-custom flex items-center gap-2">
+                    <span className={phase.active ? 'text-emerald' : 'text-muted-custom'}>→</span>
                     {item}
                   </li>
                 ))}

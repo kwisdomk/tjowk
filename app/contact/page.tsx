@@ -40,10 +40,10 @@ export default function ContactPage() {
       {/* ── Header ──────────────────────────────── */}
       <header>
         <p className="label-mono mb-3">SIGNAL_LAYER</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Contact.
         </h1>
-        <p className="mt-4 text-sm text-neutral-500 font-mono max-w-lg leading-relaxed">
+        <p className="mt-4 text-sm text-muted-custom font-mono max-w-lg leading-relaxed">
           {profile.openTo}
         </p>
       </header>
@@ -53,17 +53,17 @@ export default function ContactPage() {
         <p className="label-mono mb-4">DIRECT_CHANNELS</p>
         <div className="space-y-2">
           {/* Email */}
-          <div className="flex items-center justify-between p-4 rounded-xl border border-white/[0.07] bg-white/[0.02]">
+          <div className="flex items-center justify-between p-4 rounded-xl border border-border-subtle bg-surface-2">
             <div className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-neutral-600 flex-shrink-0" />
+              <Mail className="w-4 h-4 text-muted-custom flex-shrink-0" />
               <div>
                 <p className="label-mono mb-0.5">EMAIL</p>
-                <p className="text-sm font-mono text-neutral-300">{profile.handles.email}</p>
+                <p className="text-sm font-mono text-secondary-custom">{profile.handles.email}</p>
               </div>
             </div>
             <Link
               href={`mailto:${profile.handles.email}`}
-              className="flex items-center gap-1.5 text-xs font-mono text-neutral-600 hover:text-emerald-400 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
             >
               <Copy className="w-3.5 h-3.5" />
               Send
@@ -76,13 +76,13 @@ export default function ContactPage() {
               key={id}
               href={href}
               target="_blank"
-              className="flex items-center gap-3 p-4 rounded-xl border border-white/[0.06] bg-white/[0.01]
-                         hover:border-white/15 hover:bg-white/[0.03] transition-all duration-200 group"
+              className="flex items-center gap-3 p-4 rounded-xl border border-border-subtle bg-surface-2
+                         hover:border-border-hover hover:bg-surface transition-all duration-200 group"
             >
-              <Icon className="w-4 h-4 text-neutral-600 flex-shrink-0 group-hover:text-emerald-400 transition-colors" />
+              <Icon className="w-4 h-4 text-muted-custom flex-shrink-0 group-hover:text-emerald transition-colors" />
               <div className="flex-1 min-w-0">
                 <p className="label-mono mb-0.5">{label.toUpperCase()}</p>
-                <p className="text-sm font-mono text-neutral-400 truncate">{value}</p>
+                <p className="text-sm font-mono text-secondary-custom truncate">{value}</p>
               </div>
             </Link>
           ))}
@@ -92,10 +92,10 @@ export default function ContactPage() {
       {/* ── Form ────────────────────────────────── */}
       <section>
         <p className="label-mono mb-4">DIRECT_MESSAGE</p>
-        <p className="text-xs font-mono text-neutral-600 mb-6">
+        <p className="text-xs font-mono text-muted-custom mb-6">
           Powered by Resend. Goes directly to my inbox.
         </p>
-        <div className="p-6 rounded-2xl border border-white/[0.07] bg-white/[0.02]">
+        <div className="p-6 rounded-2xl border border-border-subtle bg-surface-2">
           <ContactForm />
         </div>
       </section>

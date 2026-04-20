@@ -52,6 +52,18 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom design system tokens — use 'brand' prefix to avoid colliding with Tailwind's emerald palette
+        surface: "var(--surface)",
+        "surface-2": "var(--surface-2)",
+        "app-bg": "var(--black)",
+        brand: {
+          DEFAULT: "var(--emerald)",
+          glow: "var(--emerald-glow)",
+          dim: "var(--emerald-dim)",
+          border: "var(--emerald-border)",
+        },
+        "border-subtle": "var(--border-subtle)",
+        "border-hover": "var(--border-hover)",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -34,7 +34,7 @@ export default function HomePage() {
           <p className="label-mono">ACTIVE_SYSTEMS</p>
           <Link
             href="/projects"
-            className="flex items-center gap-1.5 text-xs font-mono text-neutral-600 hover:text-emerald-400 transition-colors"
+            className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
           >
             Full operations log
             <ArrowRight className="w-3 h-3" />
@@ -44,24 +44,26 @@ export default function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {featuredProjects.slice(0, 3).map((project) => (
             <Link key={project.id} href="/projects" className="block group">
-              <div className="h-full p-5 rounded-2xl border border-white/[0.06] bg-black/30 backdrop-blur-xl
-                              hover:border-white/15 hover:bg-black/50 transition-all duration-300">
+              <div
+                className="h-full p-5 rounded-2xl border backdrop-blur-xl transition-all duration-300
+                            border-border-subtle bg-surface/50 hover:border-border-hover hover:bg-surface"
+              >
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <p className="label-mono mb-1">{project.category.toUpperCase()}</p>
-                    <h3 className="text-base font-bold font-mono-custom text-white">{project.codename}</h3>
+                    <h3 className="text-base font-bold font-mono-custom text-primary">{project.codename}</h3>
                   </div>
                   <StatusBadge status={project.status} />
                 </div>
-                <p className="text-xs text-neutral-500 mb-3 leading-relaxed line-clamp-2">{project.tagline}</p>
+                <p className="text-xs text-muted-custom mb-3 leading-relaxed line-clamp-2">{project.tagline}</p>
                 <div className="flex flex-wrap gap-1">
                   {project.stack.slice(0, 3).map((tech) => (
-                    <span key={tech} className="px-2 py-0.5 text-[9px] font-mono text-neutral-600 border border-white/[0.06] rounded-md">
+                    <span key={tech} className="px-2 py-0.5 text-[9px] font-mono text-muted-custom border border-border-subtle rounded-md">
                       {tech}
                     </span>
                   ))}
                   {project.stack.length > 3 && (
-                    <span className="px-2 py-0.5 text-[9px] font-mono text-neutral-700 border border-white/[0.04] rounded-md">
+                    <span className="px-2 py-0.5 text-[9px] font-mono text-muted-custom border border-border-subtle rounded-md opacity-60">
                       +{project.stack.length - 3}
                     </span>
                   )}
@@ -83,12 +85,12 @@ export default function HomePage() {
             { href: '/contact',  label: 'Signal',            sub: 'How to reach me' },
           ].map(({ href, label, sub }) => (
             <Link key={href} href={href} className="group">
-              <div className="p-4 rounded-xl border border-white/[0.05] bg-white/[0.02] hover:border-white/15 hover:bg-white/[0.04]
+              <div className="p-4 rounded-xl border border-border-subtle bg-surface-2 hover:border-border-hover hover:bg-surface
                               transition-all duration-200">
-                <p className="text-sm font-mono font-medium text-neutral-300 group-hover:text-white transition-colors mb-1">
+                <p className="text-sm font-mono font-medium text-secondary-custom group-hover:text-primary transition-colors mb-1">
                   {label}
                 </p>
-                <p className="text-[10px] font-mono text-neutral-600">{sub}</p>
+                <p className="text-[10px] font-mono text-muted-custom">{sub}</p>
               </div>
             </Link>
           ))}

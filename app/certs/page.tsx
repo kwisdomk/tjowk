@@ -18,10 +18,10 @@ export default function CertsPage() {
       {/* ── Header ──────────────────────────────── */}
       <header>
         <p className="label-mono mb-3">ACQUIRED_CAPABILITIES</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Credentials.
         </h1>
-        <p className="mt-3 text-neutral-500 font-mono text-sm">
+        <p className="mt-3 text-muted-custom font-mono text-sm">
           Not a badge wall. A capability register. Honest about what&apos;s done and what&apos;s in progress.
         </p>
       </header>
@@ -58,7 +58,7 @@ export default function CertsPage() {
       <section>
         <div className="flex items-center gap-4 mb-5">
           <p className="label-mono">PLANNED</p>
-          <div className="flex-1 h-px bg-white/[0.04]" />
+          <div className="flex-1 h-px bg-border-subtle" />
           <span className="label-mono">{planned.length}</span>
         </div>
         <div className="space-y-2">
