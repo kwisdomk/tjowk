@@ -17,10 +17,10 @@ export default function ProjectsPage() {
       {/* ── Header ──────────────────────────────── */}
       <header>
         <p className="label-mono mb-3">OPERATIONS_LOG</p>
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Everything I&apos;ve built.
         </h1>
-        <p className="mt-3 text-neutral-500 font-mono text-sm max-w-xl">
+        <p className="mt-3 text-muted-custom font-mono text-sm max-w-xl">
           Chronological record of every project, experiment, and milestone. The featured section covers
           systems that reached production quality. The timeline covers everything else.
         </p>
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
       <section>
         <div className="flex items-center gap-4 mb-8">
           <p className="label-mono">FEATURED_SYSTEMS</p>
-          <div className="flex-1 h-px bg-white/[0.05]" />
+          <div className="flex-1 h-px bg-border-subtle" />
           <span className="label-mono">{featuredProjects.length} systems</span>
         </div>
         <div className="space-y-6">
@@ -44,8 +44,8 @@ export default function ProjectsPage() {
       <section>
         <div className="flex items-center gap-4 mb-8">
           <p className="label-mono">FULL_TIMELINE</p>
-          <div className="flex-1 h-px bg-white/[0.05]" />
-          <span className="label-mono text-neutral-700">2024 → now</span>
+          <div className="flex-1 h-px bg-border-subtle" />
+          <span className="label-mono text-muted-custom">2024 → now</span>
         </div>
         <div className="max-w-2xl">
           <TimelineSpine />
