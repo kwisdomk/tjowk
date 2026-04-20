@@ -15,7 +15,7 @@ const featuredProjects = projects.filter((p) => p.featured);
 
 export default function HomePage() {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-20 space-y-20">
+    <div className="max-w-7xl mx-auto px-6 py-20 space-y-12">
 
       {/* ── Identity ─────────────────────────────── */}
       <section>
@@ -24,14 +24,14 @@ export default function HomePage() {
 
       {/* ── Current Operations ───────────────────── */}
       <section>
-        <p className="label-mono mb-6">CURRENT_OPERATIONS</p>
+        <p className="label-mono mb-6">Current operations</p>
         <CurrentOps />
       </section>
 
       {/* ── Active Systems (compact preview) ─────── */}
       <section>
         <div className="flex items-center justify-between mb-6">
-          <p className="label-mono">ACTIVE_SYSTEMS</p>
+          <p className="label-mono">Active systems</p>
           <Link
             href="/projects"
             className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
@@ -50,7 +50,7 @@ export default function HomePage() {
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="label-mono mb-1">{project.category.toUpperCase()}</p>
+                    <p className="label-mono mb-1">{project.category}</p>
                     <h3 className="text-base font-bold font-mono-custom text-primary">{project.codename}</h3>
                   </div>
                   <StatusBadge status={project.status} />
@@ -76,7 +76,7 @@ export default function HomePage() {
 
       {/* ── Navigation grid ──────────────────────── */}
       <section>
-        <p className="label-mono mb-6">NAVIGATE</p>
+        <p className="label-mono mb-6">Navigate</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { href: '/projects', label: 'Operations Log',    sub: 'All builds, all phases' },

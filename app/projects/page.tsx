@@ -16,7 +16,7 @@ export default function ProjectsPage() {
 
       {/* ── Header ──────────────────────────────── */}
       <header>
-        <p className="label-mono mb-3">OPERATIONS_LOG</p>
+        <p className="label-mono mb-3">Operations log</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Everything I&apos;ve built.
         </h1>
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
       {/* ── Featured ────────────────────────────── */}
       <section>
         <div className="flex items-center gap-4 mb-8">
-          <p className="label-mono">FEATURED_SYSTEMS</p>
+          <p className="label-mono">Featured systems</p>
           <div className="flex-1 h-px bg-border-subtle" />
           <span className="label-mono">{featuredProjects.length} systems</span>
         </div>
@@ -43,7 +43,7 @@ export default function ProjectsPage() {
       {/* ── Timeline ────────────────────────────── */}
       <section>
         <div className="flex items-center gap-4 mb-8">
-          <p className="label-mono">FULL_TIMELINE</p>
+          <p className="label-mono">Full timeline</p>
           <div className="flex-1 h-px bg-border-subtle" />
           <span className="label-mono text-muted-custom">2024 → now</span>
         </div>

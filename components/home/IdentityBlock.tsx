@@ -14,7 +14,7 @@ export function IdentityBlock() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <p className="label-mono mb-3">SYSTEM_BOOT // IDENTITY_RESOLVED</p>
+        <p className="label-mono mb-3">System boot // Identity resolved</p>
         <h1 className="text-5xl md:text-6xl font-bold text-primary tracking-tight leading-none">
           {profile.name}
         </h1>

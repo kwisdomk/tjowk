@@ -1,6 +1,9 @@
 // Projects — source of truth for all project data.
 // Add a project here → it appears on the site. No other file to touch.
 // Set featured: true for the 5 flagship projects shown at the top of /projects.
+//
+// SCREENSHOTS: Drop images into /public/screenshots/ and reference them here.
+// Example: screenshots: ['/screenshots/otdt-1.png', '/screenshots/otdt-2.png']
 
 export type ProjectPhase = 'exploration' | 'systems' | 'production';
 export type ProjectStatus = 'active' | 'paused' | 'archived';
@@ -24,6 +27,10 @@ export type Project = {
     github?: string;
     live?: string;
   };
+  // Optional screenshots — shown as a gallery on the project card.
+  // Place images in /public/screenshots/ and reference with absolute paths.
+  // e.g. ['/screenshots/myproject-1.png', '/screenshots/myproject-2.png']
+  screenshots?: string[];
 };
 
 export const projects: Project[] = [

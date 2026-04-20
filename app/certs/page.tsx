@@ -17,7 +17,7 @@ export default function CertsPage() {
 
       {/* ── Header ──────────────────────────────── */}
       <header>
-        <p className="label-mono mb-3">ACQUIRED_CAPABILITIES</p>
+        <p className="label-mono mb-3">Acquired capabilities</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Credentials.
         </h1>
@@ -29,7 +29,7 @@ export default function CertsPage() {
       {/* ── Complete ────────────────────────────── */}
       <section>
         <div className="flex items-center gap-4 mb-5">
-          <p className="label-mono text-emerald-600">COMPLETE</p>
+          <p className="label-mono text-emerald-600">Complete</p>
           <div className="flex-1 h-px bg-emerald-500/10" />
           <span className="label-mono">{complete.length}</span>
         </div>
@@ -43,7 +43,7 @@ export default function CertsPage() {
       {/* ── In Progress ─────────────────────────── */}
       <section>
         <div className="flex items-center gap-4 mb-5">
-          <p className="label-mono text-amber-600">IN_PROGRESS</p>
+          <p className="label-mono text-amber-600">In progress</p>
           <div className="flex-1 h-px bg-amber-500/10" />
           <span className="label-mono">{inProgress.length}</span>
         </div>
@@ -57,7 +57,7 @@ export default function CertsPage() {
       {/* ── Planned ─────────────────────────────── */}
       <section>
         <div className="flex items-center gap-4 mb-5">
-          <p className="label-mono">PLANNED</p>
+          <p className="label-mono">Planned</p>
           <div className="flex-1 h-px bg-border-subtle" />
           <span className="label-mono">{planned.length}</span>
         </div>

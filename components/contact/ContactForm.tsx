@@ -31,7 +31,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="label-mono block mb-1.5">NAME</label>
+          <label className="label-mono block mb-1.5">Name</label>
           <input
             type="text"
             value={form.name}
@@ -43,7 +43,7 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="label-mono block mb-1.5">EMAIL</label>
+          <label className="label-mono block mb-1.5">Email</label>
           <input
             type="email"
             value={form.email}
@@ -57,7 +57,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className="label-mono block mb-1.5">MESSAGE</label>
+        <label className="label-mono block mb-1.5">Message</label>
         <textarea
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}

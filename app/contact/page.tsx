@@ -39,7 +39,7 @@ export default function ContactPage() {
 
       {/* ── Header ──────────────────────────────── */}
       <header>
-        <p className="label-mono mb-3">SIGNAL_LAYER</p>
+        <p className="label-mono mb-3">Signal layer</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Contact.
         </h1>
@@ -50,14 +50,14 @@ export default function ContactPage() {
 
       {/* ── Direct links ────────────────────────── */}
       <section>
-        <p className="label-mono mb-4">DIRECT_CHANNELS</p>
+        <p className="label-mono mb-4">Direct channels</p>
         <div className="space-y-2">
           {/* Email */}
           <div className="flex items-center justify-between p-4 rounded-xl border border-border-subtle bg-surface-2">
             <div className="flex items-center gap-3">
               <Mail className="w-4 h-4 text-muted-custom flex-shrink-0" />
               <div>
-                <p className="label-mono mb-0.5">EMAIL</p>
+                <p className="label-mono mb-0.5">Email</p>
                 <p className="text-sm font-mono text-secondary-custom">{profile.handles.email}</p>
               </div>
             </div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
             >
               <Icon className="w-4 h-4 text-muted-custom flex-shrink-0 group-hover:text-emerald transition-colors" />
               <div className="flex-1 min-w-0">
-                <p className="label-mono mb-0.5">{label.toUpperCase()}</p>
+                <p className="label-mono mb-0.5">{label}</p>
                 <p className="text-sm font-mono text-secondary-custom truncate">{value}</p>
               </div>
             </Link>
@@ -91,7 +91,7 @@ export default function ContactPage() {
 
       {/* ── Form ────────────────────────────────── */}
       <section>
-        <p className="label-mono mb-4">DIRECT_MESSAGE</p>
+        <p className="label-mono mb-4">Direct message</p>
         <p className="text-xs font-mono text-muted-custom mb-6">
           Powered by Resend. Goes directly to my inbox.
         </p>

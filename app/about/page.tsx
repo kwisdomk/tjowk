@@ -53,7 +53,7 @@ export default function AboutPage() {
 
       {/* ── Header ──────────────────────────────── */}
       <header>
-        <p className="label-mono mb-3">THE_OPERATOR</p>
+        <p className="label-mono mb-3">The operator</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
           {profile.name}
         </h1>
@@ -65,7 +65,7 @@ export default function AboutPage() {
 
       {/* ── Background ──────────────────────────── */}
       <section className="space-y-5">
-        <p className="label-mono">BACKGROUND</p>
+        <p className="label-mono">Background</p>
         <div className="space-y-4 text-sm text-secondary-custom leading-relaxed max-w-2xl">
           <p>
             Started in infrastructure, not code. Kenya Power. RK Shah. Close the Gap. Understanding
@@ -86,7 +86,7 @@ export default function AboutPage() {
 
       {/* ── What φιλόσοφος means ────────────────── */}
       <section>
-        <p className="label-mono mb-4">ON φιλόσοφος</p>
+        <p className="label-mono mb-4">On φιλόσοφος</p>
         <div className="border-l-2 border-emerald-dim pl-6 space-y-3">
           <p className="text-sm text-secondary-custom leading-relaxed max-w-xl">
             φιλόσοφος — Greek for &ldquo;lover of wisdom.&rdquo; Not used performatively. It describes a
@@ -103,7 +103,7 @@ export default function AboutPage() {
 
       {/* ── Machine ─────────────────────────────── */}
       <section>
-        <p className="label-mono mb-4">THE_MACHINE</p>
+        <p className="label-mono mb-4">The machine</p>
         <div className="p-5 rounded-2xl border border-border-subtle bg-surface-2 max-w-sm">
           <p className="text-sm font-mono font-bold mb-1" style={{ color: 'var(--text-primary)' }}>{profile.machine.name}</p>
           <p className="text-xs font-mono text-secondary-custom">{profile.machine.specs}</p>
@@ -115,7 +115,7 @@ export default function AboutPage() {
 
       {/* ── Career arc ──────────────────────────── */}
       <section>
-        <p className="label-mono mb-6">CAREER_ARC</p>
+        <p className="label-mono mb-6">Career arc</p>
         <div className="space-y-4">
           {CAREER_ARC.map((phase) => (
             <div

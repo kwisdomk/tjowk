@@ -5,6 +5,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import Link from 'next/link';
 import { type Project } from '@/lib/content/projects';
 import { StatusBadge } from '@/components/ui/status-badge';
+import { ScreenshotGallery } from '@/components/projects/ScreenshotGallery';
 
 interface FeaturedCardProps {
   project: Project;
@@ -26,7 +27,7 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
         {/* Header row */}
         <div className="flex items-start justify-between gap-4 mb-5">
           <div>
-            <p className="label-mono mb-2">{project.category.toUpperCase()} // {project.phase.toUpperCase()}</p>
+            <p className="label-mono mb-2">{project.category} // {project.phase}</p>
             <div className="flex items-center gap-3 flex-wrap">
               <span className="text-2xl font-bold text-primary font-mono-custom tracking-tight">
                 {project.codename}
@@ -42,7 +43,15 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
         <div className="flex-1 flex flex-col">
           {/* Title + tagline */}
           <h2 className="text-lg font-semibold text-primary mb-2">{project.title}</h2>
-          <p className="text-sm text-secondary-custom mb-6 leading-relaxed">{project.tagline}</p>
+          <p className="text-sm text-secondary-custom mb-4 leading-relaxed">{project.tagline}</p>
+
+          {/* Screenshot gallery strip */}
+          {project.screenshots && project.screenshots.length > 0 && (
+            <ScreenshotGallery
+              screenshots={project.screenshots}
+              projectName={project.codename}
+            />
+          )}
 
           {/* P/S/I grid */}
           {(project.problem || project.solution || project.impact) && (
@@ -61,7 +70,7 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
               )}
               {project.impact && (
                 <div className="rounded-xl border border-emerald-500/10 bg-emerald-950/20 p-4">
-                  <p className="label-mono mb-1 text-emerald">RESULT</p>
+                  <p className="label-mono mb-1 text-emerald">Result</p>
                   <p className="text-xs text-emerald-300/80 leading-relaxed">{project.impact}</p>
                 </div>
               )}
