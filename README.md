@@ -70,5 +70,5 @@ The data layer reflects one operator reality and is not designed for replication
 ## Operator
 **Wisdom Kinoti**
 - **GitHub**: [kwisdomk](https://github.com/kwisdomk)
-- **LinkedIn**: [kwisdomk](https://linkedin.com/in/kwisdomk)
+- **LinkedIn**: [wikin](http://www.linkedin.com/in/wikin)
 - **Email**: wisdomkinoti@proton.me
