@@ -463,3 +463,21 @@ Once set up, you specify the `base_url` in `config.yml`. Until then, local devel
 
 > [!IMPORTANT]
 > **Project IDs are Immutable:** The project `id` is part of the URL contract and serves as the JSON filename. It **should not be changed** after creation. Changing it via CMS will update the JSON field but won't rename the file, breaking the build.
+
+---
+
+## Current vs Target Architecture
+
+To avoid confusion during future refactoring, here is the exact state of the data layer:
+
+### Current Architecture (Implemented)
+- **Source:** TypeScript files (`lib/content/*.ts`) and Markdown files (`lib/content/journal/*.md`).
+- **Validation:** Type checking only via TS compiler and basic frontmatter checks.
+- **Workflow:** Edit `.ts` or `.md` files directly. Commits trigger static rebuilds.
+
+### Target Architecture (Future CMS Refactor)
+- **Source:** JSON files (`content/*.json`) and Markdown files (`content/journal/*.md`).
+- **Validation:** Strict runtime validation via Zod schemas during build.
+- **Workflow:** A local headless CMS or structured form edits the JSON/MD files automatically.
+
+*Do not begin the Target Architecture refactor assuming it is already in place. The Current Architecture is what is running in production.*

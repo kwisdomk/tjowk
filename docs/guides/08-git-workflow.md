@@ -5,11 +5,11 @@
 
 ## Branch Strategy (Solo Dev)
 
-Simple. Two branches:
+Simple. `main` plus feature branches:
 
 ```
-main        ← production. what's live on Vercel. always deployable.
-dev         ← active development. merge to main when ready.
+main        ← production. what's live on kwaix.dev. always deployable.
+feature/*   ← active development. gets preview deployments if connected.
 ```
 
 Feature branches for anything that takes more than one session:
@@ -57,8 +57,7 @@ docs: add security guide
 
 ```bash
 # Start a session
-git checkout dev
-git pull origin dev     # if collaborating — solo this is optional
+git checkout -b feature/your-feature
 
 # Work, save, commit often
 git add .
@@ -66,11 +65,11 @@ git commit -m "feat(projects): add featured card component"
 
 # When a feature is complete and tested
 git checkout main
-git merge dev
+git merge feature/your-feature
 git push origin main    # triggers Vercel auto-deploy
 
-# Back to dev for next thing
-git checkout dev
+# Back to branch for next thing
+git checkout -b feature/next-thing
 ```
 
 ---
@@ -81,6 +80,12 @@ Push to `main` when:
 - A page is complete and working
 - Content updates are ready
 - Bug fixes are confirmed working
+
+**Deployment Chain:**
+- Push to GitHub `main` triggers Vercel build
+- Vercel build process runs (`npm run build`)
+- ONLY if build succeeds does `kwaix.dev` update
+- GitHub updated ≠ live site updated until Vercel finishes
 
 **Do NOT push to main when:**
 - Components are half-built
@@ -133,7 +138,7 @@ Mental check before every push:
 
 ## GitHub Repository Settings
 
-On `kwisdomk/port-wk`:
+On `kwisdomk/tjowk`:
 
 1. **Branch protection on main:**
    - Settings → Branches → Add rule → `main`

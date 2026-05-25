@@ -72,18 +72,18 @@ Two fonts. Hard limit.
 
 ```typescript
 // app/layout.tsx
-import { JetBrains_Mono, Inter } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 
-const mono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ['latin'],
   variable: '--font-mono',
-  weight: ['400', '500'],
+  display: 'swap',
 });
 
-const sans = Inter({
+const geist = Geist({
   subsets: ['latin'],
   variable: '--font-sans',
-  weight: ['400', '500', '600', '700'],
+  display: 'swap',
 });
 ```
 

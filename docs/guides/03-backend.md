@@ -6,7 +6,7 @@
 ## Architecture
 
 ```
-Frontend (Next.js 15)
+Frontend (Next.js 16)
        ↓
 API Routes (Vercel serverless functions)
        ↓
@@ -303,7 +303,7 @@ RESEND_API_KEY=re_xxxxxxxxxxxx
 CONTACT_EMAIL=your-actual-email@gmail.com
 
 # Optional future
-NEXT_PUBLIC_SITE_URL=https://port-wk.vercel.app
+NEXT_PUBLIC_SITE_URL=https://kwaix.dev
 VERCEL_ANALYTICS_ID=
 ```
 
@@ -344,7 +344,8 @@ When you eventually need these, here's the plan:
 // Only build when you actually want to know traffic patterns
 ```
 
-### Journal (no backend needed — Markdown)
+### Journal (Implemented — Markdown)
+Currently implemented via `unified` ecosystem. See `lib/journal.ts`.
 ```bash
 npm install remark-parse remark-rehype rehype-stringify rehype-highlight unified gray-matter
 ```

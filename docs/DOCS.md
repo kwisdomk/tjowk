@@ -1,11 +1,11 @@
 # THE JOURNEY — Master Documentation
 > *"I blueprint things before they escape. Most of them turn into something real."*
 
-**Version:** 1.0 (Final)
+**Version:** 2.0
 **Author:** Wisdom Kinoti · φιλόσοφος
-**Repo:** `kwisdomk/port-wk`
-**Live:** `port-wk.vercel.app`
-**Last Updated:** April 2026
+**Repo:** `kwisdomk/tjowk`
+**Live:** `kwaix.dev`
+**Last Updated:** May 2026
 
 ---
 
@@ -50,7 +50,7 @@ guides/
 ### Frontend
 | Layer | Choice | Reason |
 |---|---|---|
-| Framework | Next.js 15 (App Router) | Vercel-native. File-based routing. Already set up. |
+| Framework | Next.js 16 (App Router) | Vercel-native. File-based routing. Already set up. |
 | Language | TypeScript | Type safety. Catches schema mismatches before runtime. |
 | Styling | Tailwind CSS v3 | No separate CSS files. Utility-first. Fast iteration. |
 | Animation | Framer Motion v11 | Timeline animations. Entry reveals. Already installed. |
@@ -79,19 +79,21 @@ guides/
 ## Project Structure (Final)
 
 ```
-port-wk/
+tjowk/
 │
 ├── app/                              # Next.js App Router
 │   ├── layout.tsx                    # Root layout, fonts, ThemeProvider
 │   ├── globals.css                   # CSS variables, Tailwind base
 │   ├── page.tsx                      # / — Landing
-│   ├── projects/page.tsx             # /projects — Timeline + Featured
+│   ├── projects/
+│   │   ├── page.tsx                  # /projects — Timeline + Featured
+│   │   └── [id]/page.tsx             # /projects/[id] — Project detail
 │   ├── about/page.tsx                # /about — The person, the arc
 │   ├── certs/page.tsx                # /certs — Capability register
 │   ├── contact/page.tsx              # /contact — Signal layer
 │   ├── journal/
-│   │   ├── page.tsx                  # /journal — Placeholder
-│   │   └── [slug]/page.tsx           # /journal/[slug] — Future post
+│   │   ├── page.tsx                  # /journal — Journal index
+│   │   └── [slug]/page.tsx           # /journal/[slug] — Journal post
 │   └── api/
 │       └── contact/route.ts          # POST handler → Resend
 │
@@ -118,6 +120,8 @@ port-wk/
 │
 ├── lib/
 │   ├── content/                      # SOURCE OF TRUTH — edit here
+│   │   ├── journal/                  # Markdown posts (current state)
+│   │   │   └── *.md
 │   │   ├── projects.ts
 │   │   ├── timeline.ts
 │   │   ├── certs.ts
@@ -274,11 +278,12 @@ IN PROGRESS
 
 ---
 
-### `/journal` — Placeholder
+### `/journal` — Dispatches
 
-**Current state:** Static page. Text: *"System journal is currently under construction."*
+**Current state:** Active Markdown-powered journal.
+A file in `lib/content/journal/` = a post. Rendered via unified + remark/rehype pipeline. No CMS yet.
 
-**Future state:** Markdown-powered. A file in `/content/journal/` = a post. No CMS. No backend.
+**Future state:** Flat files in `content/journal/*.md` with Zod validation.
 
 ---
 
@@ -431,7 +436,7 @@ ui-state.ts   → theme/animation config, never rendered as content
 | Vercel | Hosting + auto-deploy | Free |
 | Resend | Contact form email | Free (3k/mo) |
 | GitHub | Source of truth | Free |
-| Vercel Analytics | Usage tracking (future) | Free |
+| Vercel Analytics | Usage tracking | Free |
 
 ---
 
@@ -461,14 +466,14 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 Set via: Vercel Dashboard → Project → Settings → Environment Variables
 - `RESEND_API_KEY`
 - `CONTACT_EMAIL`
-- `NEXT_PUBLIC_SITE_URL` → `https://port-wk.vercel.app`
+- `NEXT_PUBLIC_SITE_URL` → `https://kwaix.dev`
 
 ---
 
 ## Build State (April 2026)
 
 ### Carried Over From Biblitheca (Working)
-- [x] Next.js 15 initialized
+- [x] Next.js 16 initialized
 - [x] Tailwind configured
 - [x] Framer Motion installed
 - [x] ThemeProvider (dark mode)
@@ -478,43 +483,28 @@ Set via: Vercel Dashboard → Project → Settings → Environment Variables
 - [x] Terminal easter egg
 - [x] Vercel connected
 
-### Session 1 — Tonight
-- [ ] Scaffold `/lib/content/` with all data files
-- [ ] Populate real project + timeline data
-- [ ] Build `/` landing page
-- [ ] Build `/projects` page (timeline + featured)
-- [ ] Deploy → get live URL
-
-### Session 2
-- [ ] `/certs` page
-- [ ] `/about` page
-- [ ] `/contact` + Resend form
-- [ ] Navbar + Footer components
-
-### Session 3
-- [ ] SEO: meta tags, OG image, sitemap
-- [ ] Accessibility pass
-- [ ] Performance audit (Lighthouse 90+)
-- [ ] `/journal` Markdown scaffold
+### Sessions 1, 2, 3
+- [x] All initial sessions complete for v2.0.0
 
 ### Future
-- [ ] Custom domain
-- [ ] Vercel Analytics
-- [ ] Journal first post
+- [ ] Custom domain (`kwaix.dev` active)
+- [x] Vercel Analytics
+- [x] Journal first post
 - [ ] AEGIS/Athena integration layer
+- [ ] CMS refactor (Zod + `content/*.json`)
 
 ---
 
 ## Hard Rules (Non-Negotiable)
 
-1. **No stock images. No AI images.** Real visuals of actual work only.
+1. **No stock images. No AI images.** Diagrams are acceptable when labeled as diagrams. Screenshots must be real captures of actual work.
 2. **No fake metrics.** If you didn't measure it, don't write it.
 3. **No typewriter hero.** Banned.
 4. **No skill progress bars.** "Security: 87%" means nothing. Show builds.
 5. **One accent color.** Emerald `#10B981`. Not negotiable.
 6. **`status.ts` stays current.** Update it when your focus changes.
 7. **Dead projects go on the timeline.** Mark as `archived`. Never deleted.
-8. **No placeholder content in production.** Except `/journal`.
+8. **No placeholder content in production.** Either it's real or it's not there.
 9. **No secrets in frontend code. Ever.**
 10. **Content first, UI second.** If it works but looks plain, that's fine.
 
@@ -543,7 +533,7 @@ Edit `/lib/content/projects.ts`. Add object to array. Push to GitHub. Done.
 Edit `/lib/content/status.ts`. Change values. Push. Done.
 
 **Q: How do I add a journal post?**
-Create `/content/journal/your-post.md` with frontmatter. Push. Done. (Once Session 3 is complete.)
+Create `lib/content/journal/your-post.md` with frontmatter. Push. Done.
 
 **Q: Contact form isn't sending.**
 Check: (1) `RESEND_API_KEY` set in Vercel env vars, (2) `CONTACT_EMAIL` set, (3) Check Resend dashboard logs.
