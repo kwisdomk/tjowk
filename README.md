@@ -1,10 +1,12 @@
-﻿# The Journey — v2.0
+# The Journey — v2.0
 **Operator**: Wisdom Kinoti
 **Role**: Junior Cybersecurity Analyst | CS Student | IBM i3 Intern
 **Location**: Nairobi, Kenya
 
 A personal, modular operational log built with Next.js 16, Tailwind CSS, and Framer Motion.
-This is not a template.
+This is not a template. Live at [kwaix.dev](https://kwaix.dev).
+
+👉 **[Read the Full Documentation Handbook](docs/DOCS.md)**
 
 ---
 
@@ -23,7 +25,7 @@ The UI is strictly separated from the data. All content lives in typed TypeScrip
 - `/certs` — **Credentials**: Acquired and pending capabilities
 - `/about` — **The Operator**: Context and approach
 - `/contact` — **Signal**: Resend-powered secure contact form
-- `/journal` — **Journal**: Field notes and thinking (coming)
+- `/journal` — **Journal**: Field notes and thinking
 
 ### kOS Terminal
 A globally available interactive terminal (`wisdom@kOS:~$`) with simulated Linux commands
@@ -52,6 +54,7 @@ All status indicators, uptime, and project data reflect real operator state.
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Language**: TypeScript
+- **Analytics**: Vercel Analytics & Speed Insights
 - **Email**: Resend
 
 ---

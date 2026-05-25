@@ -19,7 +19,7 @@ This is a static-first site with no database. These targets are achievable witho
 
 ## Image Rules
 
-**Rule: No images unless they are real visuals of actual work.**
+**Rule: No stock images unless they are real visuals of actual work. Diagrams are acceptable when labeled as diagrams. Screenshots must be real captures of actual work.**
 
 When you do use images:
 
@@ -131,7 +131,7 @@ export default async function ProjectsPage() {
 
 ## Vercel Analytics (One Line)
 
-Add when ready. Free. Zero config.
+Already active in layout.tsx. Free. Zero config.
 
 ```typescript
 // app/layout.tsx

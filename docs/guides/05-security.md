@@ -69,14 +69,14 @@ export default nextConfig;
 ## API Security Rules
 
 ```typescript
-// Contact form — security checklist (implemented in Guide 03):
+// Contact API — security checklist:
 // ✅ Input validation (presence check)
-// ✅ Input length limits (name:100, email:254, message:1000)
-// ✅ Email format validation
-// ✅ Input sanitization (strip <> and javascript: protocol)
-// ✅ Rate limiting (5 req/min per IP)
+// ✅ HTML escaping (sanitize strings)
 // ✅ API key server-side only
 // ✅ Error messages don't leak internals
+// ⬚ Input length limits (name:100, email:254, message:1000) - Planned
+// ⬚ Email format validation - Planned
+// ⬚ Rate limiting (5 req/min per IP) - Planned
 
 // NEVER do this:
 const resend = new Resend('re_actual_key_here');         // hardcoded key
@@ -177,10 +177,10 @@ Code
 [ ] Rate limiting on /api/contact
 
 Headers
-[ ] next.config.ts has all security headers
-[ ] X-Frame-Options: DENY
-[ ] CSP header present
-[ ] HSTS header present
+[ ] next.config.ts has all security headers (Planned)
+[ ] X-Frame-Options: DENY (Planned)
+[ ] CSP header present (Planned)
+[ ] HSTS header present (Planned)
 
 Repository
 [ ] Microsoft-Activation-Scripts deleted

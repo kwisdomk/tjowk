@@ -6,7 +6,7 @@
 ## Stack (Locked)
 
 ```
-Next.js 15 (App Router)
+Next.js 16 (App Router)
 TypeScript
 Tailwind CSS v3
 Framer Motion v11

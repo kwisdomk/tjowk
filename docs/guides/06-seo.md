@@ -16,7 +16,7 @@ A portfolio no one can find is a portfolio that doesn't exist. Basic SEO means w
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://port-wk.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://kwaix.dev'),
   title: {
     default:  'Wisdom Kinoti — The Journey',
     template: '%s — The Journey',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     type:        'website',
     locale:      'en_US',
-    url:         'https://port-wk.vercel.app',
+    url:         'https://kwaix.dev',
     siteName:    'The Journey',
     title:       'Wisdom Kinoti — The Journey',
     description: 'I blueprint things before they escape. Most of them turn into something real.',
@@ -100,24 +100,13 @@ export const metadata: Metadata = {
 
 ---
 
-## OG Image
+## OG Image and Favicon
 
-Create a static `og-image.png` (1200×630px) in `/public/`.
+The project uses dynamic image generation:
+- **OG Image:** Generated dynamically via `app/opengraph-image.tsx` using `next/og`. It creates a 1200x630 image matching the site's design.
+- **Favicon:** Generated dynamically via `app/icon.tsx`.
 
-Content: dark background, your name, tagline, maybe the emerald status dot. Keep it text-only — no AI images.
-
-Simple approach — generate it with HTML/CSS, capture at 1200×630, save as PNG.
-
-What it should say:
-```
-WISDOM KINOTI
-φιλόσοφος
-
-"I blueprint things before they escape.
-Most of them turn into something real."
-
-● ACTIVE · Nairobi, Kenya
-```
+No static `og-image.png` is needed in `/public`.
 
 ---
 
@@ -128,29 +117,27 @@ Most of them turn into something real."
 User-agent: *
 Allow: /
 
-Sitemap: https://port-wk.vercel.app/sitemap.xml
+Sitemap: https://kwaix.dev/sitemap.xml
 ```
 
 ---
 
 ## Sitemap
 
-Next.js 15 can generate this automatically:
+Next.js 16 can generate this automatically:
 
 ```typescript
 // app/sitemap.ts
 import { MetadataRoute } from 'next';
+import { projects } from '@/lib/content/projects';
+import { getAllPosts } from '@/lib/journal';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://port-wk.vercel.app';
-
-  return [
-    { url: baseUrl,               lastModified: new Date(), changeFrequency: 'monthly',  priority: 1 },
-    { url: `${baseUrl}/projects`, lastModified: new Date(), changeFrequency: 'weekly',   priority: 0.9 },
-    { url: `${baseUrl}/about`,    lastModified: new Date(), changeFrequency: 'monthly',  priority: 0.8 },
-    { url: `${baseUrl}/certs`,    lastModified: new Date(), changeFrequency: 'monthly',  priority: 0.7 },
-    { url: `${baseUrl}/contact`,  lastModified: new Date(), changeFrequency: 'yearly',   priority: 0.5 },
-  ];
+  // Configured to dynamically include static routes,
+  // all project detail pages (/projects/[id]),
+  // and all journal posts (/journal/[slug]).
+  // Uses 'https://kwaix.dev' as base.
+  // ...
 }
 ```
 
@@ -158,10 +145,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
 ## Custom Domain (When Ready)
 
-Recommended options in order:
+Recommended options:
 1. `wisdomkinoti.com` — clearest professional identity
 2. `6ofhertz.dev` — handle-based, technical signal
-3. `port-wk.vercel.app` — free, works fine for now
+3. `kwaix.dev` — **Currently active** domain
 
 ### Setup on Vercel:
 1. Buy domain (Namecheap or Cloudflare Registrar)

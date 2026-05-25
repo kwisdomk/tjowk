@@ -430,3 +430,21 @@ status: "archived",
 ```
 
 It stays in the timeline. It disappears from the featured section (UI filters by phase/status). The journey is honest.
+
+---
+
+## Current vs Target Architecture
+
+To avoid confusion during future refactoring, here is the exact state of the data layer:
+
+### Current Architecture (Implemented)
+- **Source:** TypeScript files (`lib/content/*.ts`) and Markdown files (`lib/content/journal/*.md`).
+- **Validation:** Type checking only via TS compiler and basic frontmatter checks.
+- **Workflow:** Edit `.ts` or `.md` files directly. Commits trigger static rebuilds.
+
+### Target Architecture (Future CMS Refactor)
+- **Source:** JSON files (`content/*.json`) and Markdown files (`content/journal/*.md`).
+- **Validation:** Strict runtime validation via Zod schemas during build.
+- **Workflow:** A local headless CMS or structured form edits the JSON/MD files automatically.
+
+*Do not begin the Target Architecture refactor assuming it is already in place. The Current Architecture is what is running in production.*
