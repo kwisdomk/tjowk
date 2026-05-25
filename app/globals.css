@@ -144,6 +144,21 @@
   ::-webkit-scrollbar-thumb:hover {
     background: var(--text-muted);
   }
+
+  /* Timeline horizontal scrollbar */
+  .timeline-scrollbar::-webkit-scrollbar {
+    height: 4px;
+  }
+  .timeline-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .timeline-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 2px;
+  }
+  .timeline-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--emerald-border);
+  }
 }
 
 @layer components {

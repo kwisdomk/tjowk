@@ -132,19 +132,13 @@ export function HorizontalTimeline({ timeline }: { timeline: TimelineEntry[] }) 
   };
 
   return (
-    // Outer wrapper: relative so gradients are pinned to visible edges
-    <div className="relative w-full" role="region" aria-label="Project timeline">
-      {/* Left edge fade — always visible at the container edge */}
-      <div className="absolute left-0 top-0 bottom-6 w-8 bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
-      {/* Right edge fade — always visible at the container edge */}
-      <div className="absolute right-0 top-0 bottom-6 w-16 bg-gradient-to-l from-black to-transparent pointer-events-none z-10" />
-
-      {/* Inner scrollable region — gradients do NOT live here */}
+    <div className="relative w-full border border-border-subtle bg-surface-2 rounded-2xl overflow-hidden" role="region" aria-label="Project timeline">
+      {/* Inner scrollable region */}
       <div
-        className="overflow-x-auto overflow-y-hidden pb-6 -mx-6 px-6"
+        className="overflow-x-auto overflow-y-hidden timeline-scrollbar"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
-        <div className="flex w-max min-w-full pt-8 pb-4 pr-12">
+        <div className="flex w-max min-w-full px-6 py-8 md:px-8 min-h-[160px]">
           {years.map((year) => {
             const isExpanded = expandedYear === year;
             const monthsMap = grouped.get(year)!;
@@ -168,8 +162,8 @@ export function HorizontalTimeline({ timeline }: { timeline: TimelineEntry[] }) 
                     aria-expanded={isExpanded}
                     aria-controls={`year-${year}-content`}
                     className={cn(
-                      'flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full pr-3 pl-1 py-1 transition-colors bg-black',
-                      isExpanded ? 'ring-1 ring-emerald-500/20 bg-emerald-glow/20' : 'hover:bg-surface-2'
+                      'flex items-center gap-2 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-full pr-3 pl-1 py-1 transition-colors bg-surface border border-border-subtle shadow-sm',
+                      isExpanded ? 'ring-1 ring-emerald-500/20 bg-emerald-glow/20 border-emerald-dim' : 'hover:bg-surface-2'
                     )}
                   >
                     <div className={cn(
