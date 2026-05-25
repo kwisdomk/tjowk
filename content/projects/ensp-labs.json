@@ -1,0 +1,16 @@
+{
+  "id": "ensp-labs",
+  "codename": "eNSP",
+  "title": "eNSP Networking Labs",
+  "tagline": "Networking fundamentals via Huawei Enterprise Network Simulation Platform",
+  "phase": "exploration",
+  "status": "archived",
+  "date": "2024",
+  "featured": false,
+  "stack": [
+    "eNSP",
+    "Cisco IOS",
+    "Huawei VRP"
+  ],
+  "category": "infra"
+}

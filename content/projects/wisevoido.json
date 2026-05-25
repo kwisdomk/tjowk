@@ -1,0 +1,17 @@
+{
+  "id": "wisevoido",
+  "codename": "Wisevoido",
+  "title": "RAG Document Intelligence System",
+  "tagline": "Personal RAG pipeline for document Q&A and knowledge retrieval",
+  "phase": "systems",
+  "status": "paused",
+  "date": "Jan 2026",
+  "featured": false,
+  "stack": [
+    "Python",
+    "LangChain",
+    "Supabase pgvector",
+    "Next.js"
+  ],
+  "category": "ai"
+}

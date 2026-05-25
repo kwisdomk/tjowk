@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next';
-import { projects } from '@/lib/content/projects';
-import { getAllPosts } from '@/lib/journal';
+import { getProjects, getAllPosts } from '@/lib/content/loaders';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const projects = getProjects();
+  const posts = getAllPosts();
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: 'https://kwaix.dev',

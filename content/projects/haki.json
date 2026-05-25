@@ -1,0 +1,31 @@
+{
+  "id": "haki",
+  "codename": "HAKI",
+  "title": "Agentic Healthcare Orchestrator",
+  "tagline": "IBM DevDay 2026 hackathon project — AI telemedicine for rural diagnostic gaps",
+  "phase": "production",
+  "status": "paused",
+  "date": "Jan 2026",
+  "featured": true,
+  "problem": "Rural regions in East Africa suffer critical doctor shortages. Patients travel hours for basic triage that could be automated.",
+  "solution": "Agentic AI system using IBM Granite and watsonx Orchestrate to autonomously triage patients and allocate medical resources. Deployed on IBM Cloud.",
+  "impact": "Team Lead at IBM DevDay 2026. Scalable architecture reviewed by IBM engineers. Identified as a candidate for IBM Research Africa partnership.",
+  "stack": [
+    "IBM Granite",
+    "watsonx Orchestrate",
+    "Next.js 14",
+    "IBM Maximo",
+    "IBM Cloud"
+  ],
+  "category": "ai",
+  "links": {
+    "github": "https://github.com/kwisdomk/haki"
+  },
+  "visuals": [
+    {
+      "src": "/screenshots/haki.svg",
+      "type": "diagram",
+      "alt": "HAKI orchestrator architecture diagram"
+    }
+  ]
+}

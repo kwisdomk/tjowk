@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { profile } from '@/lib/content/profile';
+import { getProfile } from '@/lib/content/loaders';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { Github, Linkedin, Mail, Copy } from 'lucide-react';
 import Link from 'next/link';
@@ -9,31 +9,35 @@ export const metadata: Metadata = {
   description: 'How to reach Wisdom Kinoti.',
 };
 
-const LINKS = [
-  {
-    id: 'github-primary',
-    icon: Github,
-    label: 'GitHub (primary)',
-    value: `github.com/${profile.handles.github_primary}`,
-    href: `https://github.com/${profile.handles.github_primary}`,
-  },
-  {
-    id: 'github-secondary',
-    icon: Github,
-    label: 'GitHub (secondary)',
-    value: `github.com/${profile.handles.github_secondary}`,
-    href: `https://github.com/${profile.handles.github_secondary}`,
-  },
-  {
-    id: 'linkedin',
-    icon: Linkedin,
-    label: 'LinkedIn',
-    value: `linkedin.com/in/${profile.handles.linkedin}`,
-    href: `https://linkedin.com/in/${profile.handles.linkedin}`,
-  },
-];
+
 
 export default function ContactPage() {
+  const profile = getProfile();
+  
+  const LINKS = [
+    {
+      id: 'github-primary',
+      icon: Github,
+      label: 'GitHub (primary)',
+      value: `github.com/${profile.handles.github_primary}`,
+      href: `https://github.com/${profile.handles.github_primary}`,
+    },
+    {
+      id: 'github-secondary',
+      icon: Github,
+      label: 'GitHub (secondary)',
+      value: `github.com/${profile.handles.github_secondary}`,
+      href: `https://github.com/${profile.handles.github_secondary}`,
+    },
+    {
+      id: 'linkedin',
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: `linkedin.com/in/${profile.handles.linkedin}`,
+      href: `https://linkedin.com/in/${profile.handles.linkedin}`,
+    },
+  ];
+
   return (
     <div className="max-w-3xl mx-auto px-6 py-20 space-y-16">
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { certs } from '@/lib/content/certs';
+import { getCerts } from '@/lib/content/loaders';
 import { CredentialCard } from '@/components/certs/CredentialCard';
 
 export const metadata: Metadata = {
@@ -7,11 +7,13 @@ export const metadata: Metadata = {
   description: 'Acquired capabilities — certifications complete, in progress, and planned.',
 };
 
-const complete   = certs.filter((c) => c.status === 'complete');
-const inProgress = certs.filter((c) => c.status === 'in-progress');
-const planned    = certs.filter((c) => c.status === 'planned');
+
 
 export default function CertsPage() {
+  const certs = getCerts();
+  const complete   = certs.filter((c) => c.status === 'complete');
+  const inProgress = certs.filter((c) => c.status === 'in-progress');
+  const planned    = certs.filter((c) => c.status === 'planned');
   return (
     <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
 

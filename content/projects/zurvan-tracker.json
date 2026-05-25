@@ -1,0 +1,15 @@
+{
+  "id": "zurvan-tracker",
+  "codename": "zurvan-tracker",
+  "title": "Personal Learning System",
+  "tagline": "Self-built learning tracker with progress metrics",
+  "phase": "exploration",
+  "status": "archived",
+  "date": "Mid 2025",
+  "featured": false,
+  "stack": [
+    "Next.js",
+    "Supabase"
+  ],
+  "category": "web"
+}

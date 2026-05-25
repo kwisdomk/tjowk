@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
-import { type ProjectVisual } from '@/lib/content/projects';
+import type { ProjectVisual } from '@/lib/content/schemas';
 
 interface VisualGalleryProps {
   visuals: ProjectVisual[];

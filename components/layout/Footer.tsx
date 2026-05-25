@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { profile } from '@/lib/content/profile';
+import type { Profile } from '@/lib/content/schemas';
 
-export function Footer() {
+export function Footer({ profile }: { profile: Profile }) {
   const year = new Date().getFullYear();
 
   return (

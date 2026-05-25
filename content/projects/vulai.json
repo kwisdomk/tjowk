@@ -1,0 +1,30 @@
+{
+  "id": "vulai",
+  "codename": "vulai",
+  "title": "vulai — LinkedIn Optimization Framework",
+  "tagline": "No-BS open-source prompt framework that kills corporate buzzwords and rebuilds LinkedIn profiles into high-signal, data-driven presence.",
+  "phase": "production",
+  "status": "active",
+  "date": "Mar 2026",
+  "featured": true,
+  "problem": "LinkedIn profiles are saturated with generic corporate language that obscures real skills and repels serious recruiters and collaborators.",
+  "solution": "Open-source prompt framework that systematically rewrites LinkedIn sections — headline, about, experience — into high-signal, data-backed language. No code. No API. Distributed as a usable framework via GitHub.",
+  "impact": "Full release cycle. Distributed across LinkedIn and WhatsApp groups. Community adoption.",
+  "stack": [
+    "Prompt Engineering",
+    "Markdown",
+    "GitHub"
+  ],
+  "category": "tools",
+  "links": {
+    "github": "https://github.com/kwisdomk/vulai",
+    "live": "https://github.com/kwisdomk/vulai"
+  },
+  "visuals": [
+    {
+      "src": "/screenshots/vulai.svg",
+      "type": "diagram",
+      "alt": "vulai CLI terminal output diagram"
+    }
+  ]
+}

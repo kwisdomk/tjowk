@@ -1,0 +1,18 @@
+{
+  "id": "ai-athena",
+  "codename": "ai-athena",
+  "title": "Athena — Personal AI Infrastructure",
+  "tagline": "Local AI stack running on Athena — inference, RAG, agent experiments",
+  "phase": "systems",
+  "status": "active",
+  "date": "Apr 2026",
+  "featured": false,
+  "stack": [
+    "Ollama",
+    "LM Studio",
+    "Python",
+    "CUDA",
+    "Open WebUI"
+  ],
+  "category": "ai"
+}

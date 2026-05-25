@@ -1,0 +1,16 @@
+{
+  "id": "compsvision",
+  "codename": "compsvision",
+  "title": "Computer Vision Experiments",
+  "tagline": "First ML experiments — image classification and object detection",
+  "phase": "exploration",
+  "status": "archived",
+  "date": "2024",
+  "featured": false,
+  "stack": [
+    "Python",
+    "OpenCV",
+    "TensorFlow"
+  ],
+  "category": "ai"
+}

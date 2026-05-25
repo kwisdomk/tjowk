@@ -1,0 +1,32 @@
+{
+  "id": "wisdomai",
+  "codename": "WisdomAI",
+  "title": "Multi-Agent Health Intelligence System",
+  "tagline": "6-agent WhatsApp health triage system for low-resource clinical environments",
+  "phase": "production",
+  "status": "active",
+  "date": "Feb 2026",
+  "featured": true,
+  "problem": "Patients in low-resource environments lack access to consistent medical triage, leading to delayed diagnoses and preventable deterioration.",
+  "solution": "6-agent AI architecture orchestrated via LangGraph. Triage, symptom analysis, prescription lookup, escalation, follow-up, and audit agents working in sequence. WhatsApp as the delivery layer — zero app install for patients.",
+  "impact": "78 test cases validated. Full HIPAA-aligned audit trail. Flagged for potential deployment through community health programs.",
+  "stack": [
+    "LangGraph",
+    "Python",
+    "Twilio WhatsApp API",
+    "FastAPI",
+    "PostgreSQL",
+    "IBM Granite"
+  ],
+  "category": "ai",
+  "links": {
+    "github": "https://github.com/kwisdomk/wisdomai"
+  },
+  "visuals": [
+    {
+      "src": "/screenshots/wisdomai.svg",
+      "type": "diagram",
+      "alt": "WisdomAI multi-agent architecture diagram"
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 'use client';
 
-import { timeline } from '@/lib/content/timeline';
+import type { TimelineEntry } from '@/lib/content/schemas';
 import { TimelineEntryItem } from './TimelineEntry';
 
 // Group entries by year
-function groupByYear(entries: typeof timeline) {
-  return entries.reduce<Record<number, typeof timeline>>((acc, entry) => {
+function groupByYear(entries: TimelineEntry[]) {
+  return entries.reduce<Record<number, TimelineEntry[]>>((acc, entry) => {
     if (!acc[entry.year]) acc[entry.year] = [];
     acc[entry.year].push(entry);
     return acc;
   }, {});
 }
 
-export function TimelineSpine() {
+export function TimelineSpine({ timeline }: { timeline: TimelineEntry[] }) {
   const grouped = groupByYear(timeline);
   const years = Object.keys(grouped).map(Number).sort((a, b) => a - b);
 
