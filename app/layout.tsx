@@ -6,7 +6,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { TerminalButton } from '@/components/ui/terminal';
 import { getProfile, getStatus } from '@/lib/content/loaders';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geist = Geist({
