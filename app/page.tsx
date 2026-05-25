@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react';
 import { StatusBadge } from '@/components/ui/status-badge';
 
 export const metadata: Metadata = {
-  title: 'System',
+  title: 'KWAIX',
   description: 'The Journey — Wisdom Kinoti. Junior Cybersecurity Analyst, CS Student, IBM i3 Intern. Nairobi, Kenya.',
 };
 

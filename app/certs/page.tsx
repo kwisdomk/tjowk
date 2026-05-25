@@ -3,7 +3,7 @@ import { getCerts } from '@/lib/content/loaders';
 import { CredentialCard } from '@/components/certs/CredentialCard';
 
 export const metadata: Metadata = {
-  title: 'Credentials',
+  title: 'certifications',
   description: 'Acquired capabilities — certifications complete, in progress, and planned.',
 };
 

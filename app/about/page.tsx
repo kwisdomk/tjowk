@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getProfile } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
-  title: 'The Operator',
+  title: 'whoami',
   description: 'The person behind the work. Context, not biography.',
 };
 
