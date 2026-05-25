@@ -94,6 +94,7 @@ export const ProjectSchema = z.object({
   status: ProjectStatusSchema,
   date: z.string(),
   featured: z.boolean(),
+  featuredOrder: z.number().int().positive().optional(),
   problem: z.string().optional(),
   solution: z.string().optional(),
   impact: z.string().optional(),

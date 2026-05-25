@@ -7,6 +7,7 @@
   "status": "active",
   "date": "Apr 2026",
   "featured": true,
+  "featuredOrder": 5,
   "problem": "Diagnosing Windows system health in field environments requires installing tools that may not be permitted, may not exist, or may themselves be compromised.",
   "solution": "Stateless PowerShell diagnostic framework. Captures baseline snapshots, compares drift, flags anomalies. Single-file. No install. No registry writes. No external dependencies. Runs on any Windows system.",
   "impact": "v1.0 released. Validated on external environments. Used as a real diagnostic tool during IBM internship.",

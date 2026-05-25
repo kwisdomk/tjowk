@@ -7,6 +7,7 @@
   "status": "active",
   "date": "Mar 2026",
   "featured": true,
+  "featuredOrder": 1,
   "problem": "No affordable remote monitoring solution for industrial OT environments in East Africa. Engineers fly to sites to read meters.",
   "solution": "Solo deployment of IBM Maximo Application Suite 9.1 on a 6-node OpenShift ROKS cluster (Frankfurt region). Monte Carlo failure prediction, LSTM anomaly detection, Unity XR visualisation layer.",
   "impact": "Presented at EAAAIW 2026 (CUEA). Validated by an Oil & Gas engineer. 30% PoC pathway to IBM Research Africa identified.",

@@ -7,6 +7,7 @@
   "status": "active",
   "date": "Feb 2026",
   "featured": true,
+  "featuredOrder": 2,
   "problem": "Patients in low-resource environments lack access to consistent medical triage, leading to delayed diagnoses and preventable deterioration.",
   "solution": "6-agent AI architecture orchestrated via LangGraph. Triage, symptom analysis, prescription lookup, escalation, follow-up, and audit agents working in sequence. WhatsApp as the delivery layer — zero app install for patients.",
   "impact": "78 test cases validated. Full HIPAA-aligned audit trail. Flagged for potential deployment through community health programs.",

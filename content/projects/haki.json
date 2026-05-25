@@ -7,6 +7,7 @@
   "status": "paused",
   "date": "Jan 2026",
   "featured": true,
+  "featuredOrder": 3,
   "problem": "Rural regions in East Africa suffer critical doctor shortages. Patients travel hours for basic triage that could be automated.",
   "solution": "Agentic AI system using IBM Granite and watsonx Orchestrate to autonomously triage patients and allocate medical resources. Deployed on IBM Cloud.",
   "impact": "Team Lead at IBM DevDay 2026. Scalable architecture reviewed by IBM engineers. Identified as a candidate for IBM Research Africa partnership.",
