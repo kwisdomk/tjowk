@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
-  title: 'logs',
+  title: 'Journal',
   description: 'Field notes from the build. Dispatches from active systems, real deployments, and things worth writing down.',
 };
 

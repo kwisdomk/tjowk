@@ -5,7 +5,7 @@ import { Github, Linkedin, Mail, Copy } from 'lucide-react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'ping',
+  title: 'Contact Me',
   description: 'How to reach Wisdom Kinoti.',
 };
 

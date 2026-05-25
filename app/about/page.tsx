@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getProfile } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
-  title: 'whoami',
+  title: 'Who Is Wisdom',
   description: 'The person behind the work. Context, not biography.',
 };
 
