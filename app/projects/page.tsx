@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { projects } from '@/lib/content/projects';
+import { getFeaturedProjects, getTimeline } from '@/lib/content/loaders';
 import { FeaturedCard } from '@/components/projects/FeaturedCard';
 import { TimelineSpine } from '@/components/projects/TimelineSpine';
 
@@ -8,9 +8,11 @@ export const metadata: Metadata = {
   description: 'The full build history — every project, experiment, and milestone from 2024 to now.',
 };
 
-const featuredProjects = projects.filter((p) => p.featured);
+
 
 export default function ProjectsPage() {
+  const featuredProjects = getFeaturedProjects();
+  const timeline = getTimeline();
   return (
     <div className="max-w-7xl mx-auto px-6 py-20 space-y-24">
 
@@ -48,7 +50,7 @@ export default function ProjectsPage() {
           <span className="label-mono text-muted-custom">2024 → now</span>
         </div>
         <div className="max-w-2xl">
-          <TimelineSpine />
+          <TimelineSpine timeline={timeline} />
         </div>
       </section>
 

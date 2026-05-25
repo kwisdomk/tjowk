@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { profile } from '@/lib/content/profile';
+import type { Profile } from '@/lib/content/schemas';
 import { MapPin, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 
-export function IdentityBlock() {
+export function IdentityBlock({ profile }: { profile: Profile }) {
   return (
     <div className="space-y-6">
       {/* Name */}

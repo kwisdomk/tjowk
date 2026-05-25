@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { projects } from '@/lib/content/projects';
+import { getProjects, getProjectById } from '@/lib/content/loaders';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { StatusBadge } from '@/components/ui/status-badge';
@@ -7,14 +7,14 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export function generateStaticParams() {
-  return projects.map((project) => ({
+  return getProjects().map((project) => ({
     id: project.id,
   }));
 }
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const params = await props.params;
-  const project = projects.find((p) => p.id === params.id);
+  const project = getProjectById(params.id);
   if (!project) return { title: 'Project Not Found' };
   
   return {
@@ -25,7 +25,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
 
 export default async function ProjectPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const project = projects.find((p) => p.id === params.id);
+  const project = getProjectById(params.id);
   
   if (!project) {
     notFound();

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { type TimelineEntry } from '@/lib/content/timeline';
+import type { TimelineEntry } from '@/lib/content/schemas';
 import { cn } from '@/lib/utils';
 
 interface TimelineEntryProps {

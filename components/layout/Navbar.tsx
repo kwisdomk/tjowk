@@ -6,19 +6,19 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { currentStatus } from '@/lib/content/status';
+// Removed status import
 import { ModeToggle } from '@/components/ui/theme-toggle';
 
 const NAV_LINKS = [
-  { href: '/',         label: 'System' },
-  { href: '/projects', label: 'Operations' },
-  { href: '/about',    label: 'Operator' },
-  { href: '/certs',    label: 'Credentials' },
-  { href: '/contact',  label: 'Signal' },
-  { href: '/journal',  label: 'Journal' },
+  { href: '/',         label: 'root',           ariaLabel: 'System' },
+  { href: '/projects', label: 'workloads',      ariaLabel: 'Operations' },
+  { href: '/about',    label: 'whoami',         ariaLabel: 'Operator' },
+  { href: '/certs',    label: 'certifications', ariaLabel: 'Credentials' },
+  { href: '/contact',  label: 'ping',           ariaLabel: 'Signal' },
+  { href: '/journal',  label: 'logs',           ariaLabel: 'Journal' },
 ];
 
-export function Navbar() {
+export function Navbar({ uptime }: { uptime: string }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -48,7 +48,7 @@ export function Navbar() {
 
           {/* Center — desktop nav links */}
           <div className="hidden md:flex items-center gap-1">
-            {NAV_LINKS.map(({ href, label }) => {
+            {NAV_LINKS.map(({ href, label, ariaLabel }) => {
               const active = pathname === href;
               return (
                 <Link
@@ -60,6 +60,7 @@ export function Navbar() {
                       ? 'text-emerald bg-emerald-glow'
                       : 'text-muted-custom hover:text-primary hover:bg-surface-2'
                   )}
+                  aria-label={ariaLabel}
                 >
                   {label}
                 </Link>
@@ -72,7 +73,7 @@ export function Navbar() {
             <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border border-emerald-dim bg-emerald-glow">
               <span className="pulse-dot" />
               <span className="text-[10px] font-mono text-emerald tracking-widest">
-                {currentStatus.uptime}
+                {uptime}
               </span>
             </div>
             <ModeToggle />
@@ -127,7 +128,7 @@ export function Navbar() {
             <nav className="flex-1 overflow-y-auto px-6 pt-8 pb-6">
               <p className="label-mono mb-6">Navigate</p>
               <ul className="space-y-1">
-                {NAV_LINKS.map(({ href, label }, i) => {
+                {NAV_LINKS.map(({ href, label, ariaLabel }, i) => {
                   const active = pathname === href;
                   return (
                     <motion.li
@@ -144,6 +145,7 @@ export function Navbar() {
                             ? 'text-emerald bg-emerald-glow border border-emerald-dim'
                             : 'text-secondary-custom hover:text-primary hover:bg-surface-2 border border-transparent'
                         )}
+                        aria-label={ariaLabel}
                       >
                         <span>{label}</span>
                         {active && <span className="text-[10px] text-emerald">●</span>}
@@ -158,7 +160,7 @@ export function Navbar() {
             <div className="px-6 py-5 border-t border-border-subtle flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="pulse-dot scale-75" />
-                <span className="text-[10px] font-mono text-emerald">{currentStatus.uptime}</span>
+                <span className="text-[10px] font-mono text-emerald">{uptime}</span>
               </div>
               <span className="text-[10px] font-mono text-muted-custom">kwisdomk · Nairobi, Kenya</span>
             </div>

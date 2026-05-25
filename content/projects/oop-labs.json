@@ -1,0 +1,14 @@
+{
+  "id": "oop-labs",
+  "codename": "OOP-bcs",
+  "title": "Object-Oriented Programming Labs",
+  "tagline": "CS coursework — raw first code",
+  "phase": "exploration",
+  "status": "archived",
+  "date": "2024",
+  "featured": false,
+  "stack": [
+    "Java"
+  ],
+  "category": "web"
+}

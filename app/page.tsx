@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { IdentityBlock } from '@/components/home/IdentityBlock';
 import { CurrentOps } from '@/components/home/CurrentOps';
-import { projects } from '@/lib/content/projects';
+import { getFeaturedProjects, getProfile, getStatus } from '@/lib/content/loaders';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { StatusBadge } from '@/components/ui/status-badge';
@@ -11,21 +11,24 @@ export const metadata: Metadata = {
   description: 'The Journey — Wisdom Kinoti. Junior Cybersecurity Analyst, CS Student, IBM i3 Intern. Nairobi, Kenya.',
 };
 
-const featuredProjects = projects.filter((p) => p.featured);
+
 
 export default function HomePage() {
+  const profile = getProfile();
+  const status = getStatus();
+  const featuredProjects = getFeaturedProjects();
   return (
     <div className="max-w-7xl mx-auto px-6 py-20 space-y-12">
 
       {/* ── Identity ─────────────────────────────── */}
       <section>
-        <IdentityBlock />
+        <IdentityBlock profile={profile} />
       </section>
 
       {/* ── Current Operations ───────────────────── */}
       <section>
         <p className="label-mono mb-6">Current operations</p>
-        <CurrentOps />
+        <CurrentOps status={status} />
       </section>
 
       {/* ── Active Systems (compact preview) ─────── */}

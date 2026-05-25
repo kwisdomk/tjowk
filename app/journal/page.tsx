@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllPosts } from '@/lib/journal';
+import { getAllPosts } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
   title: 'Journal · Wisdom Kinoti',

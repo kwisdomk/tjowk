@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { type Cert } from '@/lib/content/certs';
+import type { Cert } from '@/lib/content/schemas';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { ExternalLink } from 'lucide-react';
 import Link from 'next/link';

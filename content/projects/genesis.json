@@ -1,0 +1,16 @@
+{
+  "id": "genesis",
+  "codename": "genesis",
+  "title": "GitLab AI Hackathon Entry",
+  "tagline": "AI-powered developer workflow automation — GitLab hackathon submission",
+  "phase": "systems",
+  "status": "archived",
+  "date": "Oct 2025",
+  "featured": false,
+  "stack": [
+    "GitLab API",
+    "Python",
+    "LangChain"
+  ],
+  "category": "ai"
+}

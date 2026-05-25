@@ -1,0 +1,16 @@
+{
+  "id": "eye-of-odin",
+  "codename": "Eye-of-Odin",
+  "title": "MLH Gemini Hackathon Entry",
+  "tagline": "AI vision system built for the MLH Google Gemini hackathon",
+  "phase": "systems",
+  "status": "archived",
+  "date": "Sep 2025",
+  "featured": false,
+  "stack": [
+    "Google Gemini",
+    "Python",
+    "FastAPI"
+  ],
+  "category": "ai"
+}

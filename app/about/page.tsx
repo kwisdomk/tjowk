@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { profile } from '@/lib/content/profile';
+import { getProfile } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
   title: 'The Operator',
@@ -48,6 +48,7 @@ const CAREER_ARC = [
 ];
 
 export default function AboutPage() {
+  const profile = getProfile();
   return (
     <div className="max-w-4xl mx-auto px-6 py-20 space-y-20">
 

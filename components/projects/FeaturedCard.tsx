@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import Link from 'next/link';
-import { type Project } from '@/lib/content/projects';
+import type { Project } from '@/lib/content/schemas';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { VisualGallery } from '@/components/projects/VisualGallery';
 

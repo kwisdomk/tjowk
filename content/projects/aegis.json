@@ -1,0 +1,30 @@
+{
+  "id": "aegis",
+  "codename": "AEGIS",
+  "title": "Portable Windows Diagnostic Framework",
+  "tagline": "Stateless forensic system diagnostics — no install, no footprint, no trust",
+  "phase": "production",
+  "status": "active",
+  "date": "Apr 2026",
+  "featured": true,
+  "problem": "Diagnosing Windows system health in field environments requires installing tools that may not be permitted, may not exist, or may themselves be compromised.",
+  "solution": "Stateless PowerShell diagnostic framework. Captures baseline snapshots, compares drift, flags anomalies. Single-file. No install. No registry writes. No external dependencies. Runs on any Windows system.",
+  "impact": "v1.0 released. Validated on external environments. Used as a real diagnostic tool during IBM internship.",
+  "stack": [
+    "PowerShell 5.1+",
+    "Windows WMI",
+    "CIM",
+    "Baseline diffing"
+  ],
+  "category": "tools",
+  "links": {
+    "github": "https://github.com/kwisdomk/aegis"
+  },
+  "visuals": [
+    {
+      "src": "/screenshots/aegis.svg",
+      "type": "diagram",
+      "alt": "AEGIS PowerShell diagnostic output diagram"
+    }
+  ]
+}

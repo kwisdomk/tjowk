@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getPostSlugs, renderMarkdown } from '@/lib/journal';
+import { getPostBySlug, getPostSlugs, renderMarkdown } from '@/lib/content/loaders';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
