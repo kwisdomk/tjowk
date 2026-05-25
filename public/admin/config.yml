@@ -1,0 +1,145 @@
+backend:
+  name: github
+  repo: kwisdomk/tjowk
+  branch: main
+
+publish_mode: editorial_workflow
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "profile"
+    label: "Profile"
+    files:
+      - file: "content/profile.json"
+        label: "Profile"
+        name: "profile"
+        fields:
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Alias", name: "alias", widget: "string"}
+          - label: "Handles"
+            name: "handles"
+            widget: "object"
+            fields:
+              - {label: "GitHub Primary", name: "github_primary", widget: "string"}
+              - {label: "GitHub Secondary", name: "github_secondary", widget: "string"}
+              - {label: "LinkedIn", name: "linkedin", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+          - {label: "Role", name: "role", widget: "string"}
+          - {label: "Sub Roles", name: "subRoles", widget: "list"}
+          - {label: "Location", name: "location", widget: "string"}
+          - {label: "Timezone", name: "timezone", widget: "string"}
+          - {label: "Tagline", name: "tagline", widget: "string"}
+          - {label: "Philosophy", name: "philosophy", widget: "text"}
+          - label: "Machine"
+            name: "machine"
+            widget: "object"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Specs", name: "specs", widget: "string"}
+          - {label: "Open To", name: "openTo", widget: "text"}
+
+  - name: "status"
+    label: "Status"
+    files:
+      - file: "content/status.json"
+        label: "Status"
+        name: "status"
+        fields:
+          - {label: "Operation", name: "operation", widget: "string"}
+          - {label: "Secondary Operation", name: "secondaryOp", widget: "string"}
+          - {label: "Machine", name: "machine", widget: "string"}
+          - {label: "Uptime", name: "uptime", widget: "select", options: ["ACTIVE", "STANDBY", "MAINTENANCE"]}
+          - {label: "Last Updated", name: "lastUpdated", widget: "string"}
+
+  - name: "certifications"
+    label: "Certifications"
+    files:
+      - file: "content/certs.json"
+        label: "Certifications"
+        name: "certifications"
+        fields:
+          - label: "Certifications"
+            name: "certs"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Issuer", name: "issuer", widget: "string"}
+              - {label: "Status", name: "status", widget: "select", options: ["complete", "in-progress", "planned"]}
+              - {label: "Score", name: "score", widget: "string", required: false}
+              - {label: "Date", name: "date", widget: "string", required: false}
+              - {label: "Deadline", name: "deadline", widget: "string", required: false}
+              - {label: "Credly URL", name: "credlyUrl", widget: "string", required: false}
+              - {label: "Notes", name: "notes", widget: "string", required: false}
+
+  - name: "timeline"
+    label: "Timeline"
+    files:
+      - file: "content/timeline.json"
+        label: "Timeline"
+        name: "timeline"
+        fields:
+          - label: "Entries"
+            name: "entries"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string"}
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Year", name: "year", widget: "number", value_type: "int"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Type", name: "type", widget: "select", options: ["project", "experiment", "milestone"]}
+              - {label: "Summary", name: "summary", widget: "string"}
+              - {label: "Project ID", name: "projectId", widget: "string", required: false}
+              - {label: "Highlight", name: "highlight", widget: "boolean", required: false}
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    format: "json"
+    extension: "json"
+    identifier_field: "id"
+    slug: "{{fields.id}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", hint: "Used as the filename and URL. Do not change after creating the project."}
+      - {label: "Codename", name: "codename", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Tagline", name: "tagline", widget: "string"}
+      - {label: "Phase", name: "phase", widget: "select", options: ["exploration", "systems", "production"]}
+      - {label: "Status", name: "status", widget: "select", options: ["active", "paused", "archived"]}
+      - {label: "Date", name: "date", widget: "string"}
+      - {label: "Featured", name: "featured", widget: "boolean"}
+      - {label: "Problem", name: "problem", widget: "text", required: false}
+      - {label: "Solution", name: "solution", widget: "text", required: false}
+      - {label: "Impact", name: "impact", widget: "text", required: false}
+      - {label: "Stack", name: "stack", widget: "list"}
+      - {label: "Category", name: "category", widget: "select", options: ["ai", "security", "web", "infra", "tools"]}
+      - label: "Links"
+        name: "links"
+        widget: "object"
+        required: false
+        fields:
+          - {label: "GitHub", name: "github", widget: "string", required: false}
+          - {label: "Live", name: "live", widget: "string", required: false}
+      - label: "Visuals"
+        name: "visuals"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Source", name: "src", widget: "image"}
+          - {label: "Type", name: "type", widget: "select", options: ["diagram", "screenshot"]}
+          - {label: "Alt Text", name: "alt", widget: "string", required: false}
+
+  - name: "journal"
+    label: "Journal"
+    folder: "content/journal"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Tag", name: "tag", widget: "string"}
+      - {label: "Summary", name: "summary", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
