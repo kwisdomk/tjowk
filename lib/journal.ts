@@ -30,7 +30,7 @@ function validateFrontmatter(data: Record<string, unknown>, slug: string): asser
 
   if (missing.length > 0) {
     throw new Error(
-      `Journal post "${slug}.mdx" is missing required frontmatter: ${missing.join(', ')}. ` +
+      `Journal post "${slug}.md" is missing required frontmatter: ${missing.join(', ')}. ` +
       `Each post must include: ${REQUIRED_FIELDS.join(', ')}.`
     );
   }
@@ -38,12 +38,12 @@ function validateFrontmatter(data: Record<string, unknown>, slug: string): asser
 
 export function getPostSlugs() {
   if (!fs.existsSync(journalDirectory)) return [];
-  return fs.readdirSync(journalDirectory).filter(file => file.endsWith('.mdx'));
+  return fs.readdirSync(journalDirectory).filter(file => file.endsWith('.md'));
 }
 
 export function getPostBySlug(slug: string) {
-  const realSlug = slug.replace(/\.mdx$/, '');
-  const fullPath = path.join(journalDirectory, `${realSlug}.mdx`);
+  const realSlug = slug.replace(/\.md$/, '');
+  const fullPath = path.join(journalDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 

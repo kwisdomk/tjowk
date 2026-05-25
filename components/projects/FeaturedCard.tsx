@@ -5,7 +5,7 @@ import { ExternalLink, Github } from 'lucide-react';
 import Link from 'next/link';
 import { type Project } from '@/lib/content/projects';
 import { StatusBadge } from '@/components/ui/status-badge';
-import { ScreenshotGallery } from '@/components/projects/ScreenshotGallery';
+import { VisualGallery } from '@/components/projects/VisualGallery';
 
 interface FeaturedCardProps {
   project: Project;
@@ -47,8 +47,8 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
 
           {/* Architecture diagrams / visuals */}
           {project.visuals && project.visuals.length > 0 && (
-            <ScreenshotGallery
-              screenshots={project.visuals.map((v) => v.src)}
+            <VisualGallery
+              visuals={project.visuals}
               projectName={project.codename}
             />
           )}
