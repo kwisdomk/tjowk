@@ -1,0 +1,26 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#09090b"/>
+  <!-- Grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  
+  <g transform="translate(100, 100)">
+    <!-- Powershell Box -->
+    <rect x="0" y="0" width="600" height="240" fill="#012456" stroke="#fafafa" stroke-width="1"/>
+    
+    <text x="20" y="30" fill="#fafafa" font-family="Consolas, monospace" font-size="14">Windows PowerShell</text>
+    <text x="20" y="50" fill="#fafafa" font-family="Consolas, monospace" font-size="14">Copyright (C) Microsoft Corporation. All rights reserved.</text>
+    
+    <text x="20" y="90" fill="#fafafa" font-family="Consolas, monospace" font-size="14"><tspan fill="#eab308">PS C:\&gt;</tspan> .\Invoke-Aegis.ps1 -Mode Baseline -Silent</text>
+    
+    <text x="20" y="130" fill="#10b981" font-family="Consolas, monospace" font-size="14">[+] AEGIS Initializing... Stateless mode active.</text>
+    <text x="20" y="150" fill="#a1a1aa" font-family="Consolas, monospace" font-size="14">[*] Capturing WMI instances (Win32_Service)</text>
+    <text x="20" y="170" fill="#a1a1aa" font-family="Consolas, monospace" font-size="14">[*] Capturing Active TCP connections</text>
+    <text x="20" y="190" fill="#a1a1aa" font-family="Consolas, monospace" font-size="14">[*] Hashing Critical System Files (SHA256)</text>
+    
+    <text x="20" y="220" fill="#10b981" font-family="Consolas, monospace" font-size="14">[✓] Baseline captured to memory. Waiting for drift analysis.</text>
+  </g>
+  <text x="40" y="410" fill="#3f3f46" font-family="monospace" font-size="14" font-weight="bold">SYSTEM ID: AEGIS // ARCHITECTURE: POWERSHELL STATELESS</text>
+</svg>

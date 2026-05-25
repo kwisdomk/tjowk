@@ -6,6 +6,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { TerminalButton } from '@/components/ui/terminal';
 import { profile } from '@/lib/content/profile';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geist = Geist({
   subsets: ['latin'],
@@ -20,6 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://kwaix.dev'),
   title: {
     default: `${profile.name} — The Journey`,
     template: `%s · ${profile.name}`,
@@ -58,6 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <TerminalButton />
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

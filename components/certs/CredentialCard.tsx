@@ -35,7 +35,7 @@ export function CredentialCard({ cert, index }: CredentialCardProps) {
         <div className="flex items-center gap-2 mb-1 flex-wrap">
           <p className="text-sm font-mono font-medium text-primary truncate">{cert.title}</p>
           {cert.credlyUrl && (
-            <Link href={cert.credlyUrl} target="_blank">
+            <Link href={cert.credlyUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-3 h-3 text-muted-custom hover:text-emerald transition-colors" />
             </Link>
           )}

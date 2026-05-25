@@ -45,10 +45,10 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
           <h2 className="text-lg font-semibold text-primary mb-2">{project.title}</h2>
           <p className="text-sm text-secondary-custom mb-4 leading-relaxed">{project.tagline}</p>
 
-          {/* Screenshot gallery strip */}
-          {project.screenshots && project.screenshots.length > 0 && (
+          {/* Architecture diagrams / visuals */}
+          {project.visuals && project.visuals.length > 0 && (
             <ScreenshotGallery
-              screenshots={project.screenshots}
+              screenshots={project.visuals.map((v) => v.src)}
               projectName={project.codename}
             />
           )}
@@ -94,6 +94,7 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
                 <Link
                   href={project.links.github}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
                 >
                   <Github className="w-3.5 h-3.5" />
@@ -104,12 +105,21 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
                 <Link
                   href={project.links.live}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>live</span>
                 </Link>
               )}
+              <div className="flex-1" />
+              <Link
+                href={`/projects/${project.id}`}
+                className="flex items-center gap-1.5 text-xs font-mono text-emerald hover:text-emerald-400 transition-colors bg-emerald/10 px-3 py-1.5 rounded-md border border-emerald/20 hover:border-emerald/40 ml-auto"
+              >
+                <span>deep dive</span>
+                <ExternalLink className="w-3 h-3" />
+              </Link>
             </div>
           </div>
         </div>

@@ -28,6 +28,7 @@ export function Footer() {
           <Link
             href={`https://github.com/${profile.handles.github_primary}`}
             target="_blank"
+            rel="noopener noreferrer"
             className="text-secondary-custom hover:text-emerald transition-colors"
           >
             github
@@ -35,6 +36,7 @@ export function Footer() {
           <Link
             href={`https://linkedin.com/in/${profile.handles.linkedin}`}
             target="_blank"
+            rel="noopener noreferrer"
             className="text-secondary-custom hover:text-emerald transition-colors"
           >
             linkedin

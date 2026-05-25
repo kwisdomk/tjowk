@@ -1,5 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+/**
+ * Escape HTML special characters to prevent injection in email templates.
+ */
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(req: NextRequest) {
   const { name, email, message } = await req.json();
 
@@ -14,6 +26,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Contact form not configured' }, { status: 500 });
   }
 
+  const safeName = escapeHtml(String(name));
+  const safeEmail = escapeHtml(String(email));
+  const safeMessage = escapeHtml(String(message));
+
   try {
     const { Resend } = await import('resend');
     const resend = new Resend(apiKey);
@@ -21,14 +37,14 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'The Journey <onboarding@resend.dev>',
       to: contactEmail,
-      subject: `Signal from ${name}`,
+      subject: `Signal from ${safeName}`,
       html: `
         <div style="font-family: monospace; max-width: 600px; margin: 0 auto; padding: 24px; background: #0a0a0a; color: #f5f5f5; border-radius: 12px;">
           <p style="color: #10B981; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">NEW MESSAGE // THE JOURNEY</p>
-          <p style="margin-bottom: 8px;"><strong style="color: #737373;">From:</strong> ${name}</p>
-          <p style="margin-bottom: 8px;"><strong style="color: #737373;">Email:</strong> ${email}</p>
+          <p style="margin-bottom: 8px;"><strong style="color: #737373;">From:</strong> ${safeName}</p>
+          <p style="margin-bottom: 8px;"><strong style="color: #737373;">Email:</strong> ${safeEmail}</p>
           <p style="margin-bottom: 16px; color: #737373;">─────────────────────</p>
-          <p style="white-space: pre-wrap; color: #d4d4d4;">${message}</p>
+          <p style="white-space: pre-wrap; color: #d4d4d4;">${safeMessage}</p>
         </div>
       `,
     });

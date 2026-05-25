@@ -11,9 +11,9 @@ export type SystemStatus = {
 };
 
 export const currentStatus: SystemStatus = {
-  operation: 'Building The Journey — portfolio v2',
+  operation: 'Portfolio Shipped — Active Operations',
   secondaryOp: 'RHSA I — RH124 Ch9 I/O Redirection',
   machine: 'Athena (HP Victus 15)',
   uptime: 'ACTIVE',
-  lastUpdated: 'Apr 2026',
+  lastUpdated: 'May 2026',
 };

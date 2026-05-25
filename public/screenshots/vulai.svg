@@ -1,0 +1,29 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#09090b"/>
+  <!-- Grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  
+  <g transform="translate(100, 80)">
+    <!-- Terminal Output -->
+    <rect x="0" y="0" width="600" height="280" fill="#000" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="30" y="40" fill="#10b981" font-family="monospace" font-size="16">$ vulai profile optimize --target="Cybersecurity Analyst"</text>
+    
+    <text x="30" y="80" fill="#3f3f46" font-family="monospace" font-size="14">[!] Analyzing current headline...</text>
+    <text x="30" y="100" fill="#ef4444" font-family="monospace" font-size="14">- "Passionate IT professional seeking opportunities"</text>
+    
+    <text x="30" y="140" fill="#3f3f46" font-family="monospace" font-size="14">[+] Applying vulai framework constraints...</text>
+    <text x="30" y="160" fill="#a1a1aa" font-family="monospace" font-size="14">&gt; Removing buzzwords: "Passionate", "seeking opportunities"</text>
+    <text x="30" y="180" fill="#a1a1aa" font-family="monospace" font-size="14">&gt; Injecting signal: "QRadar", "SOC", "Python"</text>
+    
+    <text x="30" y="220" fill="#3f3f46" font-family="monospace" font-size="14">[✓] Generated optimized headline:</text>
+    <text x="30" y="240" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">+ "Junior Cybersecurity Analyst | SOC Ops &amp; Automations (Python/Go)"</text>
+    
+    <rect x="30" y="250" width="10" height="20" fill="#10b981">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <text x="40" y="410" fill="#3f3f46" font-family="monospace" font-size="14" font-weight="bold">SYSTEM ID: VULAI // ARCHITECTURE: CLI TOOL</text>
+</svg>

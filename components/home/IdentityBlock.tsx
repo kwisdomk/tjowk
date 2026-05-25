@@ -69,6 +69,7 @@ export function IdentityBlock() {
         <Link
           href={`https://github.com/${profile.handles.github_primary}`}
           target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1.5 hover:text-emerald transition-colors"
         >
           <Github className="w-3 h-3" />
@@ -77,6 +78,7 @@ export function IdentityBlock() {
         <Link
           href={`https://linkedin.com/in/${profile.handles.linkedin}`}
           target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-1.5 hover:text-emerald transition-colors"
         >
           <Linkedin className="w-3 h-3" />

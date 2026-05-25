@@ -2,12 +2,20 @@
 // Add a project here → it appears on the site. No other file to touch.
 // Set featured: true for the 5 flagship projects shown at the top of /projects.
 //
-// SCREENSHOTS: Drop images into /public/screenshots/ and reference them here.
-// Example: screenshots: ['/screenshots/otdt-1.png', '/screenshots/otdt-2.png']
+// VISUALS: Drop images/SVGs into /public/screenshots/ and reference them here.
+// type: 'diagram' = architectural/conceptual diagram (SVG or illustration)
+// type: 'screenshot' = actual captured screenshot from the running application
+// Example: visuals: [{ src: '/screenshots/otdt-arch.svg', type: 'diagram' }]
 
 export type ProjectPhase = 'exploration' | 'systems' | 'production';
 export type ProjectStatus = 'active' | 'paused' | 'archived';
 export type ProjectCategory = 'ai' | 'security' | 'web' | 'infra' | 'tools';
+
+export type ProjectVisual = {
+  src: string;
+  type: 'diagram' | 'screenshot';
+  alt?: string;                        // accessible alt text
+};
 
 export type Project = {
   id: string;
@@ -27,11 +35,11 @@ export type Project = {
     github?: string;
     live?: string;
   };
-  // Optional screenshots — shown as a gallery on the project card.
-  // Place images in /public/screenshots/ and reference with absolute paths.
-  // e.g. ['/screenshots/myproject-1.png', '/screenshots/myproject-2.png']
-  screenshots?: string[];
+  // Optional visuals — shown as a gallery on the project card.
+  // Use type: 'diagram' for architectural SVGs, type: 'screenshot' for real captures.
+  visuals?: ProjectVisual[];
 };
+
 
 export const projects: Project[] = [
   // ─────────────────────────────────────────────
@@ -57,6 +65,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/kwisdomk/otdt',
     },
+    visuals: [{ src: '/screenshots/otdt.svg', type: 'diagram', alt: 'OTDT distributed architecture diagram' }],
   },
   {
     id: 'wisdomai',
@@ -78,6 +87,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/kwisdomk/wisdomai',
     },
+    visuals: [{ src: '/screenshots/wisdomai.svg', type: 'diagram', alt: 'WisdomAI multi-agent architecture diagram' }],
   },
   {
     id: 'haki',
@@ -99,6 +109,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/kwisdomk/haki',
     },
+    visuals: [{ src: '/screenshots/haki.svg', type: 'diagram', alt: 'HAKI orchestrator architecture diagram' }],
   },
   {
     id: 'vulai',
@@ -121,6 +132,7 @@ export const projects: Project[] = [
       github: 'https://github.com/kwisdomk/vulai',
       live: 'https://github.com/kwisdomk/vulai',
     },
+    visuals: [{ src: '/screenshots/vulai.svg', type: 'diagram', alt: 'vulai CLI terminal output diagram' }],
   },
   {
     id: 'aegis',
@@ -142,6 +154,7 @@ export const projects: Project[] = [
     links: {
       github: 'https://github.com/kwisdomk/aegis',
     },
+    visuals: [{ src: '/screenshots/aegis.svg', type: 'diagram', alt: 'AEGIS PowerShell diagnostic output diagram' }],
   },
 
   // ─────────────────────────────────────────────

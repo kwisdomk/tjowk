@@ -1,0 +1,36 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#09090b"/>
+  <!-- Grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  
+  <g transform="translate(150, 200)">
+    <!-- Central Node -->
+    <circle cx="250" cy="0" r="50" fill="#18181b" stroke="#10b981" stroke-width="2"/>
+    <text x="215" y="5" fill="#10b981" font-family="monospace" font-size="14">Orchestrator</text>
+    
+    <!-- Child Agents -->
+    <path d="M 250 0 L 100 -100" fill="none" stroke="#3f3f46" stroke-width="2"/>
+    <circle cx="100" cy="-100" r="30" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+    <text x="75" y="-95" fill="#a1a1aa" font-family="monospace" font-size="10">Triage</text>
+    
+    <path d="M 250 0 L 400 -100" fill="none" stroke="#3f3f46" stroke-width="2"/>
+    <circle cx="400" cy="-100" r="30" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+    <text x="370" y="-95" fill="#a1a1aa" font-family="monospace" font-size="10">Symptom</text>
+    
+    <path d="M 250 0 L 100 100" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+    <circle cx="100" cy="100" r="30" fill="#18181b" stroke="#10b981" stroke-width="2"/>
+    <text x="75" y="105" fill="#fafafa" font-family="monospace" font-size="10">Escalate</text>
+    
+    <path d="M 250 0 L 400 100" fill="none" stroke="#3f3f46" stroke-width="2"/>
+    <circle cx="400" cy="100" r="30" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+    <text x="375" y="105" fill="#a1a1aa" font-family="monospace" font-size="10">Follow-up</text>
+    
+    <path d="M 250 0 L 500 0" fill="none" stroke="#3f3f46" stroke-width="2"/>
+    <circle cx="500" cy="0" r="30" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+    <text x="475" y="5" fill="#a1a1aa" font-family="monospace" font-size="10">Audit log</text>
+  </g>
+  <text x="40" y="410" fill="#3f3f46" font-family="monospace" font-size="14" font-weight="bold">SYSTEM ID: WISDOMAI // ARCHITECTURE: MULTI-AGENT</text>
+</svg>

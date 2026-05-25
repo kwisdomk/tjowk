@@ -76,6 +76,7 @@ export default function ContactPage() {
               key={id}
               href={href}
               target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-3 p-4 rounded-xl border border-border-subtle bg-surface-2
                          hover:border-border-hover hover:bg-surface transition-all duration-200 group"
             >

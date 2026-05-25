@@ -43,7 +43,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {featuredProjects.slice(0, 3).map((project) => (
-            <Link key={project.id} href="/projects" className="block group">
+            <Link key={project.id} href={`/projects/${project.id}`} className="block group">
               <div
                 className="h-full p-5 rounded-2xl border backdrop-blur-xl transition-all duration-300
                             border-border-subtle bg-surface/50 hover:border-border-hover hover:bg-surface"

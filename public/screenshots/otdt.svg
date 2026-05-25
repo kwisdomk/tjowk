@@ -1,0 +1,38 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#09090b"/>
+  <!-- Grid -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#27272a" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  
+  <!-- Content -->
+  <g transform="translate(100, 150)">
+    <!-- Node -->
+    <rect x="0" y="0" width="120" height="60" fill="#18181b" stroke="#10b981" stroke-width="2" rx="4"/>
+    <text x="20" y="35" fill="#10b981" font-family="monospace" font-size="16">MAS 9.1</text>
+    
+    <!-- Connection -->
+    <path d="M 120 30 L 220 30" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+    <circle cx="220" cy="30" r="4" fill="#10b981"/>
+    
+    <!-- Node -->
+    <rect x="250" y="-30" width="140" height="120" fill="#18181b" stroke="#27272a" stroke-width="2" rx="4"/>
+    <text x="270" y="10" fill="#a1a1aa" font-family="monospace" font-size="14">ROKS Worker</text>
+    <text x="270" y="35" fill="#fafafa" font-family="monospace" font-size="12">Nodes: 6/6</text>
+    <text x="270" y="60" fill="#fafafa" font-family="monospace" font-size="12">Health: OK</text>
+    
+    <!-- Connection -->
+    <path d="M 390 30 L 490 30" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4"/>
+    <circle cx="490" cy="30" r="4" fill="#10b981"/>
+    
+    <!-- Terminal overlay -->
+    <rect x="420" y="-80" width="220" height="140" fill="#000" stroke="#3f3f46" stroke-width="1" rx="4"/>
+    <text x="435" y="-55" fill="#10b981" font-family="monospace" font-size="12">$ oc get nodes</text>
+    <text x="435" y="-35" fill="#a1a1aa" font-family="monospace" font-size="10">NAME       STATUS   AGE</text>
+    <text x="435" y="-15" fill="#fafafa" font-family="monospace" font-size="10">worker-1   Ready    12d</text>
+    <text x="435" y="5" fill="#fafafa" font-family="monospace" font-size="10">worker-2   Ready    12d</text>
+    <text x="435" y="25" fill="#fafafa" font-family="monospace" font-size="10">worker-3   Ready    12d</text>
+  </g>
+  <text x="40" y="410" fill="#3f3f46" font-family="monospace" font-size="14" font-weight="bold">SYSTEM ID: OTDT // ARCHITECTURE: DISTRIBUTED</text>
+</svg>
