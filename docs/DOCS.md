@@ -64,7 +64,7 @@ guides/
 | Hosting | Vercel (free tier) | Zero config. Auto-deploys on push to main. |
 | API Routes | Next.js serverless functions | No separate server needed. |
 | Email | Resend (free: 3,000/month) | Developer-first. Simple API. Owns the flow. |
-| Journal | MDX files (local) | File = post. No CMS. Version controlled. |
+| Journal | Markdown files (local) | File = post. No CMS. Version controlled. |
 
 ### Data
 | Layer | Choice | Reason |
@@ -128,7 +128,7 @@ port-wk/
 │   └── utils.ts                      # cn() and helpers
 │
 ├── content/
-│   └── journal/                      # MDX posts (future)
+│   └── journal/                      # Markdown posts (future)
 │       └── .gitkeep
 │
 ├── public/
@@ -278,7 +278,7 @@ IN PROGRESS
 
 **Current state:** Static page. Text: *"System journal is currently under construction."*
 
-**Future state:** MDX-powered. A file in `/content/journal/` = a post. No CMS. No backend.
+**Future state:** Markdown-powered. A file in `/content/journal/` = a post. No CMS. No backend.
 
 ---
 
@@ -495,7 +495,7 @@ Set via: Vercel Dashboard → Project → Settings → Environment Variables
 - [ ] SEO: meta tags, OG image, sitemap
 - [ ] Accessibility pass
 - [ ] Performance audit (Lighthouse 90+)
-- [ ] `/journal` MDX scaffold
+- [ ] `/journal` Markdown scaffold
 
 ### Future
 - [ ] Custom domain
@@ -507,7 +507,7 @@ Set via: Vercel Dashboard → Project → Settings → Environment Variables
 
 ## Hard Rules (Non-Negotiable)
 
-1. **No stock images. No AI images.** Screenshots of real work only.
+1. **No stock images. No AI images.** Real visuals of actual work only.
 2. **No fake metrics.** If you didn't measure it, don't write it.
 3. **No typewriter hero.** Banned.
 4. **No skill progress bars.** "Security: 87%" means nothing. Show builds.
@@ -543,7 +543,7 @@ Edit `/lib/content/projects.ts`. Add object to array. Push to GitHub. Done.
 Edit `/lib/content/status.ts`. Change values. Push. Done.
 
 **Q: How do I add a journal post?**
-Create `/content/journal/your-post.mdx` with frontmatter. Push. Done. (Once Session 3 is complete.)
+Create `/content/journal/your-post.md` with frontmatter. Push. Done. (Once Session 3 is complete.)
 
 **Q: Contact form isn't sending.**
 Check: (1) `RESEND_API_KEY` set in Vercel env vars, (2) `CONTACT_EMAIL` set, (3) Check Resend dashboard logs.
@@ -552,7 +552,7 @@ Check: (1) `RESEND_API_KEY` set in Vercel env vars, (2) `CONTACT_EMAIL` set, (3)
 Not yet. Probably not for a long time. Add only when you need user auth, comments, or data that can't live in a `.ts` file.
 
 **Q: Should I add a CMS?**
-Not yet. MDX files are your CMS. Simpler, faster, version-controlled.
+Not yet. Markdown files are your CMS. Simpler, faster, version-controlled.
 
 **Q: Custom domain?**
 When the site is fully built and live. See Guide 06-seo.md for setup steps.

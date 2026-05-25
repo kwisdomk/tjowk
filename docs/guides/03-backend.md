@@ -344,9 +344,9 @@ When you eventually need these, here's the plan:
 // Only build when you actually want to know traffic patterns
 ```
 
-### Journal (no backend needed — MDX)
+### Journal (no backend needed — Markdown)
 ```bash
-npm install @next/mdx gray-matter next-mdx-remote
+npm install remark-parse remark-rehype rehype-stringify rehype-highlight unified gray-matter
 ```
 
 ### Automated status update

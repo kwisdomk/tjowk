@@ -55,14 +55,14 @@ If you're unsure about anything, check this document first. If it's not here, ad
 | Hosting | **Vercel** (free tier) | Zero config deploy from GitHub. Auto-deploys on push. |
 | API Routes | **Next.js API Routes** | Serverless. No separate backend needed. |
 | Contact Form | **Resend** (free tier: 3,000 emails/month) | Developer-first email API. Simple. Reliable. No backend server needed. |
-| Journal/Blog | **MDX files** (local, no CMS) | Write in markdown. Version controlled. No database needed. Scaffold now, wire later. |
+| Journal/Blog | **Markdown files** (local, no CMS) | Write in markdown. Version controlled. No database needed. Scaffold now, wire later. |
 
 ### Data
 | Layer | Choice | Why |
 |---|---|---|
 | Project data | **Static TypeScript files** (`/lib/data/`) | No database needed. Edit a `.ts` file to add a project. |
 | Certifications | **Static TypeScript files** | Same pattern. |
-| Journal posts | **`.mdx` files** (`/content/journal/`) | File = post. No CMS. Add when ready. |
+| Journal posts | **`.md` files** (`/content/journal/`) | File = post. No CMS. Add when ready. |
 
 ### No Database
 This site has **no database**. Everything is static files or serverless API calls. This keeps it:
@@ -139,7 +139,7 @@ port-wk/
 │   └── utils.ts                  # cn() and other helpers
 │
 ├── content/
-│   └── journal/                  # MDX posts go here (scaffold only)
+│   └── journal/                  # Markdown posts go here (scaffold only)
 │       └── .gitkeep
 │
 ├── public/
@@ -268,7 +268,7 @@ IN PROGRESS
 
 **Current state:** Placeholder page. One line: *"Dispatches from the field. Coming."*
 
-**Future state:** MDX-powered blog. Write a `.mdx` file in `/content/journal/`, it appears automatically. No CMS. No database.
+**Future state:** Markdown-powered blog. Write a `.md` file in `/content/journal/`, it appears automatically. No CMS. No database.
 
 ---
 
@@ -422,19 +422,18 @@ npm install resend
 
 ## 7. Journal/Blog — How It Works (Future)
 
-Using **MDX** — Markdown + JSX. No CMS. No database. A file is a post.
+Using **Markdown**. No CMS. No database. A file is a post.
 
 ### Setup (when ready)
 ```bash
-npm install @next/mdx @mdx-js/loader @mdx-js/react
-npm install gray-matter    # for frontmatter parsing
-npm install next-mdx-remote # for rendering MDX
+npm install remark-parse remark-rehype rehype-stringify rehype-highlight
+npm install unified gray-matter
 ```
 
 ### Writing a post
-Create a file at `/content/journal/my-post.mdx`:
+Create a file at `/content/journal/my-post.md`:
 
-```mdx
+```md
 ---
 title: "How I deployed MAS 9.1 solo on OpenShift"
 date: "2026-03-19"
@@ -449,7 +448,7 @@ Content here...
 
 That's it. The post appears at `/journal/my-post`.
 
-### Why MDX over a CMS
+### Why Markdown over a CMS
 - Zero cost
 - Version controlled (your posts live in git)
 - Write in VS Code or any editor
@@ -560,7 +559,7 @@ Gap between cards: 24px.
 
 These are hard rules. Don't break them.
 
-1. **No stock images.** No AI-generated images. No Unsplash. If a project needs a visual, use a real screenshot of the actual project.
+1. **No stock images.** No AI-generated images. No Unsplash. If a project needs a visual, use a real visual of the actual project.
 
 2. **No fake metrics.** Don't write "Reduced audit time by 65%" unless you measured it. Write what actually happened.
 
@@ -605,7 +604,7 @@ These are hard rules. Don't break them.
 - [ ] Footer component
 
 ### To Do — Session 3 (Future)
-- [ ] `/journal` — MDX setup and first post
+- [ ] `/journal` — Markdown setup and first post
 - [ ] Custom domain
 - [ ] OG image for social sharing
 - [ ] Analytics (Vercel Analytics — free, one line to enable)
@@ -642,7 +641,7 @@ Open `lib/data/projects.ts`. Add a new object to the `projects` array. Set `feat
 Open `lib/data/status.ts`. Change the values. Push. Done.
 
 **Q: How do I write a journal post?**
-Create a `.mdx` file in `/content/journal/`. Give it frontmatter (title, date, tags). Push. Done. (Once journal is wired — Session 3.)
+Create a `.md` file in `/content/journal/`. Give it frontmatter (title, date, tags). Push. Done. (Once journal is wired — Session 3.)
 
 **Q: The contact form isn't sending emails.**
 Check: (1) `RESEND_API_KEY` is set in Vercel environment variables, (2) `CONTACT_EMAIL` is set, (3) Check Resend dashboard for errors.

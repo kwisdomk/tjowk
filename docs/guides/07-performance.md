@@ -19,7 +19,7 @@ This is a static-first site with no database. These targets are achievable witho
 
 ## Image Rules
 
-**Rule: No images unless they are screenshots of real work.**
+**Rule: No images unless they are real visuals of actual work.**
 
 When you do use images:
 
@@ -28,7 +28,7 @@ When you do use images:
 import Image from 'next/image';
 
 <Image
-  src="/screenshots/otdt-dashboard.png"
+  src="/visuals/otdt-dashboard.png"
   alt="OTDT dashboard showing geothermal plant monitoring"
   width={1200}
   height={675}
@@ -42,7 +42,7 @@ import Image from 'next/image';
 - Format: WebP preferred, PNG fallback
 - Max file size: 200KB per image
 - Dimensions: exactly what's displayed (don't load 2000px wide image for a 600px card)
-- Storage: `/public/screenshots/[project-id]/`
+- Storage: `/public/visuals/[project-id]/`
 
 ---
 

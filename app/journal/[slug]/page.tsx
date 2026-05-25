@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 export function generateStaticParams() {
   const slugs = getPostSlugs();
   return slugs.map((slug) => ({
-    slug: slug.replace(/\.mdx$/, ''),
+    slug: slug.replace(/\.md$/, ''),
   }));
 }
 

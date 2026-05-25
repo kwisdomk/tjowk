@@ -106,7 +106,7 @@ Create a static `og-image.png` (1200×630px) in `/public/`.
 
 Content: dark background, your name, tagline, maybe the emerald status dot. Keep it text-only — no AI images.
 
-Simple approach — generate it with HTML/CSS, screenshot at 1200×630, save as PNG.
+Simple approach — generate it with HTML/CSS, capture at 1200×630, save as PNG.
 
 What it should say:
 ```

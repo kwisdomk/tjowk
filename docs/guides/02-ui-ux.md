@@ -322,7 +322,7 @@ This is a public site. Minimum requirements:
    - `<h1>` once per page, `<h2>` for sections
    - `<a>` for links, `<button>` for actions
 
-4. **Alt text:** Any image (screenshot) gets descriptive alt text
+4. **Alt text:** Any image (project visual) gets descriptive alt text
 
 5. **Keyboard navigation:** Tab order must make logical sense
 

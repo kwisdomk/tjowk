@@ -58,7 +58,7 @@ export function getPostBySlug(slug: string) {
 
 /**
  * Render markdown content to HTML using unified/remark/rehype.
- * This avoids the React version conflict that next-mdx-remote causes on Next.js 16.
+ * The renderer uses plain Markdown, so this simply converts it to HTML.
  */
 export async function renderMarkdown(content: string): Promise<string> {
   const result = await unified()
