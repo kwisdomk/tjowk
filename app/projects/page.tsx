@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { getFeaturedProjects, getTimeline } from '@/lib/content/loaders';
 import { FeaturedCard } from '@/components/projects/FeaturedCard';
-import { TimelineSpine } from '@/components/projects/TimelineSpine';
+import { HorizontalTimeline } from '@/components/projects/HorizontalTimeline';
 
 export const metadata: Metadata = {
-  title: 'Operations Log',
+  title: "Wisdom's Projects",
   description: 'The full build history — every project, experiment, and milestone from 2024 to now.',
 };
 
@@ -49,8 +49,8 @@ export default function ProjectsPage() {
           <div className="flex-1 h-px bg-border-subtle" />
           <span className="label-mono text-muted-custom">2024 → now</span>
         </div>
-        <div className="max-w-2xl">
-          <TimelineSpine timeline={timeline} />
+        <div className="w-full">
+          <HorizontalTimeline timeline={timeline} />
         </div>
       </section>
 

@@ -26,8 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL('https://kwaix.dev'),
     title: {
-      default: `${profile.name} — The Journey`,
-      template: `%s · ${profile.name}`,
+      default: 'KWAIX',
+      template: '%s',
     },
     description: `${profile.role} · ${profile.location}. ${profile.tagline}`,
     keywords: ['cybersecurity', 'AI', 'IBM', 'Kenya', 'portfolio', 'Next.js'],

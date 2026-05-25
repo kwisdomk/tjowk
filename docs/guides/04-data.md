@@ -433,6 +433,39 @@ It stays in the timeline. It disappears from the featured section (UI filters by
 
 ---
 
+## CMS Editing via `/admin`
+
+Decap CMS is configured at `/admin` (static files in `public/admin/`).
+It provides a browser-based editing UI that commits directly to GitHub.
+
+### Setup Requirements
+
+**`/admin` is configured in code, but authentication requires external OAuth setup.** 
+The GitHub backend requires an OAuth proxy because this is hosted on Vercel (not Netlify).
+
+To make it work, you must set up an external OAuth application (e.g. GitHub OAuth App + an OAuth proxy like `decap-server`). 
+Once set up, you specify the `base_url` in `config.yml`. Until then, local development can be tested via `npx decap-server` and `local_backend: true`.
+
+> [!WARNING]
+> CMS content publishing triggers Git commits to `main`, and therefore **Vercel deployments** after publication. 
+> We use `publish_mode: editorial_workflow` to allow draft review before publishing, but a broken publish will fail the Vercel build.
+
+### Collection → File Mapping
+
+| CMS Collection | Content File |
+|---|---|
+| Profile | `content/profile.json` |
+| Status | `content/status.json` |
+| Certifications | `content/certs.json` |
+| Timeline | `content/timeline.json` |
+| Projects | `content/projects/{id}.json` |
+| Journal | `content/journal/{slug}.md` |
+
+> [!IMPORTANT]
+> **Project IDs are Immutable:** The project `id` is part of the URL contract and serves as the JSON filename. It **should not be changed** after creation. Changing it via CMS will update the JSON field but won't rename the file, breaking the build.
+
+---
+
 ## Current vs Target Architecture
 
 To avoid confusion during future refactoring, here is the exact state of the data layer:

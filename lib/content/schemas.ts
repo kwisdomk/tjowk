@@ -51,6 +51,10 @@ export const CertSchema = z.object({
 export type Cert = z.infer<typeof CertSchema>;
 export type CertStatus = z.infer<typeof CertStatusSchema>;
 
+export const CertsFileSchema = z.object({
+  certs: z.array(CertSchema),
+});
+
 export const TimelineEntryTypeSchema = z.enum(['project', 'experiment', 'milestone']);
 
 export const TimelineEntrySchema = z.object({
@@ -66,6 +70,10 @@ export const TimelineEntrySchema = z.object({
 
 export type TimelineEntry = z.infer<typeof TimelineEntrySchema>;
 export type TimelineEntryType = z.infer<typeof TimelineEntryTypeSchema>;
+
+export const TimelineFileSchema = z.object({
+  entries: z.array(TimelineEntrySchema),
+});
 
 export const ProjectPhaseSchema = z.enum(['exploration', 'systems', 'production']);
 export const ProjectStatusSchema = z.enum(['active', 'paused', 'archived']);

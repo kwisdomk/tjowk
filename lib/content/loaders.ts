@@ -11,7 +11,8 @@ import {
   ProfileSchema,
   SystemStatusSchema,
   CertSchema,
-  TimelineEntrySchema,
+  CertsFileSchema,
+  TimelineFileSchema,
   ProjectSchema,
   PostMetadataSchema,
   type Profile,
@@ -36,12 +37,12 @@ export function getStatus(): SystemStatus {
 
 export function getCerts(): Cert[] {
   const file = fs.readFileSync(path.join(CONTENT_DIR, 'certs.json'), 'utf-8');
-  return JSON.parse(file).map((c: any) => CertSchema.parse(c));
+  return CertsFileSchema.parse(JSON.parse(file)).certs;
 }
 
 export function getTimeline(): TimelineEntry[] {
   const file = fs.readFileSync(path.join(CONTENT_DIR, 'timeline.json'), 'utf-8');
-  return JSON.parse(file).map((t: any) => TimelineEntrySchema.parse(t));
+  return TimelineFileSchema.parse(JSON.parse(file)).entries;
 }
 
 export function getProjects(): Project[] {
