@@ -61,7 +61,23 @@ export function getProjects(): Project[] {
 }
 
 export function getFeaturedProjects(): Project[] {
-  return getProjects().filter(p => p.featured);
+  const featured = getProjects().filter((project) => project.featured);
+
+  for (const project of featured) {
+    if (project.featuredOrder === undefined) {
+      throw new Error(`Featured project "${project.id}" is missing featuredOrder.`);
+    }
+  }
+
+  const orders = new Set<number>();
+  for (const project of featured) {
+    if (orders.has(project.featuredOrder!)) {
+      throw new Error(`Duplicate featuredOrder "${project.featuredOrder}" found.`);
+    }
+    orders.add(project.featuredOrder!);
+  }
+
+  return featured.sort((a, b) => a.featuredOrder! - b.featuredOrder!);
 }
 
 export function getProjectById(id: string): Project | undefined {

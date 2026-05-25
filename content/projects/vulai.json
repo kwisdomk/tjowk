@@ -7,6 +7,7 @@
   "status": "active",
   "date": "Mar 2026",
   "featured": true,
+  "featuredOrder": 4,
   "problem": "LinkedIn profiles are saturated with generic corporate language that obscures real skills and repels serious recruiters and collaborators.",
   "solution": "Open-source prompt framework that systematically rewrites LinkedIn sections — headline, about, experience — into high-signal, data-backed language. No code. No API. Distributed as a usable framework via GitHub.",
   "impact": "Full release cycle. Distributed across LinkedIn and WhatsApp groups. Community adoption.",

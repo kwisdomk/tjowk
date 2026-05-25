@@ -464,6 +464,9 @@ Once set up, you specify the `base_url` in `config.yml`. Until then, local devel
 > [!IMPORTANT]
 > **Project IDs are Immutable:** The project `id` is part of the URL contract and serves as the JSON filename. It **should not be changed** after creation. Changing it via CMS will update the JSON field but won't rename the file, breaking the build.
 
+> [!IMPORTANT]
+> **`featuredOrder` is required on all featured projects and must be unique.** If `featured: true`, you must also set a unique positive integer for `featuredOrder`. The build will throw an error if this field is missing or duplicated. It controls display order on the homepage and `/projects` page — lower numbers appear first (1 = top).
+
 ---
 
 ## Current vs Target Architecture
