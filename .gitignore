@@ -33,3 +33,7 @@ yarn-error.log*
 *.swo
 *~
 .vercel
+
+# Private reference materials (never commit)
+.private/
+/Junior Infosec Ana.docx
