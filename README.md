@@ -1,6 +1,6 @@
 # The Journey — v2.0
-**Operator**: Wisdom Kinoti
-**Role**: Junior Cybersecurity Analyst | CS Student | IBM i3 Intern
+**Operator**: Wisdom Kinoti<br>
+**Role**: Junior Cybersecurity Analyst | CS Student | IBM i3 Intern <br>
 **Location**: Nairobi, Kenya
 
 A personal, modular operational log built with Next.js 16, Tailwind CSS, and Framer Motion.
