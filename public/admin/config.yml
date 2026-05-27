@@ -6,6 +6,9 @@ backend:
   auth_endpoint: api/auth
   auth_scope: public_repo
 
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
 collections:
   # Phase 1/2: Status-only collection.
   # Profile, certifications, timeline, projects, and journal collections

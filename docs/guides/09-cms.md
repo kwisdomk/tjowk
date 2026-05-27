@@ -58,9 +58,9 @@ For v1, changes should publish directly when saved. "Go live immediately"
 means the GitHub and Vercel flow starts automatically after publication; it
 does not mean a direct database mutation or an update with zero deploy time.
 
-The currently inspected Decap configuration includes
-`publish_mode: editorial_workflow`. That does not match the approved v1
-publishing model and must be addressed in a reviewed implementation phase.
+The status-seed implementation uses direct publishing by omitting Decap's
+editorial workflow. Later phases must preserve this model unless the product
+boundary is explicitly revised.
 
 ## Existing Architecture Direction
 
@@ -77,6 +77,10 @@ Verified repository direction:
 
 The status-seed candidate restricts Decap to status editing and direct
 publishing, pending production validation.
+
+Decap requires a global `media_folder` configuration to load. The status-seed
+retains `public/uploads` only as required platform configuration; no media
+field or media-management workflow is exposed in the v1 status editor.
 
 ## Admin And Authentication Boundary
 
