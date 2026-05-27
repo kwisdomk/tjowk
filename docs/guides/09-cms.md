@@ -75,14 +75,8 @@ Verified repository direction:
   `/api/callback`; they are candidate implementation work until deployed and
   production-tested.
 
-Current scope mismatches to resolve incrementally:
-
-- The inspected Decap configuration includes the `journal` collection, which
-  is out of scope for v1.
-- The inspected configuration enables project and journal creation before the
-  first status-edit workflow has been proven.
-- Direct publish is approved for v1, while the inspected configuration uses
-  editorial workflow.
+The status-seed candidate restricts Decap to status editing and direct
+publishing, pending production validation.
 
 ## Admin And Authentication Boundary
 
@@ -166,11 +160,11 @@ this first acceptance test.
 |---|---|
 | Verified in repository | JSON/Markdown public content exists under `content/` and Decap configuration exists at `public/admin/config.yml` |
 | Verified in repository | CMS config identifies GitHub backend, `https://kwaix.dev`, `/api/auth`, and `public_repo` in the inspected working tree |
-| Candidate/uncommitted | Next.js CMS OAuth routes at `app/api/auth/route.ts` and `app/api/callback/route.ts` |
+| Included in status-seed candidate | Next.js CMS OAuth routes at `app/api/auth/route.ts` and `app/api/callback/route.ts` |
 | Configured externally by owner | GitHub OAuth App and Vercel Production environment variables have been created; credential values are not documented here |
 | Not yet tested in production | Owner login through the custom OAuth bridge |
 | Not yet tested in production | CMS publication of a status change and resulting homepage update |
-| Requires phased correction | Existing Decap collection exposure and editorial workflow do not yet represent the approved v1 delivery sequence |
+| Included in status-seed candidate | Decap configuration restricted to status editing and direct publishing |
 
 ## Open Questions
 
