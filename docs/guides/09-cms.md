@@ -166,8 +166,8 @@ this first acceptance test.
 | Verified in repository | CMS config identifies GitHub backend, `https://kwaix.dev`, `/api/auth`, and `public_repo` in the inspected working tree |
 | Included in status-seed candidate | Next.js CMS OAuth routes at `app/api/auth/route.ts` and `app/api/callback/route.ts` |
 | Configured externally by owner | GitHub OAuth App and Vercel Production environment variables have been created; credential values are not documented here |
-| Not yet tested in production | Owner login through the custom OAuth bridge |
-| Not yet tested in production | CMS publication of a status change and resulting homepage update |
+| Production validated | Owner login through the custom OAuth bridge |
+| Production validated | CMS publication of a status change and resulting homepage update |
 | Included in status-seed candidate | Decap configuration restricted to status editing and direct publishing |
 
 ## Open Questions

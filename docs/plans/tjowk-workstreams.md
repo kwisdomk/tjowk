@@ -10,25 +10,13 @@
 
 ## Active Workstream
 
-### CMS Production Authentication
+### CMS Operations
 
 Status:
-- Planning under security review.
-
-Current blocker:
-- Production OAuth implementation is not yet approved.
-- Canonical-domain configuration must settle on `https://kwaix.dev` before OAuth App registration.
-
-Next approval gate:
-- Codex review of the revised authentication plan.
-- Wisdom approval of the final authentication approach, access policy, OAuth scope, and production testing method.
-
-Expected later implementation files:
-- `app/api/auth/route.ts`
-- `app/api/callback/route.ts`
-- `public/admin/config.yml`
-- `public/admin/index.html`
-- existing CMS/deployment documentation under `docs/`
+- Phase 1 owner login seed: complete.
+- Phase 2 current operation edit seed: complete.
+- Phase 7 production QA: active.
+- Next CMS phase: Profile/About editing.
 
 ## Queued Workstreams
 
