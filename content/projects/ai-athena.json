@@ -1,18 +1,23 @@
 {
   "id": "ai-athena",
   "codename": "ai-athena",
-  "title": "Athena — Personal AI Infrastructure",
-  "tagline": "Local AI stack running on Athena — inference, RAG, agent experiments",
-  "phase": "systems",
+  "title": "Local AI Experiments",
+  "tagline": "Experiments with local models, retrieval, tool use, and privacy-aware AI assistants",
+  "phase": "exploration",
   "status": "active",
   "date": "Apr 2026",
-  "featured": false,
+  "featured": true,
+  "featuredOrder": 3,
+  "problem": "Cloud-hosted AI services raise privacy, cost, and dependency concerns. Exploring what is possible with local inference and retrieval on consumer hardware.",
+  "solution": "Running local language models, building RAG pipelines, and experimenting with agent tool use. Focused on privacy-aware, offline-capable AI workflows.",
+  "impact": "Ongoing learning track. Informing how I think about AI-assisted security tooling and local intelligence.",
   "stack": [
     "Ollama",
     "LM Studio",
     "Python",
     "CUDA",
-    "Open WebUI"
+    "Open WebUI",
+    "RAG"
   ],
   "category": "ai"
 }

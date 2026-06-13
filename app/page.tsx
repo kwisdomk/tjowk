@@ -8,7 +8,7 @@ import { StatusBadge } from '@/components/ui/status-badge';
 
 export const metadata: Metadata = {
   title: "Wisdom's Root",
-  description: 'The Journey — Wisdom Kinoti. Junior Cybersecurity Analyst, CS Student, IBM i3 Intern. Nairobi, Kenya.',
+  description: 'KWAIX — Wisdom Kinoti. Junior Cybersecurity Analyst. AI-powered security, local AI, automation, and practical systems. Nairobi, Kenya.',
 };
 
 
@@ -23,23 +23,26 @@ export default function HomePage() {
       {/* ── Identity ─────────────────────────────── */}
       <section>
         <IdentityBlock profile={profile} />
+        <p className="mt-4 text-xs font-mono text-muted-custom max-w-2xl leading-relaxed">
+          A public record of systems, experiments, lessons, and technical growth across cybersecurity, AI-powered security, local AI, automation, and practical problem solving.
+        </p>
       </section>
 
       {/* ── Current Operations ───────────────────── */}
       <section>
-        <p className="label-mono mb-6">Current operations</p>
+        <p className="label-mono mb-6">Current focus</p>
         <CurrentOps status={status} />
       </section>
 
-      {/* ── Active Systems (compact preview) ─────── */}
+      {/* ── Current Work (compact preview) ────────── */}
       <section>
         <div className="flex items-center justify-between mb-6">
-          <p className="label-mono">Active systems</p>
+          <p className="label-mono">Current work</p>
           <Link
             href="/projects"
             className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
           >
-            Full operations log
+            All workloads
             <ArrowRight className="w-3 h-3" />
           </Link>
         </div>
@@ -82,9 +85,9 @@ export default function HomePage() {
         <p className="label-mono mb-6">Navigate</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { href: '/projects', label: 'Operations Log',    sub: 'All builds, all phases' },
+            { href: '/projects', label: 'Workloads',         sub: 'All builds, all phases' },
             { href: '/certs',    label: 'Credentials',       sub: 'Acquired capabilities' },
-            { href: '/about',    label: 'The Operator',      sub: 'Context, not biography' },
+            { href: '/about',    label: 'Identity',          sub: 'Context, not biography' },
             { href: '/contact',  label: 'Signal',            sub: 'How to reach me' },
           ].map(({ href, label, sub }) => (
             <Link key={href} href={href} className="group">

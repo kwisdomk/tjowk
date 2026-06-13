@@ -17,7 +17,7 @@ export const ProfileSchema = z.object({
   philosophy: z.string(),
   machine: z.object({
     name: z.string(),
-    specs: z.string(),
+    specs: z.string().optional(),
   }),
   openTo: z.string(),
 });
@@ -75,9 +75,9 @@ export const TimelineFileSchema = z.object({
   entries: z.array(TimelineEntrySchema),
 });
 
-export const ProjectPhaseSchema = z.enum(['exploration', 'systems', 'production']);
-export const ProjectStatusSchema = z.enum(['active', 'paused', 'archived']);
-export const ProjectCategorySchema = z.enum(['ai', 'security', 'web', 'infra', 'tools']);
+export const ProjectPhaseSchema = z.enum(['exploration', 'systems', 'production', 'concept', 'learning']);
+export const ProjectStatusSchema = z.enum(['active', 'paused', 'archived', 'maintained', 'exploring']);
+export const ProjectCategorySchema = z.enum(['ai', 'security', 'web', 'infra', 'tools', 'automation']);
 
 export const ProjectVisualSchema = z.object({
   src: z.string(),

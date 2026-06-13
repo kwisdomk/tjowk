@@ -22,27 +22,15 @@ const CAREER_ARC = [
   },
   {
     phase: 'Phase 2',
-    label: 'Leadership / GRC',
-    timing: '2027–2029',
+    label: 'Growth & Specialization',
+    timing: 'Next',
     active: false,
     items: [
       'OSCP',
       'CySA+ · CASP+',
-      'Senior analyst / pen tester',
-      'Team lead responsibility',
-      'ISO 27001 / GRC advisory',
-    ],
-  },
-  {
-    phase: 'Phase 3',
-    label: 'Executive',
-    timing: '~30–33',
-    active: false,
-    items: [
-      'CISSP',
-      'CISM',
-      'CISO or security firm founder',
-      'East African security infrastructure',
+      'Deeper analyst or pen testing experience',
+      'Team-level responsibility',
+      'GRC and compliance exposure',
     ],
   },
 ];
@@ -54,7 +42,7 @@ export default function AboutPage() {
 
       {/* ── Header ──────────────────────────────── */}
       <header>
-        <p className="label-mono mb-3">The operator</p>
+        <p className="label-mono mb-3">Identity</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
           {profile.name}
         </h1>
@@ -69,17 +57,21 @@ export default function AboutPage() {
         <p className="label-mono">Background</p>
         <div className="space-y-4 text-sm text-secondary-custom leading-relaxed max-w-2xl">
           <p>
+            I&apos;m currently pursuing a Bachelor&apos;s in Computer Science while building a
+            public record of work across cybersecurity, AI-powered security, local AI, automation,
+            and practical systems.
+          </p>
+          <p>
+            I&apos;m gaining project-based experience through the i3/IBM ecosystem, working
+            around cybersecurity, Red Hat, IBM technologies, and AI-assisted systems.
+          </p>
+          <p>
             Started in infrastructure, not code. Kenya Power. RK Shah. Close the Gap. Understanding
-            how systems actually run before learning to build them.
+            how systems actually run before learning to build them. The shift happened naturally —
+            operations to systems to intelligence. The same curiosity that drove understanding
+            physical infrastructure now drives understanding the software that controls it.
           </p>
           <p>
-            The shift happened naturally — operations to systems to intelligence. The same curiosity
-            that drove understanding physical infrastructure now drives understanding the software
-            that controls it. This is not a pivot. It is a continuation.
-          </p>
-          <p>
-            Now at Zetech University (BSc Computer Science, Year 2) and interning at IBM as a
-            Software Developer, working on Agentic AI systems using Granite and watsonx Orchestrate.
             Located in Nairobi, Kenya.
           </p>
         </div>
@@ -102,21 +94,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Machine ─────────────────────────────── */}
-      <section>
-        <p className="label-mono mb-4">The machine</p>
-        <div className="p-5 rounded-2xl border border-border-subtle bg-surface-2 max-w-sm">
-          <p className="text-sm font-mono font-bold mb-1" style={{ color: 'var(--text-primary)' }}>{profile.machine.name}</p>
-          <p className="text-xs font-mono text-secondary-custom">{profile.machine.specs}</p>
-          <p className="text-xs font-mono text-muted-custom mt-3">
-            Every build in this portfolio ran on this machine.
-          </p>
-        </div>
-      </section>
 
-      {/* ── Career arc ──────────────────────────── */}
+      {/* ── Career direction ─────────────────────── */}
       <section>
-        <p className="label-mono mb-6">Career arc</p>
+        <p className="label-mono mb-6">Career direction</p>
         <div className="space-y-4">
           {CAREER_ARC.map((phase) => (
             <div

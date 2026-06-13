@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 
-type StatusVariant = 'active' | 'paused' | 'archived' | 'complete' | 'in-progress' | 'planned' | 'stable' | 'critical';
+type StatusVariant = 'active' | 'paused' | 'archived' | 'complete' | 'in-progress' | 'planned' | 'stable' | 'critical' | 'maintained' | 'exploring';
 
 const variantStyles: Record<StatusVariant, string> = {
   active:       'border-emerald-500/20 text-emerald-600 dark:text-emerald-400 bg-emerald-500/10',
@@ -11,6 +11,8 @@ const variantStyles: Record<StatusVariant, string> = {
   'in-progress':'border-amber-500/20 text-amber-600 dark:text-amber-400 bg-amber-500/10',
   planned:      'border-neutral-500/20 text-neutral-600 dark:text-neutral-400 bg-neutral-500/10',
   critical:     'border-red-500/20 text-red-600 dark:text-red-400 bg-red-500/10',
+  maintained:   'border-blue-500/20 text-blue-600 dark:text-blue-400 bg-blue-500/10',
+  exploring:    'border-cyan-500/20 text-cyan-600 dark:text-cyan-400 bg-cyan-500/10',
 };
 
 const variantDots: Record<StatusVariant, string> = {
@@ -22,6 +24,8 @@ const variantDots: Record<StatusVariant, string> = {
   'in-progress':'bg-amber-500 dark:bg-amber-400',
   planned:      'bg-neutral-500 dark:bg-neutral-400',
   critical:     'bg-red-500 dark:bg-red-400',
+  maintained:   'bg-blue-500 dark:bg-blue-400',
+  exploring:    'bg-cyan-500 dark:bg-cyan-400',
 };
 
 const labelMap: Record<StatusVariant, string> = {
@@ -33,6 +37,8 @@ const labelMap: Record<StatusVariant, string> = {
   'in-progress':'IN PROGRESS',
   planned:      'PLANNED',
   critical:     'CRITICAL',
+  maintained:   'MAINTAINED',
+  exploring:    'EXPLORING',
 };
 
 interface StatusBadgeProps {
