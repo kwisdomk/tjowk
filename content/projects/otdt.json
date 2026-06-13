@@ -2,32 +2,19 @@
   "id": "otdt",
   "codename": "OTDT",
   "title": "OT Digital Twin",
-  "tagline": "Real-time industrial digital twin for geothermal plant operations",
-  "phase": "production",
-  "status": "active",
+  "tagline": "Internship project exploring operational technology monitoring and digital twin concepts",
+  "phase": "concept",
+  "status": "paused",
   "date": "Mar 2026",
-  "featured": true,
-  "featuredOrder": 1,
-  "problem": "No affordable remote monitoring solution for industrial OT environments in East Africa. Engineers fly to sites to read meters.",
-  "solution": "Solo deployment of IBM Maximo Application Suite 9.1 on a 6-node OpenShift ROKS cluster (Frankfurt region). Monte Carlo failure prediction, LSTM anomaly detection, Unity XR visualisation layer.",
-  "impact": "Presented at EAAAIW 2026 (CUEA). Validated by an Oil & Gas engineer. 30% PoC pathway to IBM Research Africa identified.",
+  "featured": false,
+  "problem": "Industrial OT environments in East Africa often lack affordable remote monitoring, requiring on-site visits for routine diagnostics.",
+  "solution": "Explored digital twin concepts for operational technology monitoring, infrastructure visibility, and AI-assisted insights. Built during an internship with limited resources and real constraints.",
+  "impact": "Presented at EAAAIW 2026. Details are intentionally limited because the work connects to internship, infrastructure, and organizational context.",
   "stack": [
-    "IBM MAS 9.1",
-    "OpenShift 4.19",
-    "IBM Cloud ROKS",
-    "watsonx.ai",
+    "Operational technology",
+    "Infrastructure monitoring",
     "Python",
-    "Unity XR"
+    "AI-assisted insights"
   ],
-  "category": "infra",
-  "links": {
-    "github": "https://github.com/kwisdomk/otdt"
-  },
-  "visuals": [
-    {
-      "src": "/screenshots/otdt.svg",
-      "type": "diagram",
-      "alt": "OTDT distributed architecture diagram"
-    }
-  ]
+  "category": "infra"
 }

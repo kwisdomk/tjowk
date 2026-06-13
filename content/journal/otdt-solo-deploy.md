@@ -1,52 +1,28 @@
 ---
-title: 'Deploying IBM MAS 9.1 solo on OpenShift ROKS — from zero to EAAAIW 2026 in 3 weeks'
+title: 'Field note on enterprise infrastructure constraints'
 date: '2026-05-25'
-tag: 'Infrastructure'
-summary: 'How I got a 6-node enterprise cluster running as a CS student with no budget and no team.'
+tag: 'Field note'
+summary: 'What I learned from working with enterprise-grade infrastructure during an internship project with real constraints.'
 ---
 
-When I decided to build the **OT Digital Twin (OTDT)** for EAAAIW 2026, I didn't fully grasp what I was signing up for. Deploying IBM Maximo Application Suite (MAS) 9.1 isn't like spinning up a Vercel app. It requires a Red Hat OpenShift cluster, massive compute resources, and a deep understanding of enterprise architecture.
+This was the project that taught me the most about what enterprise systems actually look like from the inside.
 
-I had zero budget, no team, and exactly 3 weeks.
+## What happened
 
-## The Architecture
+During an internship project, I worked on deploying and configuring an industrial digital twin system. The goal was operational technology monitoring — giving engineers remote visibility into asset health without requiring physical site visits.
 
-The goal was to run a robust MAS 9.1 deployment. This meant I needed:
-- A stable OpenShift (ROKS) cluster.
-- Sufficient worker nodes to handle the heavy MAS pods.
-- Persistent storage for databases and message queues.
+The tech stack involved cloud infrastructure, container orchestration, and AI-assisted monitoring components. The timeline was tight and the resources were limited.
 
-```
-IBM Cloud
-  └── ROKS Cluster (Frankfurt)
-        ├── Worker Node 1 → MAS Core
-        ├── Worker Node 2 → Manage Component
-        └── Worker Node 3 → IoT / Monitor
-```
+## What I learned
 
-## The Struggle
+**Constraints shape architecture.** When compute resources are limited and timelines are short, you learn quickly which decisions matter and which are noise. I spent more time on resource planning and automation than on the application logic itself.
 
-The hardest part wasn't the Kubernetes YAMLs or the terminal commands. It was managing the resources. As a student, enterprise-grade cloud credits are hard to come by. I had to:
-1. Optimize every single pod's requests/limits.
-2. Tear down environments daily to save credits.
-3. Automate the deployment process so I could rebuild the cluster in under an hour.
+**Enterprise systems are not tutorials.** The gap between "I understand containers" and "I can deploy and operate a multi-component enterprise platform" is enormous. Documentation helps, but the real learning happens when something breaks at 2am and you have to reason through the failure.
 
-### Scripting the Deployment
+**Automation is a force multiplier.** With limited resources, you build repeatable processes out of scripts. The deployment process had to be fast and consistent, which pushed me to think about infrastructure as code before I had a name for the practice.
 
-I ended up writing a series of Bash scripts to automate the OpenShift CLI (`oc`) commands. This saved me hours of manual configuration.
+## The takeaway
 
-```bash
-#!/bin/bash
-# A snippet from my deployment automation
-echo "Applying MAS namespace..."
-oc apply -f mas-namespace.yaml
+This project changed how I think about systems work. It was the first time I operated something that felt genuinely complex — not complex for a project, but complex by any measure. That distinction matters, and it is one reason I keep the details limited here. The work connects to real infrastructure, real organizations, and real constraints that are not mine to share publicly.
 
-echo "Setting up operator subscriptions..."
-oc apply -f mas-operator.yaml
-```
-
-## The Result
-
-By the time EAAAIW 2026 arrived, OTDT was fully functional. A 6-node enterprise cluster humming along, demonstrating real-time OT monitoring. It taught me more about systems architecture than any class ever could.
-
-The takeaway? Constraints breed creativity. If you don't have a team, build the automation to be your team.
+What I can share: it was the most I have ever learned in three weeks.

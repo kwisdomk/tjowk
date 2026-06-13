@@ -69,28 +69,21 @@
       "title": "RHSA I — RH124 Red Hat System Administration",
       "issuer": "Red Hat",
       "status": "in-progress",
-      "notes": "~46% complete · Chapter 9 I/O Redirection · 9 days lab remaining"
+      "notes": "Linux administration, users/groups, permissions, storage, networking, and service management."
     },
     {
       "id": "oscp",
       "title": "OSCP — Offensive Security Certified Professional",
       "issuer": "Offensive Security",
       "status": "planned",
-      "notes": "Phase 2 target"
+      "notes": "Future goal — offensive security depth"
     },
     {
       "id": "cysa",
       "title": "CySA+ — CompTIA Cybersecurity Analyst",
       "issuer": "CompTIA",
       "status": "planned",
-      "notes": "Phase 2 target"
-    },
-    {
-      "id": "cissp",
-      "title": "CISSP",
-      "issuer": "ISC2",
-      "status": "planned",
-      "notes": "Phase 3 — executive track"
+      "notes": "Future goal — defensive analysis depth"
     }
   ]
 }

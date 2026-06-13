@@ -1,0 +1,21 @@
+{
+  "id": "grove-vision",
+  "codename": "Grove Vision AI V2",
+  "title": "Edge AI Exploration",
+  "tagline": "Edge AI and computer vision exploration — privacy-aware local intelligence on embedded hardware",
+  "phase": "exploration",
+  "status": "exploring",
+  "date": "Jun 2026",
+  "featured": true,
+  "featuredOrder": 5,
+  "problem": "Most computer vision systems depend on cloud processing, creating latency, privacy, and connectivity issues. Exploring what is possible at the edge.",
+  "solution": "Experimenting with Grove Vision AI V2 for on-device inference — object detection, classification, and visual monitoring without cloud dependency.",
+  "impact": "Early exploration. Learning about embedded AI, edge deployment, and practical computer vision use cases.",
+  "stack": [
+    "Grove Vision AI V2",
+    "TensorFlow Lite",
+    "Python",
+    "Edge AI"
+  ],
+  "category": "ai"
+}

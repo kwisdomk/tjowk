@@ -18,22 +18,23 @@ export default function ProjectsPage() {
 
       {/* ── Header ──────────────────────────────── */}
       <header>
-        <p className="label-mono mb-3">Operations log</p>
+        <p className="label-mono mb-3">Workloads</p>
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
-          Everything I&apos;ve built.
+          Projects, experiments, and field work.
         </h1>
         <p className="mt-3 text-muted-custom font-mono text-sm max-w-xl">
-          Chronological record of every project, experiment, and milestone. The featured section covers
-          systems that reached production quality. The timeline covers everything else.
+          Chronological record of projects, experiments, and milestones. Featured work highlights
+          public-safe systems and learning tracks that best represent my current direction. Some
+          private, client, internship, or sensitive work is intentionally summarized only.
         </p>
       </header>
 
       {/* ── Featured ────────────────────────────── */}
       <section>
         <div className="flex items-center gap-4 mb-8">
-          <p className="label-mono">Featured systems</p>
+          <p className="label-mono">Featured work</p>
           <div className="flex-1 h-px bg-border-subtle" />
-          <span className="label-mono">{featuredProjects.length} systems</span>
+          <span className="label-mono">{featuredProjects.length} projects</span>
         </div>
         <div className="space-y-6">
           {featuredProjects.map((project, i) => (
