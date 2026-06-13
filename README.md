@@ -1,4 +1,4 @@
-# KWAIX - Kinoti Wisdom Xtreme AI
+# KWAIX
 
 **Wisdom Kinoti**  
 **Junior Cybersecurity Analyst**  
