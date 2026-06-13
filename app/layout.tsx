@@ -30,19 +30,19 @@ export async function generateMetadata(): Promise<Metadata> {
       template: '%s',
     },
     description: `${profile.role} · ${profile.location}. ${profile.tagline}`,
-    keywords: ['cybersecurity', 'AI', 'IBM', 'Kenya', 'portfolio', 'Next.js'],
+    keywords: ['cybersecurity', 'AI-powered security', 'local AI', 'automation', 'Kenya', 'KWAIX'],
     authors: [{ name: profile.name }],
     creator: profile.name,
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      title: `${profile.name} — The Journey`,
+      title: `${profile.name} — KWAIX`,
       description: profile.tagline,
-      siteName: 'The Journey',
+      siteName: 'KWAIX',
     },
     twitter: {
       card: 'summary',
-      title: `${profile.name} — The Journey`,
+      title: `${profile.name} — KWAIX`,
       description: profile.tagline,
     },
     robots: {

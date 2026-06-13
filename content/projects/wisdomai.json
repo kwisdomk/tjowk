@@ -7,7 +7,6 @@
   "status": "active",
   "date": "Feb 2026",
   "featured": false,
-  "featuredOrder": 2,
   "problem": "Patients in low-resource environments lack access to consistent medical triage, leading to delayed diagnoses and preventable deterioration.",
   "solution": "Multi-agent AI architecture using LangGraph for symptom triage, prescription lookup, and patient follow-up. WhatsApp as the delivery layer for accessibility in low-resource settings.",
   "impact": "Test cases validated. Built as a learning project exploring multi-agent AI patterns and health-tech accessibility.",

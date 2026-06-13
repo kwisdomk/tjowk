@@ -71,4 +71,4 @@ The data layer reflects one operator reality and is not designed for replication
 **Wisdom Kinoti**
 - **GitHub**: [kwisdomk](https://github.com/kwisdomk)
 - **LinkedIn**: [wikin](http://www.linkedin.com/in/wikin)
-- **Email**: wisdomkinoti@proton.me
+- Email: wisdomkinoti001@gmail.com
