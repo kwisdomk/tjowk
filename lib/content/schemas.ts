@@ -98,13 +98,20 @@ export const ProjectSchema = z.object({
   problem: z.string().optional(),
   solution: z.string().optional(),
   impact: z.string().optional(),
+  workflow: z.string().optional(),
   stack: z.array(z.string()),
   category: ProjectCategorySchema,
   links: z.object({
     github: z.string().optional(),
     live: z.string().optional(),
+    windowsScript: z.string().optional(),
+    linuxScript: z.string().optional(),
   }).optional(),
   visuals: z.array(ProjectVisualSchema).optional(),
+  platforms: z.array(z.object({
+    name: z.string(),
+    status: z.enum(['stable', 'beta', 'experimental', 'planned']),
+  })).optional(),
 });
 
 export type Project = z.infer<typeof ProjectSchema>;
