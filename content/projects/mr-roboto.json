@@ -1,20 +1,41 @@
 {
   "id": "mr-roboto",
   "codename": "Mr. Roboto",
-  "title": "Media Automation Utility",
-  "tagline": "Automation tool for media handling and workflow simplification — built as a practical utility project",
+  "title": "Portable Media Downloader",
+  "tagline": "Portable media download utility powered by yt-dlp and FFmpeg.",
   "phase": "systems",
   "status": "maintained",
-  "date": "May 2026",
+  "date": "Jan 2026 → Jul 2026",
   "featured": true,
   "featuredOrder": 2,
-  "problem": "Repetitive media processing tasks — renaming, sorting, converting, and organizing files — consume time that could go toward more meaningful work.",
-  "solution": "Python-based automation utility that handles common media workflow tasks. Designed for personal use and practical daily operations.",
-  "impact": "In active personal use. Reduces manual file handling overhead.",
+  "problem": "Downloading YouTube videos and other media had become tiring. I kept jumping from website to website just to find something that worked.\n\nAs a cybersecurity student, I also had to pay attention to domain names, redirects, ads, and other risks on shady download sites. Some sites were full of ads, some looked unsafe, and some locked file formats or longer videos behind paywalls.\n\nAt some point, the process stopped feeling worth the hassle. I wanted a safer, repeatable, terminal-based workflow I could control.",
+  "solution": "I started building Mr. Roboto as an AI-assisted utility, inspired by Mr. Robot. The \"robot\" idea fit the goal: a small tool that could handle repetitive media-download work from the terminal.\n\nMr. Roboto is a portable media downloader powered by yt-dlp and FFmpeg.\n\nWindows is the stable platform, supported through Batch and PowerShell launchers. Linux support is available in beta through a native Bash launcher, roboto.sh.\n\nThe project focuses on making media downloads more repeatable, reducing reliance on random download websites, and giving users a clearer local workflow with logs, dependency checks, and platform-specific launchers.",
+  "impact": "Mr. Roboto is in active personal use and has evolved from a Windows-first utility into a maintained portable downloader.\n\nThe current project state keeps Windows stable while introducing Linux beta support through a native Bash launcher. The repo now has clearer setup guidance, testing notes, changelog entries, and reporting instructions for Linux users.\n\nThe project also became a practical exercise in open-source maintenance: reviewing contributor work, limiting risky changes, improving documentation, and turning user feedback into safer platform support.",
+  "workflow": "I use a local AI-powered IDE to help generate and adjust code, while using ChatGPT as a planning, review, documentation, and debugging partner.\n\nThe workflow is not about letting AI blindly rewrite the project. I use AI tools to propose fixes, explore edge cases, improve documentation, and break larger changes into smaller updates I can review.\n\nMy role remains the maintainer. I review changes, test behavior, decide what is safe to keep, protect existing functionality, and make sure the project stays practical for real use.\n\nThis process has taught me that AI can speed up development, but it does not replace judgment. The important work is knowing what problem is being solved, checking whether the solution actually works, protecting stable behavior, and documenting changes clearly.",
   "stack": [
-    "Python",
+    "PowerShell",
+    "Bash",
+    "Batch",
+    "yt-dlp",
     "FFmpeg",
-    "Automation"
+    "Windows",
+    "Linux beta"
+  ],
+  "links": {
+    "github": "https://github.com/kwisdomk/Mr.Roboto",
+    "windowsScript": "https://github.com/kwisdomk/Mr.Roboto/blob/main/roboto.ps1",
+    "linuxScript": "https://github.com/kwisdomk/Mr.Roboto/blob/main/roboto.sh"
+  },
+  "platforms": [
+    { "name": "Windows", "status": "stable" },
+    { "name": "Linux", "status": "beta" }
+  ],
+  "visuals": [
+    {
+      "src": "/images/Mr.Roboto/Mr.Roboto%20Default%20View.png",
+      "type": "screenshot",
+      "alt": "Default Windows launcher view when Mr. Roboto starts."
+    }
   ],
   "category": "automation"
 }
