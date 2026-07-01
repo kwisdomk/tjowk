@@ -43,7 +43,7 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
         <div className="flex-1 flex flex-col">
           {/* Title + tagline */}
           <h2 className="text-lg font-semibold text-primary mb-2">{project.title}</h2>
-          <p className="text-sm text-secondary-custom mb-4 leading-relaxed">{project.tagline}</p>
+          <p className="text-sm text-secondary-custom dark:text-zinc-300 mb-4 leading-relaxed">{project.tagline}</p>
 
           {/* Architecture diagrams / visuals */}
           {project.visuals && project.visuals.length > 0 && (
@@ -59,19 +59,19 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
               {project.problem && (
                 <div className="rounded-xl border border-border-subtle bg-surface/30 p-4">
                   <p className="label-mono mb-1 text-emerald">The Problem</p>
-                  <p className="text-xs text-muted-custom leading-relaxed">{project.problem}</p>
+                  <p className="text-xs text-secondary-custom dark:text-zinc-300 leading-relaxed">{project.problem}</p>
                 </div>
               )}
               {project.solution && (
                 <div className="rounded-xl border border-border-subtle bg-surface/30 p-4">
                   <p className="label-mono mb-1 text-blue-500">The Solution</p>
-                  <p className="text-xs text-muted-custom leading-relaxed">{project.solution}</p>
+                  <p className="text-xs text-secondary-custom dark:text-zinc-300 leading-relaxed">{project.solution}</p>
                 </div>
               )}
               {project.impact && (
-                <div className="rounded-xl border border-emerald-500/10 bg-emerald-950/20 p-4">
-                  <p className="label-mono mb-1 text-emerald">Result</p>
-                  <p className="text-xs text-emerald-300/80 leading-relaxed">{project.impact}</p>
+                <div className="rounded-xl border border-emerald-600/25 bg-emerald-50/80 p-4 dark:border-emerald-500/10 dark:bg-emerald-950/20">
+                  <p className="label-mono mb-1 text-emerald-700 dark:text-emerald">Result</p>
+                  <p className="text-xs text-emerald-900/85 dark:text-emerald-300/80 leading-relaxed">{project.impact}</p>
                 </div>
               )}
             </div>
@@ -83,7 +83,7 @@ export function FeaturedCard({ project, index }: FeaturedCardProps) {
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2 py-0.5 rounded-md border border-border-subtle bg-surface/30 text-[10px] font-mono text-secondary-custom"
+                  className="px-2 py-0.5 rounded-md border border-border-subtle bg-surface/30 text-[10px] font-mono text-secondary-custom dark:text-zinc-300"
                 >
                   {tech}
                 </span>

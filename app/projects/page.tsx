@@ -22,7 +22,7 @@ export default function ProjectsPage() {
         <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>
           Projects, experiments, and field work.
         </h1>
-        <p className="mt-3 text-muted-custom font-mono text-sm max-w-xl">
+        <p className="mt-3 text-muted-custom dark:text-zinc-300 font-mono text-sm max-w-xl">
           Chronological record of projects, experiments, and milestones. Featured work highlights
           public-safe systems and learning tracks that best represent my current direction. Some
           private, client, internship, or sensitive work is intentionally summarized only.

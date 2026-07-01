@@ -60,7 +60,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
         <h2 className="text-xl md:text-2xl text-emerald font-mono-custom mb-6">
           {project.title}
         </h2>
-        <p className="text-base text-secondary-custom leading-relaxed max-w-2xl">
+        <p className="text-base text-secondary-custom dark:text-zinc-300 leading-relaxed max-w-2xl">
           {project.tagline}
         </p>
 
@@ -137,7 +137,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
               <h3 className="text-lg font-mono-custom text-primary mb-4 flex items-center gap-2 before:content-['//'] before:text-emerald">
                 The Problem
               </h3>
-              <p className="text-secondary-custom leading-relaxed text-sm">
+              <p className="text-secondary-custom dark:text-zinc-300 leading-relaxed text-sm">
                 {project.problem}
               </p>
             </section>
@@ -148,7 +148,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
               <h3 className="text-lg font-mono-custom text-primary mb-4 flex items-center gap-2 before:content-['//'] before:text-emerald">
                 The Solution
               </h3>
-              <p className="text-secondary-custom leading-relaxed text-sm whitespace-pre-line">
+              <p className="text-secondary-custom dark:text-zinc-300 leading-relaxed text-sm whitespace-pre-line">
                 {project.solution}
               </p>
             </section>
@@ -159,18 +159,18 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
               <h3 className="text-lg font-mono-custom text-primary mb-4 flex items-center gap-2 before:content-['//'] before:text-emerald">
                 AI-Assisted Development Workflow
               </h3>
-              <p className="text-secondary-custom leading-relaxed text-sm whitespace-pre-line">
+              <p className="text-secondary-custom dark:text-zinc-300 leading-relaxed text-sm whitespace-pre-line">
                 {project.workflow}
               </p>
             </section>
           )}
 
           {project.impact && (
-            <section className="p-6 rounded-xl border border-emerald-500/20 bg-emerald-950/10">
-              <h3 className="text-lg font-mono-custom text-emerald mb-4">
+            <section className="p-6 rounded-xl border border-emerald-600/25 bg-emerald-50/80 dark:border-emerald-500/20 dark:bg-emerald-950/10">
+              <h3 className="text-lg font-mono-custom text-emerald-700 dark:text-emerald mb-4">
                 Impact & Results
               </h3>
-              <p className="text-emerald-300/90 leading-relaxed text-sm">
+              <p className="text-emerald-900/85 dark:text-emerald-300/90 leading-relaxed text-sm">
                 {project.impact}
               </p>
             </section>
@@ -194,18 +194,18 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
 
           <section>
             <p className="label-mono mb-4 text-primary">Metadata</p>
-            <ul className="space-y-3 text-sm font-mono text-muted-custom">
+            <ul className="space-y-3 text-sm font-mono text-muted-custom dark:text-zinc-400">
               <li className="flex justify-between">
                 <span>Date:</span>
-                <span className="text-secondary-custom">{project.date}</span>
+                <span className="text-secondary-custom dark:text-zinc-300">{project.date}</span>
               </li>
               <li className="flex justify-between">
                 <span>Status:</span>
-                <span className="text-secondary-custom">{project.status}</span>
+                <span className="text-secondary-custom dark:text-zinc-300">{project.status}</span>
               </li>
               <li className="flex justify-between">
                 <span>Phase:</span>
-                <span className="text-secondary-custom">{project.phase}</span>
+                <span className="text-secondary-custom dark:text-zinc-300">{project.phase}</span>
               </li>
             </ul>
           </section>
@@ -219,7 +219,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom hover:text-emerald transition-colors"
+                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom dark:text-zinc-300 hover:text-emerald transition-colors"
                   >
                     <Github className="w-4 h-4" />
                     Repository
@@ -230,7 +230,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
                     href={project.links.windowsScript}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom hover:text-emerald transition-colors"
+                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom dark:text-zinc-300 hover:text-emerald transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Windows script
@@ -241,7 +241,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
                     href={project.links.linuxScript}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom hover:text-emerald transition-colors"
+                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom dark:text-zinc-300 hover:text-emerald transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Linux script
@@ -252,7 +252,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
                     href={project.links.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom hover:text-emerald transition-colors"
+                    className="flex items-center gap-2 text-sm font-mono text-secondary-custom dark:text-zinc-300 hover:text-emerald transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Deployment
