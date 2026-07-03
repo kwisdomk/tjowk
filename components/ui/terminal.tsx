@@ -6,7 +6,7 @@ import { X, Minus, Square, TerminalSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const FS: Record<string, string> = {
-  'README.md': 'The Journey\nOperator: Wisdom Kinoti\nRole: Junior Cybersecurity Analyst\nLocation: Nairobi, Kenya . UTC+3\nMachine: Athena (HP Victus 15 - i5-13420H / RTX 3050 / 8GB DDR4)\n\nphilosophos - not a persona. A disposition.',
+  'README.md': 'KWAIX Hub\nOperator: Wisdom Kinoti\nRole: Junior Cybersecurity Analyst\nLocation: Nairobi, Kenya · UTC+3\nMachine: Athena (HP Victus 15 - i5-13420H / RTX 3050 / 8GB DDR4)\n\nA living record of systems, experiments, lessons, and technical growth.\nThe journey continues — philosophos. Not a persona. A disposition.',
   '/etc/os-release': 'NAME="kOS"\nVERSION="2026.1"\nPRETTY_NAME="kOS Rolling"\nHOME_URL="https://kwaix.dev/"',
   '/etc/passwd': 'root:x:0:0:root:/root:/bin/bash\nwisdom:x:1000:1000:Wisdom Kinoti:/home/wisdom:/bin/zsh',
   'projects.txt': '[ACTIVE SYSTEMS]\n  OTDT      - OT Digital Twin. MAS 9.1 on OpenShift. EAAAIW 2026.\n  WisdomAI  - 6-agent WhatsApp health triage. 78 tests passed.\n  HAKI      - IBM DevDay. AI telemedicine. Team Lead.\n  vulai     - LinkedIn Optimization Framework. Open-source prompt framework.\n  AEGIS     - Windows diagnostics. Stateless. v1.0.',

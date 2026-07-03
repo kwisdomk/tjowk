@@ -7,8 +7,8 @@ import { ArrowRight } from 'lucide-react';
 import { StatusBadge } from '@/components/ui/status-badge';
 
 export const metadata: Metadata = {
-  title: "Wisdom's Root",
-  description: 'KWAIX — Wisdom Kinoti. Junior Cybersecurity Analyst. AI-powered security, local AI, automation, and practical systems. Nairobi, Kenya.',
+  title: "KWAIX Hub — Wisdom Kinoti",
+  description: 'Wisdom Kinoti — Junior Cybersecurity Analyst based in Nairobi, Kenya. Explore projects in cybersecurity, AI-powered security, local AI, automation, and practical systems. KWAIX Hub is a living record of technical growth.',
 };
 
 

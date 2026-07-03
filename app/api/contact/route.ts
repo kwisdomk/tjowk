@@ -35,12 +35,12 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(apiKey);
 
     await resend.emails.send({
-      from: 'The Journey <onboarding@resend.dev>',
+      from: 'KWAIX Hub <onboarding@resend.dev>',
       to: contactEmail,
       subject: `Signal from ${safeName}`,
       html: `
         <div style="font-family: monospace; max-width: 600px; margin: 0 auto; padding: 24px; background: #0a0a0a; color: #f5f5f5; border-radius: 12px;">
-          <p style="color: #10B981; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">NEW MESSAGE // THE JOURNEY</p>
+          <p style="color: #10B981; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;">NEW MESSAGE // KWAIX HUB</p>
           <p style="margin-bottom: 8px;"><strong style="color: #737373;">From:</strong> ${safeName}</p>
           <p style="margin-bottom: 8px;"><strong style="color: #737373;">Email:</strong> ${safeEmail}</p>
           <p style="margin-bottom: 16px; color: #737373;">─────────────────────</p>
