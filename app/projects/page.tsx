@@ -4,7 +4,7 @@ import { FeaturedCard } from '@/components/projects/FeaturedCard';
 import { HorizontalTimeline } from '@/components/projects/HorizontalTimeline';
 
 export const metadata: Metadata = {
-  title: "Wisdom's Projects",
+  title: "Projects",
   description: 'The full build history — every project, experiment, and milestone from 2024 to now.',
 };
 

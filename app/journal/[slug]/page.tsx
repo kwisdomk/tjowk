@@ -16,7 +16,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   try {
     const post = getPostBySlug(params.slug);
     return {
-      title: `${post.meta.title} | Journal`,
+      title: `${post.meta.title}`,
       description: post.meta.summary,
     };
   } catch {

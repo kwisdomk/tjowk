@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Contact Me',
-  description: 'How to reach Wisdom Kinoti.',
+  description: 'Get in touch with Wisdom Kinoti. Reach out for cybersecurity, AI, or technical collaboration opportunities.',
 };
 
 

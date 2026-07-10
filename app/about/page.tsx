@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { getProfile } from '@/lib/content/loaders';
 
 export const metadata: Metadata = {
-  title: 'Who Is Wisdom',
-  description: 'The person behind the work. Context, not biography.',
+  title: 'About Wisdom Kinoti',
+  description: 'About Wisdom Kinoti — Junior Cybersecurity Analyst in Nairobi, Kenya. Career arc, philosophy, and technical direction.',
 };
 
 const CAREER_ARC = [
