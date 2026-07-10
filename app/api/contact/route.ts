@@ -1,4 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
+import { z } from 'zod';
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required').max(100, 'Name is too long'),
+  email: z.string().trim().email('Invalid email address').max(254, 'Email is too long'),
+  message: z.string().trim().min(1, 'Message is required').max(5000, 'Message is too long'),
+  website: z.string().optional(),
+});
 
 /**
  * Escape HTML special characters to prevent injection in email templates.
@@ -12,31 +20,60 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
-export async function POST(req: NextRequest) {
-  const { name, email, message } = await req.json();
+export async function POST(req: Request) {
+  let body: unknown;
 
-  if (!name || !email || !message) {
-    return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json(
+      { error: 'Invalid request body.' },
+      { status: 400 }
+    );
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const parsed = contactSchema.safeParse(body);
+
+  if (!parsed.success) {
+    const message =
+      parsed.error.issues[0]?.message ?? 'Invalid contact form submission.';
+    return NextResponse.json(
+      { error: message },
+      { status: 400 }
+    );
+  }
+
+  const { name, email, message, website } = parsed.data;
+
+  // Honeypot: real users should never fill this.
+  // Return success silently so bots do not learn what triggered rejection.
+  if (website && website.trim().length > 0) {
+    return NextResponse.json({ success: true });
+  }
+
+  const resendApiKey = process.env.RESEND_API_KEY;
   const contactEmail = process.env.CONTACT_EMAIL;
 
-  if (!apiKey || !contactEmail) {
-    return NextResponse.json({ error: 'Contact form not configured' }, { status: 500 });
+  if (!resendApiKey || !contactEmail) {
+    console.error('Missing contact form environment variables.');
+    return NextResponse.json(
+      { error: 'Contact form is not configured.' },
+      { status: 500 }
+    );
   }
 
-  const safeName = escapeHtml(String(name));
-  const safeEmail = escapeHtml(String(email));
-  const safeMessage = escapeHtml(String(message));
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message);
 
   try {
     const { Resend } = await import('resend');
-    const resend = new Resend(apiKey);
+    const resend = new Resend(resendApiKey);
 
     await resend.emails.send({
       from: 'KWAIX Hub <onboarding@resend.dev>',
       to: contactEmail,
+      replyTo: email,
       subject: `Signal from ${safeName}`,
       html: `
         <div style="font-family: monospace; max-width: 600px; margin: 0 auto; padding: 24px; background: #0a0a0a; color: #f5f5f5; border-radius: 12px;">
@@ -51,7 +88,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Resend error:', error);
-    return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
+    console.error('Failed to send contact email:', error);
+    return NextResponse.json(
+      { error: 'Failed to send message.' },
+      { status: 500 }
+    );
   }
 }

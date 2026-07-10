@@ -9,6 +9,7 @@ type FormState = 'idle' | 'sending' | 'success' | 'error';
 export function ContactForm() {
   const [state, setState] = useState<FormState>('idle');
   const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [website, setWebsite] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ export function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website }),
       });
       setState(res.ok ? 'success' : 'error');
     } catch {
@@ -37,6 +38,7 @@ export function ContactForm() {
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             required
+            maxLength={100}
             placeholder="Your name"
             className="w-full bg-surface/30 border border-border-subtle rounded-xl px-4 py-2.5 text-sm font-mono text-primary
                        placeholder:text-muted-custom focus:outline-none focus:border-emerald focus:bg-surface/60 transition-all"
@@ -49,6 +51,7 @@ export function ContactForm() {
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             required
+            maxLength={254}
             placeholder="your@email.com"
             className="w-full bg-surface/30 border border-border-subtle rounded-xl px-4 py-2.5 text-sm font-mono text-primary
                        placeholder:text-muted-custom focus:outline-none focus:border-emerald focus:bg-surface/60 transition-all"
@@ -62,10 +65,25 @@ export function ContactForm() {
           value={form.message}
           onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
           required
+          maxLength={5000}
           rows={5}
           placeholder="What are you building?"
           className="w-full bg-surface/30 border border-border-subtle rounded-xl px-4 py-3 text-sm font-mono text-primary
                      placeholder:text-muted-custom focus:outline-none focus:border-emerald focus:bg-surface/60 transition-all resize-none"
+        />
+      </div>
+
+      {/* Honeypot: hidden from real users, bots auto-fill it */}
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
         />
       </div>
 
