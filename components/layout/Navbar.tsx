@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-// Removed status import
+import Image from 'next/image';
 import { ModeToggle } from '@/components/ui/theme-toggle';
 
 const NAV_LINKS = [
@@ -38,9 +38,13 @@ export function Navbar({ uptime }: { uptime: string }) {
 
           {/* Left — logo / identity */}
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="w-6 h-6 rounded-md bg-emerald-glow border border-emerald-dim flex items-center justify-center flex-shrink-0">
-              <span className="text-emerald text-[9px] font-mono font-bold">φ</span>
-            </span>
+            <Image
+              src="/brand/kwaix-logo.png"
+              alt="KWAIX Hub logo"
+              width={24}
+              height={24}
+              className="flex-shrink-0 object-contain rounded-sm"
+            />
             <span className="text-sm font-mono font-medium text-secondary-custom group-hover:text-primary transition-colors">
               kwisdomk
             </span>

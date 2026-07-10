@@ -10,6 +10,10 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
+  const logoData = await fetch(
+    new URL('../public/brand/kwaix-logo.png', import.meta.url)
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -31,16 +35,15 @@ export default async function Image() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '16px',
+              gap: '24px',
             }}
           >
-            <div
-              style={{
-                width: '48px',
-                height: '48px',
-                background: '#10b981',
-                borderRadius: '8px',
-              }}
+            {/* Using the arrayBuffer as src works natively in ImageResponse (Satori) */}
+            <img
+              src={logoData as any}
+              width="64"
+              height="64"
+              style={{ objectFit: 'contain' }}
             />
             <h1
               style={{
