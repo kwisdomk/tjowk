@@ -18,6 +18,19 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     return {
       title: `${post.meta.title}`,
       description: post.meta.summary,
+      alternates: {
+        canonical: `/journal/${params.slug}`,
+      },
+      openGraph: {
+        type: 'article',
+        title: post.meta.title,
+        description: post.meta.summary,
+        url: `/journal/${params.slug}`,
+      },
+      twitter: {
+        title: post.meta.title,
+        description: post.meta.summary,
+      },
     };
   } catch {
     return { title: 'Post Not Found' };
@@ -36,7 +49,7 @@ export default async function PostPage(props: { params: Promise<{ slug: string }
   const html = await renderMarkdown(post.content);
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20">
+    <div className="site-shell py-20">
       <Link 
         href="/journal"
         className="inline-flex items-center gap-2 text-xs font-mono text-muted-custom hover:text-emerald transition-colors mb-12"

@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { StatusBadge } from '@/components/ui/status-badge';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { VisualGallery } from '@/components/projects/VisualGallery';
 
 export function generateStaticParams() {
   return getProjects().map((project) => ({
@@ -20,6 +21,18 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   return {
     title: `${project.codename} — ${project.title}`,
     description: project.tagline,
+    alternates: {
+      canonical: `/projects/${project.id}`,
+    },
+    openGraph: {
+      title: `${project.codename} — ${project.title}`,
+      description: project.tagline,
+      url: `/projects/${project.id}`,
+    },
+    twitter: {
+      title: `${project.codename} — ${project.title}`,
+      description: project.tagline,
+    },
   };
 }
 
@@ -32,7 +45,7 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20">
+    <div className="site-shell py-20">
       <Link 
         href="/projects"
         className="inline-flex items-center gap-2 text-xs font-mono text-muted-custom hover:text-emerald transition-colors mb-12"
@@ -94,40 +107,11 @@ export default async function ProjectPage(props: { params: Promise<{ id: string 
 
       {/* Project Visuals */}
       {project.visuals && project.visuals.length > 0 && (
-        <figure className="mb-12">
-          <div className={`w-full rounded-xl border border-border-subtle bg-[#09090b] overflow-hidden relative ${
-            project.visuals[0].type === 'screenshot'
-              ? 'max-w-2xl mx-auto'
-              : 'aspect-video md:aspect-[21/9] flex items-center justify-center p-8'
-          }`}>
-            {project.visuals[0].type === 'screenshot' ? (
-              <Image
-                src={project.visuals[0].src}
-                alt={project.visuals[0].alt || `${project.codename} screenshot`}
-                width={800}
-                height={800}
-                className="w-full h-auto object-contain"
-              />
-            ) : (
-              <>
-                <Image
-                  src={project.visuals[0].src}
-                  alt={project.visuals[0].alt || `${project.codename} architecture diagram`}
-                  fill
-                  className="object-contain"
-                />
-                <span className="absolute bottom-3 right-3 text-[9px] font-mono text-muted-custom/50 uppercase tracking-wider">
-                  {project.visuals[0].type}
-                </span>
-              </>
-            )}
-          </div>
-          {project.visuals[0].alt && (
-            <figcaption className="mt-3 text-[11px] font-mono text-muted-custom text-center">
-              {project.visuals[0].alt}
-            </figcaption>
-          )}
-        </figure>
+        <VisualGallery 
+          visuals={project.visuals} 
+          projectName={project.codename} 
+          layout="grid" 
+        />
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">

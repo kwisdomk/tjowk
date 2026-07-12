@@ -4,6 +4,9 @@ import { getProfile } from '@/lib/content/loaders';
 export const metadata: Metadata = {
   title: 'About Wisdom Kinoti',
   description: 'About Wisdom Kinoti — Junior Cybersecurity Analyst in Nairobi, Kenya. Career arc, philosophy, and technical direction.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 const CAREER_ARC = [
@@ -38,7 +41,7 @@ const CAREER_ARC = [
 export default function AboutPage() {
   const profile = getProfile();
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 space-y-20">
+    <div className="site-shell py-20 space-y-20">
 
       {/* ── Header ──────────────────────────────── */}
       <header>
