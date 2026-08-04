@@ -32,6 +32,13 @@ Expected later implementation files:
 
 ## Queued Workstreams
 
+### `/core` Hidden Interface — Deferred
+
+- Status: documentation only; no route or implementation should exist.
+- Source of truth: [`core-page-deferred.md`](./core-page-deferred.md).
+- Two visual implementations were rejected because they did not match the intended composition.
+- Do not restart from code. Restart from an approved annotated wireframe and follow the gates in the deferred-feature record.
+
 ### Canonical Domain Migration
 
 - Make `https://kwaix.dev` the Vercel primary production domain.

@@ -5,8 +5,8 @@ export function Footer({ profile }: { profile: Profile }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border-subtle mt-24">
-      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <footer className="border-t border-border-subtle">
+      <div className="site-shell py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 
         {/* Left — identity */}
         <div>

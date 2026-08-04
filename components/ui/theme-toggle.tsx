@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { Moon, Sun } from 'lucide-react'
+import { Moon, Sun, Monitor } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { cn } from '@/lib/utils'
 
@@ -13,29 +13,52 @@ export function ModeToggle() {
     setMounted(true)
   }, [])
 
-  // Before mount: isDark is unknown — use neutral defaults to avoid hydration mismatch
-  const isDark = mounted ? theme === 'dark' : false
+  if (!mounted) {
+    return (
+      <div className="flex items-center justify-center w-[140px] h-12 rounded-lg border border-border-subtle bg-transparent" aria-hidden="true">
+        <span className="w-3.5 h-3.5 rounded-full bg-border-subtle animate-pulse" />
+      </div>
+    )
+  }
 
   return (
-    <button
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      aria-label="Toggle theme"
-      className={cn(
-        'relative flex items-center justify-center w-9 h-9 rounded-lg',
-        'border border-border-subtle hover:border-border-hover',
-        'bg-transparent hover:bg-surface-2',
-        'text-muted-custom hover:text-primary',
-        'transition-all duration-200',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
-      )}
-    >
-      {!mounted ? (
-        <span className="w-4 h-4 rounded-full bg-border-subtle animate-pulse" />
-      ) : isDark ? (
-        <Sun className="w-4 h-4" strokeWidth={1.75} />
-      ) : (
-        <Moon className="w-4 h-4" strokeWidth={1.75} />
-      )}
-    </button>
+    <div className="flex items-center p-0.5 rounded-lg border border-border-subtle bg-surface-2 gap-0.5" role="group" aria-label="Color theme">
+      <button
+        type="button"
+        onClick={() => setTheme('light')}
+        aria-label="Use light theme"
+        aria-pressed={theme === 'light'}
+        className={cn(
+          'flex items-center justify-center min-w-11 min-h-11 rounded-md transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+          theme === 'light' ? 'bg-surface text-primary shadow-sm border border-border-subtle' : 'text-muted-custom hover:text-primary border border-transparent'
+        )}
+      >
+        <Sun className="w-4 h-4" strokeWidth={2} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        onClick={() => setTheme('system')}
+        aria-label="Use system theme"
+        aria-pressed={theme === 'system'}
+        className={cn(
+          'flex items-center justify-center min-w-11 min-h-11 rounded-md transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+          theme === 'system' ? 'bg-surface text-primary shadow-sm border border-border-subtle' : 'text-muted-custom hover:text-primary border border-transparent'
+        )}
+      >
+        <Monitor className="w-4 h-4" strokeWidth={2} aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        onClick={() => setTheme('dark')}
+        aria-label="Use dark theme"
+        aria-pressed={theme === 'dark'}
+        className={cn(
+          'flex items-center justify-center min-w-11 min-h-11 rounded-md transition-all focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+          theme === 'dark' ? 'bg-surface text-primary shadow-sm border border-border-subtle' : 'text-muted-custom hover:text-primary border border-transparent'
+        )}
+      >
+        <Moon className="w-4 h-4" strokeWidth={2} aria-hidden="true" />
+      </button>
+    </div>
   )
 }

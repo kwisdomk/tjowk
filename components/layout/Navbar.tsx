@@ -34,19 +34,19 @@ export function Navbar({ uptime }: { uptime: string }) {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border-subtle bg-surface/80 backdrop-blur-2xl">
-        <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <div className="site-shell h-14 flex items-center justify-between">
 
           {/* Left — logo / identity */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" aria-label="KWAIX home" className="flex items-center gap-3 group">
             <Image
               src="/brand/kwaix-logo.png"
-              alt="KWAIX Hub logo"
+              alt="KWAIX logo"
               width={24}
               height={24}
               className="flex-shrink-0 object-contain rounded-sm"
             />
             <span className="text-sm font-mono font-medium text-secondary-custom group-hover:text-primary transition-colors">
-              kwisdomk
+              KWAIX
             </span>
           </Link>
 
@@ -64,7 +64,8 @@ export function Navbar({ uptime }: { uptime: string }) {
                       ? 'text-emerald bg-emerald-glow'
                       : 'text-muted-custom hover:text-primary hover:bg-surface-2'
                   )}
-                  aria-label={ariaLabel}
+                    aria-label={ariaLabel}
+                    aria-current={active ? 'page' : undefined}
                 >
                   {label}
                 </Link>
@@ -74,7 +75,7 @@ export function Navbar({ uptime }: { uptime: string }) {
 
           {/* Right — status + theme toggle + hamburger */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full border border-emerald-dim bg-emerald-glow">
+            <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded-full border border-emerald-dim bg-emerald-glow">
               <span className="pulse-dot" />
               <span className="text-[10px] font-mono text-emerald tracking-widest">
                 {uptime}
@@ -85,7 +86,7 @@ export function Navbar({ uptime }: { uptime: string }) {
             {/* Hamburger — mobile only */}
             <button
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg border border-border-subtle text-muted-custom hover:text-primary hover:bg-surface-2 transition-all"
+              className="md:hidden flex items-center justify-center min-w-11 min-h-11 rounded-lg border border-border-subtle text-muted-custom hover:text-primary hover:bg-surface-2 transition-all focus-visible:ring-2 focus-visible:ring-ring"
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
             >
@@ -126,7 +127,7 @@ export function Navbar({ uptime }: { uptime: string }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 top-14 z-40 md:hidden flex flex-col bg-surface/95 backdrop-blur-2xl border-t border-border-subtle"
+            className="fixed inset-0 top-14 z-[45] md:hidden flex flex-col bg-surface/95 backdrop-blur-2xl border-t border-border-subtle"
           >
             {/* Nav links */}
             <nav className="flex-1 overflow-y-auto px-6 pt-8 pb-6">
@@ -150,6 +151,7 @@ export function Navbar({ uptime }: { uptime: string }) {
                             : 'text-secondary-custom hover:text-primary hover:bg-surface-2 border border-transparent'
                         )}
                         aria-label={ariaLabel}
+                        aria-current={active ? 'page' : undefined}
                       >
                         <span>{label}</span>
                         {active && <span className="text-[10px] text-emerald">●</span>}

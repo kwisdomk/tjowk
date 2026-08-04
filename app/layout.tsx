@@ -113,13 +113,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <a href="#main-content" className="skip-link">Skip to main content</a>
           <Navbar uptime={status.uptime} />
-          <main className="pt-14">
+          <main id="main-content" className="pt-14 w-full min-w-0 flex-1">
             {children}
           </main>
           <Footer profile={profile} />
-          <TerminalButton />
+          <div className="floating-actions">
+            <TerminalButton className="!static" />
+          </div>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
