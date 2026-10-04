@@ -10,7 +10,7 @@
   :root {
     --nav-height: 3.5rem;
     --site-gutter: clamp(1rem, 3vw, 4rem);
-    --wide-max: 120rem;
+    --wide-max: 80rem;
     --reading-measure: 72ch;
 
     /* Core palette */

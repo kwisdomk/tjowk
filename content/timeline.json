@@ -126,15 +126,6 @@
       "projectId": "wisevoido"
     },
     {
-      "id": "wisdomai-26",
-      "date": "Feb 2026",
-      "year": 2026,
-      "title": "WisdomAI",
-      "type": "project",
-      "summary": "6-agent WhatsApp health triage system. LangGraph orchestration. 78 test cases.",
-      "projectId": "wisdomai"
-    },
-    {
       "id": "otdt-26",
       "date": "Mar 2026",
       "year": 2026,

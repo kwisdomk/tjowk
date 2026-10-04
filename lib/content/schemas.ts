@@ -3,6 +3,7 @@ import { z } from 'zod';
 export const ProfileSchema = z.object({
   name: z.string(),
   alias: z.string(),
+  avatar: z.string().optional(),
   handles: z.object({
     github_primary: z.string(),
     github_secondary: z.string(),
@@ -128,3 +129,29 @@ export const PostMetadataSchema = z.object({
 });
 
 export type PostMetadata = z.infer<typeof PostMetadataSchema> & { slug: string };
+
+export const UnknownItemSchema = z.object({
+  id: z.string(),
+  codename: z.string(),
+  title: z.string(),
+  concept: z.string(),
+  phase: z.enum(['incubation', 'quarantine', 'concept', 'r&d']),
+  status: z.enum(['HOLD', 'EXPLORING', 'DRAFT']),
+  date: z.string(),
+  deficit: z.array(z.string()),
+  graduationChecklist: z.array(z.string()),
+  blueprint: z.string(),
+  stack: z.array(z.string()),
+  links: z.object({
+    repo: z.string().optional(),
+    notes: z.string().optional(),
+  }).optional(),
+});
+
+export type UnknownItem = z.infer<typeof UnknownItemSchema>;
+
+export const UnknownsFileSchema = z.object({
+  items: z.array(UnknownItemSchema),
+});
+
+export type UnknownsFile = z.infer<typeof UnknownsFileSchema>;

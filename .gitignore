@@ -37,3 +37,8 @@ yarn-error.log*
 # Private reference materials (never commit)
 .private/
 /Junior Infosec Ana.docx
+
+# Local R&D Incubator & Snapshots (never commit to public repo)
+content/unknowns.json
+.snapshots/
+app/sandbox/

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/private/', '/api/'],
+        disallow: ['/private/', '/api/', '/unknowns'],
       },
     ],
     sitemap: 'https://kwaix.dev/sitemap.xml',

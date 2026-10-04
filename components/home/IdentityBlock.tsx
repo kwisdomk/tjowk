@@ -50,9 +50,21 @@ export function IdentityBlock({ profile }: { profile: Profile }) {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="border-l-2 border-emerald-dim pl-4"
       >
-        <p className="text-secondary-custom text-sm leading-relaxed italic">
-          &ldquo;{profile.tagline}&rdquo;
-        </p>
+        {(() => {
+          const [quote, author] = profile.tagline.includes(' — ')
+            ? profile.tagline.split(' — ')
+            : [profile.tagline, null];
+          return (
+            <p className="text-secondary-custom text-sm leading-relaxed">
+              <span className="italic">&ldquo;{quote}&rdquo;</span>
+              {author && (
+                <span className="not-italic text-xs text-muted-custom ml-2 font-mono">
+                  — {author}
+                </span>
+              )}
+            </p>
+          );
+        })()}
       </motion.blockquote>
 
       {/* Location + links */}
