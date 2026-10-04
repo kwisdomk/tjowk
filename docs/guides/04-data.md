@@ -302,7 +302,7 @@ export const profile: Profile = {
   handles_social: {
     github_primary:   "https://github.com/kwisdomk",
     github_secondary: "https://github.com/6ofHertz",
-    linkedin:         "https://linkedin.com/in/kwisdomk",
+    linkedin:         "https://linkedin.com/in/kwaix",
     email:            "",  // fill in with real email
   },
 };

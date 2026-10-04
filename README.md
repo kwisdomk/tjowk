@@ -70,5 +70,5 @@ Content is loaded through `lib/content/` and validated with Zod schemas.
 ## Contact
 
 - GitHub: [kwisdomk](https://github.com/kwisdomk)
-- LinkedIn: [wikin](http://www.linkedin.com/in/wikin)
+- LinkedIn: [kwaix](https://linkedin.com/in/kwaix)
 - Email: [WisdomK](wisdomkinoti001@gmail.com)

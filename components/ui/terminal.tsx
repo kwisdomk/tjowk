@@ -56,7 +56,7 @@ function makeCommands(setCwd: (c: string) => void): Record<string, CmdFn> {
     projects: () => ({ output: FS['projects.txt'] }),
     skills: () => ({ output: FS['skills.txt'] }),
     certs: () => ({ output: '[COMPLETE]\n  IBM QRadar SIEM L2          88%\n  IBM Agentic AI Hands-On     Mar 2026\n  Anthropic Claude 101        100%\n\n[IN PROGRESS]\n  ISC2 CC           -> Sep 2026\n  CompTIA Security+ -> 2026\n  RHSA I (RH124)    ~46%' }),
-    contact: () => ({ output: 'GitHub   github.com/kwisdomk\nLinkedIn linkedin.com/in/kwisdomk\nEmail    wisdomkinoti@proton.me' }),
+    contact: () => ({ output: 'GitHub   github.com/kwisdomk\nLinkedIn linkedin.com/in/kwaix\nEmail    wisdomkinoti@proton.me' }),
     exit: () => ({ output: 'Use the x button to close the terminal.' }),
   };
 }

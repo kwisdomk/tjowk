@@ -272,7 +272,7 @@ IN PROGRESS
 **Contains:**
 - Email (copy-to-clipboard)
 - GitHub: `kwisdomk` + `6ofHertz`
-- LinkedIn: `/in/kwisdomk`
+- LinkedIn: `/in/kwaix`
 - One line: *"Open to collaborations that are technically serious and contextually relevant — East African health tech, security tooling, AI infrastructure, or open-source with a point."*
 - Optional: Resend contact form (name + email + message)
 
