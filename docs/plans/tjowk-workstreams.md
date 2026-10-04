@@ -8,22 +8,33 @@
 - `https://www.kwaix.dev` should later permanently redirect to the apex domain.
 - The CV is private reference material only and must never be committed or published.
 
-## Active Workstream
+## Active Workstreams
+
+### Project ION — Platform Evolution & Design System
+
+- Status: Active on branch `ion`.
+- Source of truth: [`project-ion-charter.md`](./project-ion-charter.md).
+- North Star: Transform KWAIX.dev from a technically correct portfolio into a premium engineering platform while preserving its evidence-first philosophy.
+- Current phase: Phase 1 (Design system tokens, typography, surfaces, interactive primitives).
 
 ### CMS Production Authentication
 
 Status:
+
 - Planning under security review.
 
 Current blocker:
+
 - Production OAuth implementation is not yet approved.
 - Canonical-domain configuration must settle on `https://kwaix.dev` before OAuth App registration.
 
 Next approval gate:
+
 - Codex review of the revised authentication plan.
 - Wisdom approval of the final authentication approach, access policy, OAuth scope, and production testing method.
 
 Expected later implementation files:
+
 - `app/api/auth/route.ts`
 - `app/api/callback/route.ts`
 - `public/admin/config.yml`
@@ -31,6 +42,13 @@ Expected later implementation files:
 - existing CMS/deployment documentation under `docs/`
 
 ## Queued Workstreams
+
+### `/core` Hidden Interface — Deferred
+
+- Status: documentation only; no route or implementation should exist.
+- Source of truth: [`core-page-deferred.md`](./core-page-deferred.md).
+- Two visual implementations were rejected because they did not match the intended composition.
+- Do not restart from code. Restart from an approved annotated wireframe and follow the gates in the deferred-feature record.
 
 ### Canonical Domain Migration
 

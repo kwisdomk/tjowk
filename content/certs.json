@@ -4,22 +4,19 @@
       "id": "qradar-l2",
       "title": "IBM QRadar SIEM L2",
       "issuer": "IBM",
-      "status": "complete",
-      "score": "88%"
+      "status": "complete"
     },
     {
       "id": "qradar-l3",
       "title": "IBM QRadar SIEM L3 Tech Sales",
       "issuer": "IBM",
-      "status": "complete",
-      "score": "100%"
+      "status": "complete"
     },
     {
       "id": "qradar-arch",
       "title": "IBM QRadar Architecture & Sizing",
       "issuer": "IBM",
-      "status": "complete",
-      "score": "90%"
+      "status": "complete"
     },
     {
       "id": "ibm-agentic-ai",
@@ -33,7 +30,6 @@
       "title": "Anthropic Claude 101",
       "issuer": "Anthropic",
       "status": "complete",
-      "score": "100%",
       "date": "Mar 2026"
     },
     {

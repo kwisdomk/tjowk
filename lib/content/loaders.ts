@@ -15,12 +15,14 @@ import {
   TimelineFileSchema,
   ProjectSchema,
   PostMetadataSchema,
+  UnknownsFileSchema,
   type Profile,
   type SystemStatus,
   type Cert,
   type TimelineEntry,
   type Project,
   type PostMetadata,
+  type UnknownItem,
 } from './schemas';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -139,4 +141,11 @@ export async function renderMarkdown(content: string): Promise<string> {
     .process(content);
 
   return String(result);
+}
+
+export function getUnknowns(): UnknownItem[] {
+  const filePath = path.join(CONTENT_DIR, 'unknowns.json');
+  if (!fs.existsSync(filePath)) return [];
+  const file = fs.readFileSync(filePath, 'utf-8');
+  return UnknownsFileSchema.parse(JSON.parse(file)).items;
 }

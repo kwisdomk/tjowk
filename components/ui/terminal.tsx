@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { X, Minus, Square, TerminalSquare } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -56,7 +56,7 @@ function makeCommands(setCwd: (c: string) => void): Record<string, CmdFn> {
     projects: () => ({ output: FS['projects.txt'] }),
     skills: () => ({ output: FS['skills.txt'] }),
     certs: () => ({ output: '[COMPLETE]\n  IBM QRadar SIEM L2          88%\n  IBM Agentic AI Hands-On     Mar 2026\n  Anthropic Claude 101        100%\n\n[IN PROGRESS]\n  ISC2 CC           -> Sep 2026\n  CompTIA Security+ -> 2026\n  RHSA I (RH124)    ~46%' }),
-    contact: () => ({ output: 'GitHub   github.com/kwisdomk\nLinkedIn linkedin.com/in/kwisdomk\nEmail    wisdomkinoti@proton.me' }),
+    contact: () => ({ output: 'GitHub   github.com/kwisdomk\nLinkedIn linkedin.com/in/kwaix\nEmail    wisdomkinoti@proton.me' }),
     exit: () => ({ output: 'Use the x button to close the terminal.' }),
   };
 }
@@ -72,11 +72,47 @@ export function Terminal({ onClose }: TerminalProps) {
   const [histIdx, setHistIdx] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
   const COMMANDS = makeCommands(setCwd);
   const promptInline = 'wisdom@kOS:' + cwd + '$';
 
   useEffect(() => { inputRef.current?.focus(); }, []);
-  useEffect(() => { scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' }); }, [history]);
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: shouldReduceMotion ? 'auto' : 'smooth',
+    });
+  }, [history, shouldReduceMotion]);
+  useEffect(() => {
+    const handleDialogKeys = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (event.key !== 'Tab' || !dialogRef.current) return;
+
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), input:not([disabled]), [href], [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => !element.hasAttribute('hidden'));
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (!first || !last) return;
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', handleDialogKeys);
+    return () => document.removeEventListener('keydown', handleDialogKeys);
+  }, [onClose]);
 
   const handleCommand = useCallback((e: React.KeyboardEvent) => {
     if (e.key === 'ArrowUp') { e.preventDefault(); const idx = Math.min(histIdx + 1, cmdHistory.length - 1); setHistIdx(idx); setInput(cmdHistory[idx] ?? ''); return; }
@@ -97,31 +133,38 @@ export function Terminal({ onClose }: TerminalProps) {
 
   return (
     <motion.div
+      ref={dialogRef}
+      id="kos-terminal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="kos-terminal-title"
       initial={{ opacity: 0, scale: 0.96, y: 12 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96, y: 12 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
-      className="fixed inset-4 md:inset-[8%] z-50 flex flex-col rounded-xl overflow-hidden shadow-2xl glass"
+      className="fixed inset-4 md:inset-[8%] z-[70] flex flex-col rounded-xl overflow-hidden shadow-2xl glass"
     >
       <div className="flex items-center justify-between px-4 py-3 flex-shrink-0 select-none border-b border-border-subtle">
         <div className="flex items-center gap-2">
-          <button onClick={onClose} className="w-3 h-3 rounded-full bg-red-500/80 hover:bg-red-500 transition-colors flex items-center justify-center group">
-            <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100" />
+          <button onClick={onClose} aria-label="Close terminal" className="w-10 h-10 -m-3 rounded-full flex items-center justify-center group focus-visible:ring-2 focus-visible:ring-red-400">
+            <span className="w-3 h-3 rounded-full bg-red-500/80 group-hover:bg-red-500 transition-colors flex items-center justify-center">
+              <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100" aria-hidden="true" />
+            </span>
           </button>
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80 hover:bg-yellow-500 transition-colors" />
-          <div className="w-3 h-3 rounded-full bg-emerald-500/80 hover:bg-emerald-500 transition-colors" />
+          <div aria-hidden="true" className="w-3 h-3 rounded-full bg-yellow-500/80" />
+          <div aria-hidden="true" className="w-3 h-3 rounded-full bg-emerald-500/80" />
         </div>
         <div className="flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
           <TerminalSquare className="w-4 h-4 text-emerald" />
-          <span className="text-xs font-mono tracking-wider text-muted-custom">kOS Terminal</span>
+          <span id="kos-terminal-title" className="text-xs font-mono tracking-wider text-secondary-custom">kOS Terminal</span>
         </div>
-        <div className="flex items-center gap-2 text-muted-custom">
-          <Minus className="w-3.5 h-3.5 cursor-pointer hover:text-primary transition-colors" />
-          <Square className="w-3.5 h-3.5 cursor-pointer hover:text-primary transition-colors" />
+        <div className="flex items-center gap-2 text-muted-custom" aria-hidden="true">
+          <Minus className="w-3.5 h-3.5" />
+          <Square className="w-3.5 h-3.5" />
         </div>
       </div>
 
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 font-mono text-xs leading-relaxed text-secondary-custom" onClick={() => inputRef.current?.focus()}>
+      <div ref={scrollRef} role="log" aria-live="polite" className="flex-1 overflow-y-auto p-4 space-y-3 font-mono text-xs leading-relaxed text-secondary-custom" onClick={() => inputRef.current?.focus()}>
         {history.map((item, i) => (
           <div key={i}>
             {item.command && (
@@ -137,7 +180,7 @@ export function Terminal({ onClose }: TerminalProps) {
 
       <div className="flex items-center gap-2 px-4 py-3 flex-shrink-0 border-t border-border-subtle">
         <span className="text-emerald font-mono text-xs whitespace-nowrap">{promptInline}</span>
-        <input ref={inputRef} type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleCommand} className="flex-1 bg-transparent font-mono text-xs text-primary border-none outline-none caret-emerald" spellCheck={false} autoComplete="off" autoCorrect="off" />
+        <input ref={inputRef} aria-label="Terminal command" type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={handleCommand} className="flex-1 bg-transparent font-mono text-xs text-primary border-none outline-none caret-emerald" spellCheck={false} autoComplete="off" autoCorrect="off" />
         <span className="w-2 h-4 animate-pulse bg-emerald/80" />
       </div>
     </motion.div>
@@ -148,14 +191,37 @@ interface TerminalButtonProps { className?: string; }
 
 export function TerminalButton({ className }: TerminalButtonProps) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const closeTerminal = useCallback(() => {
+    setOpen(false);
+    window.requestAnimationFrame(() => triggerRef.current?.focus());
+  }, []);
   return (
     <>
-      <AnimatePresence>{open && <Terminal onClose={() => setOpen(false)} />}</AnimatePresence>
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[60] bg-black/45 backdrop-blur-sm"
+            />
+            <Terminal onClose={closeTerminal} />
+          </>
+        )}
+      </AnimatePresence>
       <button
+        ref={triggerRef}
+        type="button"
         onClick={() => setOpen((o) => !o)}
-        className={cn('fixed bottom-6 right-6 z-40 flex items-center gap-2 px-3 py-2 rounded-xl glass', 'text-xs font-mono transition-all duration-200', 'text-muted-custom hover:text-emerald', open ? 'text-emerald' : '', className)}
+        aria-haspopup="dialog"
+        aria-expanded={open}
+        aria-controls="kos-terminal"
+        className={cn('fixed bottom-6 right-6 z-30 min-h-11 flex items-center gap-2 px-3 py-2 rounded-xl glass', 'text-xs font-mono transition-all duration-200', 'text-muted-custom hover:text-emerald', open ? 'text-emerald' : '', className)}
       >
-        <TerminalSquare className="w-3.5 h-3.5" />
+        <TerminalSquare className="w-3.5 h-3.5" aria-hidden="true" />
         {open ? 'close' : 'Terminal'}
       </button>
     </>

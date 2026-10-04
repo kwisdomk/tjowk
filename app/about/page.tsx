@@ -1,10 +1,42 @@
 import type { Metadata } from 'next';
 import { getProfile } from '@/lib/content/loaders';
+import { Briefcase, Building2, GraduationCap, Server } from 'lucide-react';
+import { OperatorPortrait } from '@/components/about/OperatorPortrait';
 
 export const metadata: Metadata = {
   title: 'About Wisdom Kinoti',
   description: 'About Wisdom Kinoti — Junior Cybersecurity Analyst in Nairobi, Kenya. Career arc, philosophy, and technical direction.',
+  alternates: {
+    canonical: '/about',
+  },
 };
+
+const EXPERIENCE = [
+  {
+    org: 'i3 Technologies',
+    role: 'Software Developer / Cybersecurity Intern',
+    scope: 'Agentic AI workflows and cybersecurity tooling across the IBM technology ecosystem, including Granite, watsonx Orchestrate, and QRadar SIEM.',
+    timing: 'Jan 2026 → Present',
+    location: 'Nairobi, Kenya',
+    icon: Building2,
+  },
+  {
+    org: 'Infrastructure Operations',
+    role: 'Systems & Hardware Foundation',
+    scope: 'Hands-on operational systems, power, and hardware foundations across Kenya Power, RK Shah, and Close the Gap. Understanding how physical systems run before building software on top of them.',
+    timing: 'Pre-2024',
+    location: 'Nairobi, Kenya',
+    icon: Server,
+  },
+  {
+    org: 'Zetech University',
+    role: 'BSc Computer Science',
+    scope: 'CS fundamentals, systems programming, mathematics, algorithms, and networks.',
+    timing: 'Sep 2024 → Present',
+    location: 'Nairobi, Kenya',
+    icon: GraduationCap,
+  },
+];
 
 const CAREER_ARC = [
   {
@@ -38,38 +70,82 @@ const CAREER_ARC = [
 export default function AboutPage() {
   const profile = getProfile();
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 space-y-20">
+    <div className="site-shell py-20 space-y-20">
 
-      {/* ── Header ──────────────────────────────── */}
-      <header>
-        <p className="label-mono mb-3">Identity</p>
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4" style={{ color: 'var(--text-primary)' }}>
-          {profile.name}
-        </h1>
-        <p className="text-xl font-mono text-emerald mb-6">{profile.alias}</p>
-        <p className="text-secondary-custom leading-relaxed max-w-2xl">
-          {profile.philosophy}
-        </p>
+      {/* ── Header with Operator Portrait ────────── */}
+      <header className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="md:col-span-7 space-y-4">
+          <p className="label-mono">Identity // Operator</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-primary font-mono-custom">
+            {profile.name}
+          </h1>
+          <p className="text-xl font-mono text-emerald">{profile.alias}</p>
+          <p className="text-secondary-custom dark:text-zinc-300 leading-relaxed text-sm md:text-base pt-2">
+            {profile.philosophy}
+          </p>
+        </div>
+
+        <div className="md:col-span-5 flex justify-center md:justify-end">
+          <OperatorPortrait
+            avatar={profile.avatar}
+            name={profile.name}
+            location={profile.location}
+            timezone={profile.timezone}
+          />
+        </div>
       </header>
 
-      {/* ── Background ──────────────────────────── */}
+      {/* ── Experience & Foundation (Scannable) ───── */}
+      <section className="space-y-6">
+        <div className="flex items-center gap-4">
+          <p className="label-mono">Experience & Foundation</p>
+          <div className="flex-1 h-px bg-border-subtle" />
+          <span className="label-mono">Verified tracks</span>
+        </div>
+
+        <div className="space-y-4">
+          {EXPERIENCE.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.org}
+                className="p-5 rounded-2xl border border-border-subtle bg-surface-2/60 backdrop-blur-xl transition-all hover:border-border"
+              >
+                <div className="flex items-start justify-between gap-4 flex-wrap mb-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg border border-border-subtle bg-surface flex items-center justify-center text-emerald flex-shrink-0">
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <h2 className="text-base font-mono-custom font-bold text-primary">{item.org}</h2>
+                      <p className="text-xs font-mono text-emerald">{item.role}</p>
+                    </div>
+                  </div>
+                  <span className="text-[10px] font-mono px-2.5 py-1 rounded-full border border-border-subtle bg-surface text-muted-custom">
+                    {item.timing}
+                  </span>
+                </div>
+                <p className="text-xs font-mono text-secondary-custom dark:text-zinc-300 leading-relaxed mt-3 pl-9">
+                  {item.scope}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── Narrative Background ────────────────── */}
       <section className="space-y-5">
         <p className="label-mono">Background</p>
         <div className="space-y-4 text-sm text-secondary-custom leading-relaxed max-w-2xl">
           <p>
-            I&apos;m currently pursuing a Bachelor&apos;s in Computer Science while building a
-            public record of work across cybersecurity, AI-powered security, local AI, automation,
-            and practical systems.
+            I&apos;m pursuing a Bachelor&apos;s in Computer Science while building a public
+            record of work across cybersecurity, local AI, automation, and practical systems.
           </p>
           <p>
-            I&apos;m gaining project-based experience through the i3/IBM ecosystem, working
-            around cybersecurity, Red Hat, IBM technologies, and AI-assisted systems.
-          </p>
-          <p>
-            Started in infrastructure, not code. Kenya Power. RK Shah. Close the Gap. Understanding
-            how systems actually run before learning to build them. The shift happened naturally —
-            operations to systems to intelligence. The same curiosity that drove understanding
-            physical infrastructure now drives understanding the software that controls it.
+            Started in physical infrastructure, not code: Kenya Power, RK Shah, Close the Gap.
+            Understanding how operational systems run before learning to build software on top of them.
+            The shift happened naturally — operations to systems to intelligence.
           </p>
           <p>
             Located in Nairobi, Kenya.
@@ -89,11 +165,10 @@ export default function AboutPage() {
           <p className="text-sm text-secondary-custom leading-relaxed max-w-xl">
             This shows up in the work. Every project starts with understanding the problem before
             touching a keyboard. Every tool is chosen for what it actually does, not what it
-            signals. Every abandoned project stays on the timeline — it happened, and it taught something.
+            signals.
           </p>
         </div>
       </section>
-
 
       {/* ── Career direction ─────────────────────── */}
       <section>

@@ -12,6 +12,7 @@ import type { ProjectVisual } from '@/lib/content/schemas';
 interface VisualGalleryProps {
   visuals: ProjectVisual[];
   projectName: string;
+  layout?: 'strip' | 'grid';
 }
 
 interface LightboxProps {
@@ -89,7 +90,7 @@ function Lightbox({ visuals, projectName, initialIndex, onClose }: LightboxProps
 
       {/* Main image */}
       <div
-        className="relative z-10 w-full max-w-5xl px-4 flex items-center justify-center"
+        className="relative z-10 w-full max-w-5xl px-4 flex items-center justify-center h-[75vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Prev */}
@@ -103,7 +104,7 @@ function Lightbox({ visuals, projectName, initialIndex, onClose }: LightboxProps
           </button>
         )}
 
-        <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -113,7 +114,7 @@ function Lightbox({ visuals, projectName, initialIndex, onClose }: LightboxProps
               animate="center"
               exit="exit"
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              className="absolute inset-0"
+              className="absolute inset-0 flex items-center justify-center"
             >
               <Image
                 src={visuals[current].src}
@@ -180,27 +181,65 @@ function Lightbox({ visuals, projectName, initialIndex, onClose }: LightboxProps
 
 // ─── Gallery Strip (shown on the card) ──────────────────────────────────────
 
-export function VisualGallery({ visuals, projectName }: VisualGalleryProps) {
+export function VisualGallery({ visuals, projectName, layout = 'strip' }: VisualGalleryProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   if (!visuals || visuals.length === 0) return null;
 
-  const preview = visuals.slice(0, 3);
-  const remaining = visuals.length - preview.length;
+  const preview = layout === 'strip' ? visuals.slice(0, 3) : visuals;
+  const remaining = layout === 'strip' ? visuals.length - preview.length : 0;
 
   return (
     <>
-      {/* Gallery strip */}
-      <div className="relative mb-5 -mx-6 md:-mx-8 px-6 md:px-8">
-        {/* Top fade */}
-        <div className="absolute inset-x-0 top-0 h-px bg-border-subtle/50" />
+      {layout === 'strip' ? (
+        <div className="relative mb-5 -mx-6 md:-mx-8 px-6 md:px-8">
+          {/* Top fade */}
+          <div className="absolute inset-x-0 top-0 h-px bg-border-subtle/50" />
 
-        <div className="flex gap-2 py-3">
-          {preview.map((visual, i) => (
+          <div className="flex gap-2 py-3">
+            {preview.map((visual, i) => (
+              <button
+                key={i}
+                onClick={() => setLightboxIndex(i)}
+                className="relative flex-1 aspect-video rounded-lg overflow-hidden border border-border-subtle bg-surface/30 group/shot hover:border-emerald-500/30 transition-all duration-200"
+                aria-label={`View ${projectName} ${visual.type} ${i + 1}`}
+              >
+                <Image
+                  src={visual.src}
+                  alt={visual.alt || `${projectName} ${visual.type} ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover/shot:scale-105"
+                  sizes="(max-width: 768px) 33vw, 20vw"
+                />
+                {/* Overlay on last item if there are more */}
+                {i === preview.length - 1 && remaining > 0 && (
+                  <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-1">
+                    <ImageIcon className="w-4 h-4 text-white/70" />
+                    <span className="text-xs font-mono text-white/70">+{remaining} more</span>
+                  </div>
+                )}
+                {/* Zoom hint on hover */}
+                {!(i === preview.length - 1 && remaining > 0) && (
+                  <div className="absolute inset-0 bg-black/0 group-hover/shot:bg-black/30 flex items-center justify-center transition-all duration-200">
+                    <ZoomIn className="w-5 h-5 text-white opacity-0 group-hover/shot:opacity-100 transition-opacity duration-200" />
+                  </div>
+                )}
+              </button>
+            ))}
+          </div>
+
+          {/* Bottom fade */}
+          <div className="absolute inset-x-0 bottom-0 h-px bg-border-subtle/50" />
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+          {visuals.map((visual, i) => (
             <button
               key={i}
               onClick={() => setLightboxIndex(i)}
-              className="relative flex-1 aspect-video rounded-lg overflow-hidden border border-border-subtle bg-surface/30 group/shot hover:border-emerald-500/30 transition-all duration-200"
+              className={`relative rounded-xl overflow-hidden border border-border-subtle bg-surface/30 group/shot hover:border-emerald-500/30 transition-all duration-200 ${
+                visuals.length === 1 ? 'col-span-full aspect-video md:aspect-[21/9]' : 'aspect-video'
+              }`}
               aria-label={`View ${projectName} ${visual.type} ${i + 1}`}
             >
               <Image
@@ -208,28 +247,20 @@ export function VisualGallery({ visuals, projectName }: VisualGalleryProps) {
                 alt={visual.alt || `${projectName} ${visual.type} ${i + 1}`}
                 fill
                 className="object-cover transition-transform duration-300 group-hover/shot:scale-105"
-                sizes="(max-width: 768px) 33vw, 20vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
-              {/* Overlay on last item if there are more */}
-              {i === preview.length - 1 && remaining > 0 && (
-                <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-1">
-                  <ImageIcon className="w-4 h-4 text-white/70" />
-                  <span className="text-xs font-mono text-white/70">+{remaining} more</span>
-                </div>
-              )}
-              {/* Zoom hint on hover */}
-              {!(i === preview.length - 1 && remaining > 0) && (
-                <div className="absolute inset-0 bg-black/0 group-hover/shot:bg-black/30 flex items-center justify-center transition-all duration-200">
-                  <ZoomIn className="w-5 h-5 text-white opacity-0 group-hover/shot:opacity-100 transition-opacity duration-200" />
-                </div>
-              )}
+              <div className="absolute inset-0 bg-black/0 group-hover/shot:bg-black/30 flex items-center justify-center transition-all duration-200">
+                <ZoomIn className="w-6 h-6 text-white opacity-0 group-hover/shot:opacity-100 transition-opacity duration-200" />
+              </div>
+              <div className="absolute bottom-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md rounded-md flex items-center gap-1.5">
+                <span className="text-[9px] font-mono text-white/80 uppercase tracking-wider">
+                  {visual.type}
+                </span>
+              </div>
             </button>
           ))}
         </div>
-
-        {/* Bottom fade */}
-        <div className="absolute inset-x-0 bottom-0 h-px bg-border-subtle/50" />
-      </div>
+      )}
 
       {/* Lightbox portal */}
       <AnimatePresence>

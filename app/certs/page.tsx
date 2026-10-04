@@ -5,6 +5,9 @@ import { CredentialCard } from '@/components/certs/CredentialCard';
 export const metadata: Metadata = {
   title: 'Certifications',
   description: 'Acquired capabilities — certifications complete, in progress, and planned.',
+  alternates: {
+    canonical: '/certs',
+  },
 };
 
 
@@ -15,7 +18,7 @@ export default function CertsPage() {
   const inProgress = certs.filter((c) => c.status === 'in-progress');
   const planned    = certs.filter((c) => c.status === 'planned');
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
+    <div className="site-shell py-20 space-y-16">
 
       {/* ── Header ──────────────────────────────── */}
       <header>

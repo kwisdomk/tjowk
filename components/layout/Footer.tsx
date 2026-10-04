@@ -5,8 +5,8 @@ export function Footer({ profile }: { profile: Profile }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border-subtle mt-24">
-      <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <footer className="border-t border-border-subtle">
+      <div className="site-shell py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
 
         {/* Left — identity */}
         <div>
@@ -19,9 +19,17 @@ export function Footer({ profile }: { profile: Profile }) {
         </div>
 
         {/* Center — philosophy */}
-        <p className="text-xs text-secondary-custom max-w-sm text-center hidden md:block italic">
-          &ldquo;{profile.tagline}&rdquo;
-        </p>
+        {(() => {
+          const [quote, author] = profile.tagline.includes(' — ')
+            ? profile.tagline.split(' — ')
+            : [profile.tagline, null];
+          return (
+            <p className="text-xs text-secondary-custom max-w-sm text-center hidden md:block">
+              <span className="italic">&ldquo;{quote}&rdquo;</span>
+              {author && <span className="not-italic text-muted-custom ml-1.5 font-mono">— {author}</span>}
+            </p>
+          );
+        })()}
 
         {/* Right — links */}
         <div className="flex items-center gap-4 text-xs font-mono">

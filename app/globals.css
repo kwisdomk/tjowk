@@ -8,6 +8,11 @@
 @layer base {
   /* ── LIGHT MODE (default / :root) ─────────── */
   :root {
+    --nav-height: 3.5rem;
+    --site-gutter: clamp(1rem, 3vw, 4rem);
+    --wide-max: 80rem;
+    --reading-measure: 72ch;
+
     /* Core palette */
     --black:         #f8f8f6;
     --surface:       #ffffff;
@@ -18,11 +23,11 @@
     /* Text */
     --text-primary:  #0f0f0e;
     --text-secondary: #4a4a46;
-    --text-muted:    #9a9a94;
+    --text-muted:    #5c5c57;
     --glass-bg:      rgba(255, 255, 255, 0.75);
 
     /* Emerald — brand accent */
-    --emerald:       #059669;
+    --emerald:       #047857;
     --emerald-dim:   rgba(5, 150, 105, 0.08);
     --emerald-border: rgba(5, 150, 105, 0.25);
     --emerald-glow:  rgba(5, 150, 105, 0.12);
@@ -69,7 +74,7 @@
     /* Text */
     --text-primary:  #f5f5f5;
     --text-secondary: #a3a3a3;
-    --text-muted:    #525252;
+    --text-muted:    #8a8a8a;
     --glass-bg:      rgba(17, 17, 17, 0.6);
 
     /* Emerald — the one accent */
@@ -119,11 +124,19 @@
   }
 
   body {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
     background-color: var(--black);
     color: var(--text-primary);
     font-family: var(--font-sans), system-ui, sans-serif;
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.2s ease;
+  }
+
+  :where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--emerald);
+    outline-offset: 3px;
   }
 
   ::selection {
@@ -162,6 +175,49 @@
 }
 
 @layer components {
+  /* Wide visual shell — full viewport surfaces with fluid, bounded gutters */
+  .site-shell {
+    width: 100%;
+    max-width: var(--wide-max);
+    margin-inline: auto;
+    padding-left: max(var(--site-gutter), env(safe-area-inset-left));
+    padding-right: max(var(--site-gutter), env(safe-area-inset-right));
+  }
+
+  /* Editorial measure remains readable even inside a full-width surface */
+  .reading-measure {
+    max-width: var(--reading-measure);
+  }
+
+  .floating-actions {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0.75rem;
+    left: max(0.75rem, env(safe-area-inset-left));
+    z-index: 100;
+    transform: translateY(-200%);
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--emerald-border);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    background: var(--surface);
+    font-family: var(--font-mono), monospace;
+    font-size: 0.75rem;
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+
   /* Glass card — base surface */
   .glass {
     background: var(--glass-bg);
@@ -302,4 +358,24 @@
 
 .animate-fade-in-left {
   animation: fade-in-left 0.4s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .pulse-dot::before {
+    animation: none !important;
+    opacity: 0;
+  }
 }

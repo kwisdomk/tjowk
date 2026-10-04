@@ -6,6 +6,9 @@ import { HorizontalTimeline } from '@/components/projects/HorizontalTimeline';
 export const metadata: Metadata = {
   title: "Projects",
   description: 'The full build history — every project, experiment, and milestone from 2024 to now.',
+  alternates: {
+    canonical: '/projects',
+  },
 };
 
 
@@ -14,7 +17,7 @@ export default function ProjectsPage() {
   const featuredProjects = getFeaturedProjects();
   const timeline = getTimeline();
   return (
-    <div className="max-w-7xl mx-auto px-6 py-20 space-y-24">
+    <div className="site-shell py-20 space-y-24">
 
       {/* ── Header ──────────────────────────────── */}
       <header>

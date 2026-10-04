@@ -1,10 +1,11 @@
 {
   "name": "Wisdom Kinoti",
   "alias": "φιλόσοφος",
+  "avatar": "/images/founder.jpeg",
   "handles": {
     "github_primary": "kwisdomk",
     "github_secondary": "6ofHertz",
-    "linkedin": "wikin",
+    "linkedin": "kwaix",
     "email": "wisdomkinoti@proton.me"
   },
   "role": "Junior Cybersecurity Analyst",
@@ -15,7 +16,7 @@
   ],
   "location": "Nairobi, Kenya",
   "timezone": "UTC+3",
-  "tagline": "I blueprint things before they escape. Most of them turn into something real.",
+  "tagline": "Now, with God's help, I shall become myself. — Søren Kierkegaard",
   "philosophy": "I work at the intersection of cybersecurity, AI-powered systems, and philosophical inquiry. The approach is the same: deep system understanding over surface-level completion.",
   "machine": {
     "name": "Athena"

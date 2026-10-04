@@ -5,13 +5,16 @@ import { getAllPosts } from '@/lib/content/loaders';
 export const metadata: Metadata = {
   title: 'Journal',
   description: 'Field notes from the build. Dispatches from active systems, real deployments, and things worth writing down.',
+  alternates: {
+    canonical: '/journal',
+  },
 };
 
 export default function JournalPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
+    <div className="site-shell py-20 space-y-16">
 
       {/* ── Header ──────────────────────────────── */}
       <header>

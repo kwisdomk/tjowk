@@ -7,6 +7,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Contact Me',
   description: 'Get in touch with Wisdom Kinoti. Reach out for cybersecurity, AI, or technical collaboration opportunities.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 
@@ -39,7 +42,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20 space-y-16">
+    <div className="site-shell py-20 space-y-16">
 
       {/* ── Header ──────────────────────────────── */}
       <header>

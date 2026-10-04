@@ -18,7 +18,7 @@ export default function HomePage() {
   const status = getStatus();
   const featuredProjects = getFeaturedProjects();
   return (
-    <div className="max-w-7xl mx-auto px-6 py-20 space-y-12">
+    <div className="site-shell py-20 space-y-12">
 
       {/* ── Identity ─────────────────────────────── */}
       <section>
@@ -30,14 +30,14 @@ export default function HomePage() {
 
       {/* ── Current Operations ───────────────────── */}
       <section>
-        <p className="label-mono mb-6">Current focus</p>
+        <h2 className="label-mono mb-6">Current focus</h2>
         <CurrentOps status={status} />
       </section>
 
       {/* ── Current Work (compact preview) ────────── */}
       <section>
         <div className="flex items-center justify-between mb-6">
-          <p className="label-mono">Current work</p>
+          <h2 className="label-mono">Current work</h2>
           <Link
             href="/projects"
             className="flex items-center gap-1.5 text-xs font-mono text-muted-custom hover:text-emerald transition-colors"
@@ -82,7 +82,7 @@ export default function HomePage() {
 
       {/* ── Navigation grid ──────────────────────── */}
       <section>
-        <p className="label-mono mb-6">Navigate</p>
+        <h2 className="label-mono mb-6">Navigate</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { href: '/projects', label: 'Workloads',         sub: 'All builds, all phases' },
